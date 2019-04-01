@@ -1,1 +1,13 @@
-
+.intro-card {
+    max-height: 32vh;
+    overflow: hidden;
+}
+.textv {
+    background-color: whitesmoke;
+    align-content: center;
+    font-weight: 500;
+    
+}
+$colors:(
+    danger: #ec5a5a,
+)
