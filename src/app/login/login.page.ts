@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth'
-import { auth } from 'firebase/app'
+import { AngularFireAuth } from '@angular/fire/auth';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,21 +10,24 @@ import { auth } from 'firebase/app'
 })
 export class LoginPage implements OnInit {
 
-  username: string = ""
-  password: string = ""
+  credentialsForm: FormGroup;
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public formBuilder: FormBuilder, private authService: AuthService) { }
   ngOnInit() {
-
+    this.credentialsForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
-  async login() {
-    const { username, password } = this
-    try {
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gitau.com', password)
-    }
-    catch (err) {
-      console.dir(err)
-    }
+  
+  onSubmit() {
+    this.authService.login(this.credentialsForm.value).subscribe();
   }
 
+  register() {
+    this.authService.register(this.credentialsForm.value).subscribe(res => {
+      //Call Login to automaticallyy login new user
+       this.authService.login(this.credentialsForm.value).subscribe();
+    });
+  }
 }
