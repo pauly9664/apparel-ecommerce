@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppersCartService } from '../shoppers-cart.service';
-import { RouterModule, Routes, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-shop',

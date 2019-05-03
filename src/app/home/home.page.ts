@@ -3,6 +3,7 @@ import { AuthService } from './../auth.service';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -12,12 +13,17 @@ export class HomePage implements OnInit{
 
   data = '';
 
+  slidesConfig = {
+    autoplay: true,
+    speed: 5000,
+    pager: true
+  }
+
   constructor(private authService: AuthService, private storage: Storage, private toastController: ToastController) {}
 
   ngOnInit() {
 
   }
-
   loadSpecialInfo() {
     this.authService.getSpecialData().subscribe(res => {
       this.data = res['msg'];

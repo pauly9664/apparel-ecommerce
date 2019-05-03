@@ -1,13 +1,40 @@
 .intro-card {
-    max-height: 32vh;
+    background-color: crimson;
+    color: azure;
+    margin-left:auto; 
+    margin-right: auto; 
+    height: 100px;
     overflow: hidden;
 }
+.bg {
+    --background: #fff url('/assets/p11.jpg') no-repeat center center / contain;
+}
+
 .textv {
     background-color: whitesmoke;
     align-content: center;
-    font-weight: 500;
-    
+    font-weight: 500;  
 }
+.primary-color {
+    background-color: black;
+}
+.redirect-login {
+    width: 300px; 
+    margin-left:auto; 
+    margin-right: auto;
+}
+.card-resize {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+.display-product {
+    background-size: cover;
+}
+
 $colors:(
     danger: #ec5a5a,
+    primary: blue,
+    dark: white
 )

@@ -6,75 +6,72 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h1 text-center>Welcome</h1>
-  <section text-center margin-bottom>
-    <ion-icon name="person"></ion-icon>
-    <p style="font-size:1.4em" no-margin></p>
+<ion-content class="bg">
+  <h1 text-left style="font-family: Geneva">Welcome to..</h1>
+  <section text-left margin-bottom>
+    <img src="/assets/PreetiLogo.png" />
   </section>
   <ion-card class="intro-card">
-      <ion-slides pager="true" effect="fade">
-        <ion-slide>
-          <ion-avatar>
-           <img width="100%" height="100%" src="/assets/afro1.jpg" />
-      </ion-avatar>
-    </ion-slide>
-        <ion-slide>
-          <ion-avatar>
-          <img width="100%" height="100%" src="/assets/kaunda.jpg" />
+    <ion-slides [options]="slidesConfig">
+      <ion-slide>
+        <ion-avatar>
+          <img width="100%" height="100%" src="/assets/afro1.jpg" /><br>
         </ion-avatar>
-        </ion-slide>
-        <ion-slide>
-          <ion-avatar>
+        <p style="font-family: Geneva" text-center> From casual dresses to official suits </p>
+      </ion-slide>
+      <ion-slide>
+        <ion-avatar>
+          <img width="100%" height="100%" src="/assets/kaunda.jpg" /><br>
+        </ion-avatar>
+        <p style="font-family: Geneva"> To mens variable selections </p>
+      </ion-slide>
+      <ion-slide>
+        <ion-avatar>
           <img width="100%" height="100%" src="/assets/african1.jpg" />
         </ion-avatar>
-        </ion-slide>
-      </ion-slides>
-    </ion-card>
+        <p style="font-family: Geneva"> Other items (accessories, bags, perfumes) etc.</p>
+      </ion-slide>
+    </ion-slides>
+  </ion-card>
   <ion-card>
     <ion-card-content>
       <div class="textv">
-        <p text-center style="font-weight: 300">Sign in to access more services</p>
+        <p text-center style="font-weight: 300">Get to know us better</p>
       </div>
-      <ion-button size="default" fill="outline" routerLink="/login">Login</ion-button>
-      <div class="routeit"><a routerLink="/login">Create new account here..</a></div>
+      <div class="redirect-login">
+        <ion-button expand="block" fill="solid" routerLink="/about">About us</ion-button>
+      </div>
+      <div class="routeit"><a routerLink="/contact">Our Communication Lines..</a></div>
     </ion-card-content>
   </ion-card>
   <div class="intro">
-    <h2>Top categories</h2>
+    <div class="primary-color">
+      <h2 style="color: #ffff;">Top categories</h2>
+    </div>
   </div>
-  <ion-grid>
+  <ion-grid fixed>
     <ion-row>
-      <ion-col col-6>
-        <ion-button text-center padding color="danger" routerLink="/main-shop">
-          <ion-icon name="person"></ion-icon>
-          <h2>Dresses</h2>
-        </ion-button>
+      <ion-col size="2">
+        <ion-thumbnail><img tappable routerLink="/main-shop" src="/assets/slf2.jpg" /></ion-thumbnail>
       </ion-col>
-      <ion-col col-6>
-        <ion-button text-center padding color="danger">
-          <ion-icon name="person"></ion-icon>
-          <h2>Suits</h2>
-        </ion-button>
+      <ion-col size="2">
+        <ion-thumbnail><img tappable src="/assets/oshoe1.jpg" routerLink="/shoes" /></ion-thumbnail>
       </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-6>
-        <ion-button text-center padding color="danger">
-          <ion-icon name="search"></ion-icon>
-          <h2>Shoes</h2>
-        </ion-button>
+      <ion-col size="2">
+        <ion-thumbnail><img tappable src="/assets/tsuit5.jpg" routerLink="/suits" /></ion-thumbnail>
       </ion-col>
-      <ion-col col-6>
-        <ion-button text-center padding color="danger">
-          <ion-icon name="person"></ion-icon>
-          <h2>Bags</h2>
-        </ion-button>
+      <ion-col size="2">
+        <ion-thumbnail><img tappable src="/assets/hbag2.jpg" routerLink="/bags" /></ion-thumbnail>
+      </ion-col>
+      <ion-col size="2">
+        <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/other-items" /></ion-thumbnail>
       </ion-col>
     </ion-row>
   </ion-grid>
-  <h1> Our offer deals...</h1>
-  <ion-button expand="full" (click)="loadSpecialInfo()">Welcome message</ion-button>
-  <ion-button expand="full" (click)="logout()">Logout</ion-button>
-  <ion-button expand="full" (click)="clearToken()">Consume Token</ion-button>
+  <div class="primary-color">
+    <h2 style="color: #ffff"> Our offer deals...</h2>
+  </div>
+  <div class="redirect-login">
+    <ion-button expand="block" fill="solid" (click)="logout()">Logout</ion-button>
+  </div>
 </ion-content>

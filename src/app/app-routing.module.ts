@@ -9,12 +9,16 @@ const routes: Routes = [
     path: 'home', 
     loadChildren: './home/home.module#HomePageModule',
     canActivate: [AuthGuardService]
-  },
+}, 
   { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   { path: 'shoppers-cart', loadChildren: './shoppers-cart/shoppers-cart.module#ShoppersCartPageModule' },
   { path: 'main-shop', loadChildren: './main-shop/main-shop.module#MainShopPageModule' },
-  
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule', },
+  { path: 'shoes', loadChildren: './shoes/shoes.module#ShoesPageModule' },
+  { path: 'suits', loadChildren: './suits/suits.module#SuitsPageModule' },
+  { path: 'bags', loadChildren: './bags/bags.module#BagsPageModule' },
+  { path: 'other-items', loadChildren: './other-items/other-items.module#OtherItemsPageModule' }
 
 ];
 @NgModule({
