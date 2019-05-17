@@ -7,7 +7,14 @@
     overflow: hidden;
 }
 .bg {
-    --background: #fff url('/assets/p11.jpg') no-repeat center center / contain;
+    --background: #ffff url('/assets/p11.jpg') no-repeat center center / contain;
+}
+.navigation-menu {
+    background-color:whitesmoke; 
+    font-family: Impact;
+}
+.align-middle {
+    width: 300px;
 }
 
 .textv {
@@ -15,8 +22,20 @@
     align-content: center;
     font-weight: 500;  
 }
-.primary-color {
+.video {
+    width: 500px;
+    height: 350px;
+}
+.primal {
     background-color: black;
+    color: #ffff;
+}
+.back-color {
+    background-color: #ffff;
+}
+ion-content {
+    margin-top: 0px;
+    padding-top: 0px; 
 }
 .redirect-login {
     width: 300px; 

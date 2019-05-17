@@ -4,6 +4,58 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle text-center>Delivery Details</ion-card-subtitle>
+      <ion-card-title text-center>Shipping Info</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+     <div class="details-button"> <ion-button style="margin-left: auto; margin-right: auto; width: 300px" size="small" (click)="loadSpecialInfo()">Details</ion-button></div>
+     <p text-center> {{ data }}<br></p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title text-center>Method of Delivery <br><ion-icon name="car" color="danger"></ion-icon></ion-card-title>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label>Pick-up station(CBD)</ion-label>
+            <ion-checkbox slot="start"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Delivery to office/home</ion-label>
+            <ion-checkbox slot="start"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title text-center>Method of Payment<br><ion-icon name="cash" color="success"></ion-icon></ion-card-title>
+      <ion-card-content>
 
+        <ion-list>
+          <ion-item>
+            <ion-label>Lipa na Mpesa Online</ion-label>
+            <ion-checkbox slot="start"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Mpesa on Delivery</ion-label>
+            <ion-checkbox  slot="start"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cash on Delivery</ion-label>
+            <ion-checkbox  slot="start"></ion-checkbox>
+          </ion-item>
+          <ion-item>
+            <ion-label>Debt to be resolved</ion-label>
+            <ion-checkbox  slot="start"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
 </ion-content>

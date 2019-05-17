@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class OtherItemsPage implements OnInit {
   cart = [];
-  items = [];
+  other = [];
 
   sliderConfig = {
     spaceBetween: 10,
@@ -21,7 +21,7 @@ export class OtherItemsPage implements OnInit {
 
   ngOnInit() {
     this.cart = this.etcService.getCart();
-    this.items = this.etcService.getProducts(); 
+    this.other = this.etcService.getProducts(); 
   }
   addToCart(product){
     this.etcService.addProduct(product);

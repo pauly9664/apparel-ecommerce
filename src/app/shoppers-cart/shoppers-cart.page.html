@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
+      <ion-back-button Href="/"></ion-back-button>
     </ion-buttons>
     <ion-title>myCart</ion-title>
   </ion-toolbar>
@@ -10,12 +10,12 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of selectedItems" lines="inset">
-      {{ item.count }}x {{ item.name }} - {{ item.price | currency: 'USD': 'symbol' }}
-      <ion-label slot="end" text-right>{{ (item.price * item.count) | currency: 'USD': 'symbol' }}</ion-label> 
+      <ion-thumbnail> <img src= '{{ item.url }}' /> </ion-thumbnail>{{ item.count }}x {{ item.name }} - {{ item.price | currency: 'KES': 'KES ' }}
+      <ion-label slot="end" text-right>{{ (item.price * item.count) | currency: 'KES': 'KES ' }}</ion-label> 
     </ion-item>
     <ion-item>
-      Total: <span slot="end">{{ total | currency: 'USD':'symbol' }}</span>
+      Total: <span slot="end">{{ total | currency: 'KES':'KES ' }}</span>
     </ion-item>
   </ion-list>
- <div class="align-button"> <ion-button color="success"  size="default" routerLink="/checkout">Checkout</ion-button></div>
+ <div class="align-button"> <ion-button color="success"  size="default" routerLink="/menu/checkout">Checkout</ion-button></div>
 </ion-content>

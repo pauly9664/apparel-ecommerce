@@ -1,32 +1,44 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title text-center>
-        Contact
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-    <h1 text-center>Contact Us...</h1>
-    <div class="stayOut">
-    <ion-list>
-    
-        <ion-item class="staythere">
-          <ion-label position="floating">Your Name...</ion-label>
-          <ion-input type="text"></ion-input>
-        </ion-item>
-  
-        <ion-item class="staythere">
-          <ion-label position="floating">Your Phone Number.. </ion-label>
-          <ion-input type="tel"></ion-input>
-        </ion-item>
-  
-        <ion-item class="staythere">
-          <ion-label position="floating">Views,Comments</ion-label>
-          <ion-textarea ></ion-textarea>
-        </ion-item>
-    </ion-list>
-    </div>
-    <ion-button fill="outline" expand="block" colour="dark">Submit</ion-button>
-   <div class="details"> <p text-right>Located along Moktar Daddar St. <br> Off Muindi Mbingu St. <br> Opposite Barclays Bank, Market Branch <br> Telephone Lines: 0737200842, 0722932275</p></div>
-  </ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title text-center>
+      Contact
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="back-ground">
+      <h1 text-left>Contact Us...</h1>
+      <div class="stayOut">
+        <ion-list>
+          <ion-item class="staythere">
+            <ion-label position="floating">Your Name...</ion-label>
+            <ion-input type="text"></ion-input>
+          </ion-item>
+
+          <ion-item class="staythere">
+            <ion-label position="floating">Your Phone Number.. </ion-label>
+            <ion-input type="tel"></ion-input>
+          </ion-item>
+
+          <ion-item class="staythere">
+            <ion-label position="floating">Your feedback..</ion-label>
+            <ion-textarea></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </div>
+      <ion-button color="success" size="default">Submit</ion-button>
+      <div class="details">
+      <h3 text-left>Follow us.. <br></h3>
+      <div class="align-left">
+        <ion-icon name="logo-facebook"></ion-icon>
+        <ion-icon name="logo-instagram"></ion-icon>
+        <ion-icon name="logo-pinterest"></ion-icon>
+      </div>
+      <p text-right>Located along Moktar Daddar St. <br> Off Muindi Mbingu St. <br> Opposite Barclays Bank, Market
+        Branch
+        <br> Telephone Lines: 0737200842, 0722932275</p>
+      </div>
+      </ion-content>

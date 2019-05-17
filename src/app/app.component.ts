@@ -28,11 +28,12 @@ export class AppComponent {
 
       this.auth.authenticationState.subscribe(state => {
         if(state) {
-          this.router.navigate(['home']);
+          this.router.navigate(['menu/checkout']);
         } else{
-          this.router.navigate(['login']);
+          this.router.navigate(['menu/login']);
         }
-      })
+        
+})  
     });
   }
 }

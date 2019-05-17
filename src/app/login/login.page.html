@@ -18,9 +18,9 @@
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
 
-    <ion-button expand="full" type="submit" [disabled]="!credentialsForm.valid">Login</ion-button>
+    <ion-button expand="full" type="submit" fill="outline" [disabled]="!credentialsForm.valid">Login</ion-button>
     <h1 text-center style="font-size: 1.4em"> OR <br></h1>
-    <ion-button expand="full" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register</ion-button>
+    <ion-button expand="full" type="button" routerLink="/menu/register" fill="outline">Register</ion-button>
   </form>
 </div>
 </ion-content>

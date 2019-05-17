@@ -15,8 +15,7 @@ export class MainShopPage implements OnInit {
   sliderConfig = {
     spaceBetween: 10,
     centeredSlides: true,
-    slidesPerView: 1.8
-
+    slidesPerView: 1
   }
 
   constructor(private cartService: ShoppersCartService, private router: Router) { }
@@ -29,7 +28,7 @@ export class MainShopPage implements OnInit {
     this.cartService.addProduct(product);
   }
   openCart(){ 
-    this.router.navigate(['shoppers-cart']);
+    this.router.navigate(['menu/shoppers-cart']);
   }
 
 }

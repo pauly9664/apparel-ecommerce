@@ -33,8 +33,8 @@
           {{product.name }} - ${{ product.price }}
         </ion-card-title>
         <ion-card-content>
-        <div class="display-items"> <img [src]  = 'product.url' /></div>
-          <ion-button expand="full" (click)="addToCart(product)">+ item in Cart</ion-button>
+        <div class="display-items"> <img [src] = 'product.url' /></div>
+          <ion-button expand="full" color="dark" (click)="addToCart(product)"> BUY NOW</ion-button>
         </ion-card-content>
       </ion-card-header>
     </ion-card>

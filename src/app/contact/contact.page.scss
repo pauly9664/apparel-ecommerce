@@ -6,14 +6,21 @@
     border-radius: 10px;
     margin-bottom: 10px;  
 }
-
+.align-center {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
 .stayOut {
     width: 300px; 
-    margin-left:auto; 
-    margin-right: auto; 
+    margin-left: 0%; 
+    margin-right: 70%; 
+}
+.back-ground {
+    --background: #ffff url('/assets/p20.jpg') center center/contain;
 }
 .details {
-    background-color: indigo;
+    background-color:crimson;
     -webkit-text-fill-color: aliceblue;
     padding-top: 1%;
     padding-bottom: 2%;

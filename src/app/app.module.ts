@@ -42,7 +42,7 @@ export function jwtOptionsFactory(storage) {
         useFactory: jwtOptionsFactory,
         deps: [Storage]
 
-      }
+}
     })
   ],
 

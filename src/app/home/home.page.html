@@ -1,16 +1,50 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title text-center>
       Home
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content class="bg">
-  <h1 text-left style="font-family: Geneva">Welcome to..</h1>
-  <section text-left margin-bottom>
-    <img src="/assets/PreetiLogo.png" />
-  </section>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <h1 text-center style="font-family: Impact">Welcome to..</h1>
+        <section text-center margin-bottom>
+          <img src="/assets/PreetiLogo.png" />
+        </section>
+      </ion-col>
+    </ion-row>
+    <ion-card>
+      <div class="navigation-menu">
+        <ion-row>
+          <ion-col size="1" tappable routerLink="/home">Home</ion-col>
+          <ion-col size="1" tappable routerLink="/menu/account">Account</ion-col>
+          <ion-col size="1" tappable routerLink="/main-shop">Shop</ion-col>
+          <ion-col size="1" tappable routerLink="/contact">Contact</ion-col>
+        </ion-row>
+      </div>
+    </ion-card>
+  </ion-grid>
+  <ion-card>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="4">
+          <video class="video" webkit-playsinline playsinline autoplay loop>
+            <source src="assets/home-video2.mp4" type="video/mp4">
+          </video>
+        </ion-col>
+        <ion-col size="4">
+          <video class="video" webkit-playsinline playsinline autoplay loop>
+            <source src="assets/home-video3.mp4" type="video/mp4">
+          </video>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
   <ion-card class="intro-card">
     <ion-slides [options]="slidesConfig">
       <ion-slide>
@@ -38,40 +72,43 @@
       <div class="textv">
         <p text-center style="font-weight: 300">Get to know us better</p>
       </div>
-      <div class="redirect-login">
-        <ion-button expand="block" fill="solid" routerLink="/about">About us</ion-button>
-      </div>
-      <div class="routeit"><a routerLink="/contact">Our Communication Lines..</a></div>
+      <div class="routeit"><a routerLink="/menu/contact">Contact Us..</a></div>
     </ion-card-content>
   </ion-card>
-  <div class="intro">
-    <div class="primary-color">
-      <h2 style="color: #ffff;">Top categories</h2>
-    </div>
+  <div class="primal">
+    <ion-text color="light"><h2 style="color: #ffff">Top categories</h2></ion-text>
   </div>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="2">
-        <ion-thumbnail><img tappable routerLink="/main-shop" src="/assets/slf2.jpg" /></ion-thumbnail>
-      </ion-col>
-      <ion-col size="2">
-        <ion-thumbnail><img tappable src="/assets/oshoe1.jpg" routerLink="/shoes" /></ion-thumbnail>
-      </ion-col>
-      <ion-col size="2">
-        <ion-thumbnail><img tappable src="/assets/tsuit5.jpg" routerLink="/suits" /></ion-thumbnail>
-      </ion-col>
-      <ion-col size="2">
-        <ion-thumbnail><img tappable src="/assets/hbag2.jpg" routerLink="/bags" /></ion-thumbnail>
-      </ion-col>
-      <ion-col size="2">
-        <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/other-items" /></ion-thumbnail>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <div class="primary-color">
-    <h2 style="color: #ffff"> Our offer deals...</h2>
+  <div class="back-color">
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="2">Dresses
+          <ion-thumbnail><img tappable routerLink="/menu/main-shop" src="/assets/slf2.jpg" /></ion-thumbnail>
+        </ion-col>
+        <ion-col size="2">Tops
+          <ion-thumbnail><img tappable routerLink="/menu/main-shop" src="/assets/img3.jpg" /></ion-thumbnail>
+        </ion-col>
+        <ion-col size="2">Shoes
+          <ion-thumbnail><img tappable src="/assets/oshoe3.jpg" routerLink="/menu/shoes" /></ion-thumbnail>
+        </ion-col>
+        <ion-col size="2">Suits
+          <ion-thumbnail><img tappable src="/assets/tsuit5.jpg" routerLink="/menu/suits" /></ion-thumbnail>
+        </ion-col>
+        <ion-col size="2">Bags
+          <ion-thumbnail><img tappable src="/assets/hbag2.jpg" routerLink="/menu/bags" /></ion-thumbnail>
+        </ion-col>
+        <ion-col size="2">Men
+          <ion-thumbnail><img tappable src="/assets/suit1.jpg" routerLink="/menu/other-items" /></ion-thumbnail>
+        </ion-col>
+        <ion-col size="2">Others
+          <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/menu/other-items" /></ion-thumbnail>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class="primal">
+    <ion-text color="light"><h2> Our offer deals...</h2></ion-text>
   </div>
   <div class="redirect-login">
-    <ion-button expand="block" fill="solid" (click)="logout()">Logout</ion-button>
+    <ion-button expand="block" fill="outline" (click)="logout()">Logout</ion-button>
   </div>
 </ion-content>

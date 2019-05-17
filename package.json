@@ -41,6 +41,7 @@
     "cordova-sqlite-storage": "3.2.0",
     "core-js": "^2.5.4",
     "firebase": "^5.9.4",
+    "gl-ionic-background-video": "0.0.5",
     "ionic-select-searchable": "^2.10.0",
     "ionic-selectable": "^4.4.0",
     "natives": "^1.1.6",
