@@ -7,55 +7,71 @@
 <ion-content padding>
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle text-center>Delivery Details</ion-card-subtitle>
-      <ion-card-title text-center>Shipping Info</ion-card-title>
+    <ion-card-subtitle text-center> Info</ion-card-subtitle>
+      <ion-card-title text-center style="font-family: Impact">Delivery Details</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-     <div class="details-button"> <ion-button style="margin-left: auto; margin-right: auto; width: 300px" size="small" (click)="loadSpecialInfo()">Details</ion-button></div>
+     <div class="details-button"> <ion-button text-center style="margin-left: auto; margin-right: auto; width: 300px" fill="outline" size="small" (click)="loadSpecialInfo()">Customer Details</ion-button></div>
      <p text-center> {{ data }}<br></p>
     </ion-card-content>
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title text-center>Method of Delivery <br><ion-icon name="car" color="danger"></ion-icon></ion-card-title>
+      <div><ion-card-title text-center><ion-text color="dark" style="font-family: Impact">Delivery Method<br></ion-text><ion-icon name="car" color="danger"></ion-icon></ion-card-title></div>
       <ion-card-content>
-        <ion-list>
+        <!-- <ion-list>
           <ion-item>
             <ion-label>Pick-up station(CBD)</ion-label>
             <ion-checkbox slot="start"></ion-checkbox>
           </ion-item>
           <ion-item>
             <ion-label>Delivery to office/home</ion-label>
-            <ion-checkbox slot="start"></ion-checkbox>
+             <ion-checkbox slot="start"></ion-checkbox>
           </ion-item>
+        </ion-list> --> 
+        <ion-list>
+          <ion-radio-group>
+          <ion-item>
+            <ion-label>Set pick-up station around CBD</ion-label>
+          <ion-radio slot="start" value="Set pick-up station around CBD"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Deliver to station e.g office</ion-label>
+          <ion-radio slot="start" value="Delivery to Station e.g office"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Set pick-up date</ion-label>
+          <ion-radio slot="start" value="Set pick-up date"></ion-radio>
+        </ion-item>       
+      </ion-radio-group>
         </ion-list>
       </ion-card-content>
     </ion-card-header>
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title text-center>Method of Payment<br><ion-icon name="cash" color="success"></ion-icon></ion-card-title>
+      <div><ion-card-title text-center><ion-text color="dark" style="font-family: Impact">Payment Method<br></ion-text><ion-icon name="cash" color="success"></ion-icon></ion-card-title></div>
       <ion-card-content>
 
-        <ion-list>
+ <ion-list>
+          <ion-radio-group>
           <ion-item>
             <ion-label>Lipa na Mpesa Online</ion-label>
-            <ion-checkbox slot="start"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Mpesa on Delivery</ion-label>
-            <ion-checkbox  slot="start"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Cash on Delivery</ion-label>
-            <ion-checkbox  slot="start"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-            <ion-label>Debt to be resolved</ion-label>
-            <ion-checkbox  slot="start"></ion-checkbox>
-          </ion-item>
+          <ion-radio slot="start" value="Set pick-up station around CBD"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>MPESA On Delivery</ion-label>
+          <ion-radio slot="start" value="Delivery to Station e.g office"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Cash on Delivery</ion-label>
+          <ion-radio slot="start" value="Set pick-up date"></ion-radio>
+        </ion-item>       
+      </ion-radio-group>
         </ion-list>
       </ion-card-content>
     </ion-card-header>
   </ion-card>
+  <ion-button fill="outline">Continue</ion-button>
+  <ion-button routerLink= "/menu/home" fill="outline">Back Home</ion-button>
 </ion-content>

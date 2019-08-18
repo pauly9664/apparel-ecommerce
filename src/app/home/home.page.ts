@@ -1,5 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
-import { AuthService } from './../auth.service';
+//import { AuthService } from './../auth.service';
 import { Storage } from '@ionic/storage';
 import { ToastController, NavController } from '@ionic/angular';
 
@@ -12,20 +12,24 @@ import { ToastController, NavController } from '@ionic/angular';
 export class HomePage implements OnInit{
 
   data = '';
+  
 
   slidesConfig = {
     autoplay: true,
     speed: 5000,
     pager: true
   }
+  platform: any;
 
 
-  constructor(private authService: AuthService, private storage: Storage) {}
+  constructor(//private authService: AuthService,
+     private storage: Storage)
+  {}
 
   ngOnInit() {
 
   }
-  logout() {
-    this.authService.logout();
-}
+//   logout() {
+//     this.authService.logout();
+// }
 }

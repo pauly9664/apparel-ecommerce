@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="tertiary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -21,23 +21,28 @@
     <ion-card>
       <div class="navigation-menu">
         <ion-row>
-          <ion-col size="1" tappable routerLink="/home">Home</ion-col>
-          <ion-col size="1" tappable routerLink="/menu/account">Account</ion-col>
-          <ion-col size="1" tappable routerLink="/main-shop">Shop</ion-col>
-          <ion-col size="1" tappable routerLink="/contact">Contact</ion-col>
+          <ion-grid>
+            <ion-col size-sm="3" size-md="5">
+          <ion-col size-sm="2" tappable routerLink="/menu/home">Home</ion-col>
+          <ion-col size-sm="2" tappable routerLink="/menu/account">Account</ion-col>
+          <ion-col size-sm="2" tappable routerLink="/menu/main-shop">Shop</ion-col>
+          <ion-col size-sm="2" tappable routerLink="/menu/contact">Contact</ion-col>
+        </ion-col>
+        </ion-grid>
         </ion-row>
+        
       </div>
     </ion-card>
   </ion-grid>
   <ion-card>
     <ion-grid fixed>
       <ion-row>
-        <ion-col size="4">
+        <ion-col size-sm="2" size-md="4">
           <video class="video" webkit-playsinline playsinline autoplay loop>
             <source src="assets/home-video2.mp4" type="video/mp4">
           </video>
         </ion-col>
-        <ion-col size="4">
+        <ion-col size-sm="2" size="4">
           <video class="video" webkit-playsinline playsinline autoplay loop>
             <source src="assets/home-video3.mp4" type="video/mp4">
           </video>
@@ -81,25 +86,25 @@
   <div class="back-color">
     <ion-grid fixed>
       <ion-row>
-        <ion-col size="2">Dresses
+        <ion-col class="ion-align-self-start" size-sm="3" size-md="3" style="font-family: Impact">Dresses
           <ion-thumbnail><img tappable routerLink="/menu/main-shop" src="/assets/slf2.jpg" /></ion-thumbnail>
         </ion-col>
-        <ion-col size="2">Tops
+        <ion-col class="ion-align-self-start" size-sm="3" size-md="3" style="font-family: Impact">Tops
           <ion-thumbnail><img tappable routerLink="/menu/main-shop" src="/assets/img3.jpg" /></ion-thumbnail>
         </ion-col>
-        <ion-col size="2">Shoes
+        <ion-col class="ion-align-self-center" size-sm="3" size-md="3" style="font-family: Impact">Shoes
           <ion-thumbnail><img tappable src="/assets/oshoe3.jpg" routerLink="/menu/shoes" /></ion-thumbnail>
         </ion-col>
-        <ion-col size="2">Suits
+        <ion-col class="ion-align-self-center" size-sm="3" size-md="3" style="font-family: Impact">Suits
           <ion-thumbnail><img tappable src="/assets/tsuit5.jpg" routerLink="/menu/suits" /></ion-thumbnail>
         </ion-col>
-        <ion-col size="2">Bags
+        <ion-col class="ion-align-self-center" size-sm="3" size-md="3" style="font-family: Impact">Bags
           <ion-thumbnail><img tappable src="/assets/hbag2.jpg" routerLink="/menu/bags" /></ion-thumbnail>
         </ion-col>
-        <ion-col size="2">Men
+        <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style="font-family: Impact">Men
           <ion-thumbnail><img tappable src="/assets/suit1.jpg" routerLink="/menu/other-items" /></ion-thumbnail>
         </ion-col>
-        <ion-col size="2">Others
+        <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style= "font-family: Impact">Others
           <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/menu/other-items" /></ion-thumbnail>
         </ion-col>
       </ion-row>

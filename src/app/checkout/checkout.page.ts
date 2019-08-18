@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './../auth.service';
+//import { AuthService } from './../auth.service';
 import { Storage } from '@ionic/storage';
 import { ShoppersCartService } from '../shoppers-cart.service';
 import { EtcServiceService } from '../etc-service.service';
@@ -15,13 +15,14 @@ import { SuitsServiceService } from '../suits-service.service';
 export class CheckoutPage implements OnInit {
 
   data = '';
-  constructor(private authService: AuthService, private storage: Storage) { }
+  constructor(//private authService: AuthService, 
+    private storage: Storage) { }
 
   ngOnInit() {
   }
-  loadSpecialInfo() {
-    this.authService.getSpecialData().subscribe(res => {
-      this.data = res['msg'];
-    });
+  // loadSpecialInfo() {
+  //   this.authService.getSpecialData().subscribe(res => {
+  //     this.data = res['msg'];
+  //   });
   }
-}
+

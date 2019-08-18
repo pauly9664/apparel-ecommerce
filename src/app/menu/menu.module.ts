@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
-import { AuthGuardService } from '../auth-guard.service';
+//import { AuthGuardService } from '../auth-guard.service';
 import { equalPath } from '@angular/router/src/url_tree';
 
 const routes: Routes = [
@@ -14,13 +14,15 @@ const routes: Routes = [
     path: 'menu',
     component: MenuPage,
     children: [
-      { path: '', redirectTo: 'login', pathMatch: 'full' },
+    //  { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
       { path: 'login', loadChildren: '../login/login.module#LoginPageModule' },
       { path: 'contact', loadChildren: '../contact/contact.module#ContactPageModule' },
       { path: 'shoppers-cart', loadChildren: '../shoppers-cart/shoppers-cart.module#ShoppersCartPageModule' },
       { path: 'main-shop', loadChildren: '../main-shop/main-shop.module#MainShopPageModule' },
-      { path: 'checkout', loadChildren: '../checkout/checkout.module#CheckoutPageModule', canActivate: [AuthGuardService] },
+      { path: 'checkout', loadChildren: '../checkout/checkout.module#CheckoutPageModule'// canActivate: [AuthGuardService] 
+    },
+      { path: 'view-product', loadChildren: '../view-product/view-product.module#ViewProductPageModule' },
       { path: 'shoes', loadChildren: '../shoes/shoes.module#ShoesPageModule' },
       { path: 'suits', loadChildren: '../suits/suits.module#SuitsPageModule' },
       { path: 'bags', loadChildren: '../bags/bags.module#BagsPageModule' },

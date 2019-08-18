@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!-- <div *ngFor="let pat of product"> -->
+  <ion-card >
+    <ion-card-header text-center>Selected Product</ion-card-header>
+    <ion-card-content *ngFor= "let pat of product"> 
+      <div class = "selected-product">
+        <img [src]='pat.url' />
+      </div>
+    </ion-card-content>
+    <!-- <ion-card-content *ngFor="let jica of pat.products"> {{jica.id}}  ></ion-card-content> -->
+  </ion-card>
+</ion-content>

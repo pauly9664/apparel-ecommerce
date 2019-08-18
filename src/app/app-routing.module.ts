@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuardService } from './auth-guard.service';
+//import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', loadChildren: './menu/menu.module#MenuPageModule' },
@@ -9,13 +9,14 @@ const routes: Routes = [
   { path: 'contact', loadChildren: './contact/contact.module#ContactPageModule' },
   { path: 'shoppers-cart', loadChildren: './shoppers-cart/shoppers-cart.module#ShoppersCartPageModule' },
   { path: 'main-shop', loadChildren: './main-shop/main-shop.module#MainShopPageModule' },
-  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule', canActivate: [AuthGuardService] },
+  { path: 'checkout', loadChildren: './checkout/checkout.module#CheckoutPageModule' },
   { path: 'shoes', loadChildren: './shoes/shoes.module#ShoesPageModule' },
   { path: 'suits', loadChildren: './suits/suits.module#SuitsPageModule' },
   { path: 'bags', loadChildren: './bags/bags.module#BagsPageModule' },
   { path: 'other-items', loadChildren: './other-items/other-items.module#OtherItemsPageModule' },
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
-  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },  { path: 'view-product', loadChildren: './view-product/view-product.module#ViewProductPageModule' },
+
 
 
   

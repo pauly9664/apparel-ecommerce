@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"></ion-back-button>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title text-center>
       Shop
     </ion-title>
@@ -15,7 +15,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="padding" scroll="false">
   <div *ngFor="let cat of items" class="category-block">
 
     <ion-row no-padding class="category-banner">
@@ -23,23 +23,22 @@
         {{cat.category }}
       </ion-col>
     </ion-row>
-
-  <ion-slides [options]="sliderConfig">
-    <ion-slide *ngFor="let product of cat.products">
-      <div *ngIf="cat.expanded">
-    <ion-card class="new-card">
-      <ion-card-header>
-        <ion-card-title>
-          {{product.name }} - ${{ product.price }}
-        </ion-card-title>
-        <ion-card-content>
-        <div class="display-items"> <img [src] = 'product.url' /></div>
-          <ion-button expand="full" color="dark" (click)="addToCart(product)"> BUY NOW</ion-button>
-        </ion-card-content>
-      </ion-card-header>
-    </ion-card>
-  </div>
-  </ion-slide>
-  </ion-slides>
+    <ion-slides [options]="sliderConfig">
+      <ion-slide *ngFor="let product of cat.products">
+        <div *ngIf="cat.expanded">
+                <ion-card class="new-card">
+                  <ion-card-header>
+                    <ion-card-title style="font-family: fantasy">
+                      {{product.name }} - {{ product.total }}
+                    </ion-card-title>
+                    <p routerLink="/menu/view-product" (click)="addToCart(product)" tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
+                  </ion-card-header>
+                  <ion-card-content>
+                      <div class="display-items"><img tappable [src]='product.url' /></div> 
+                  </ion-card-content>
+                  </ion-card>
+        </div>
+      </ion-slide>
+    </ion-slides>
   </div>
 </ion-content>

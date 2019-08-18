@@ -18,7 +18,7 @@ export class MenuPage implements OnInit {
       url: '/menu/account'
     },
     {
-      title: 'Shopping Cart',
+      title: 'Cart',
       url: '/menu/shoppers-cart'
     },
     {

@@ -63,7 +63,10 @@ export class ShoppersCartPage implements OnInit {
     }
     this.selectedItems = Object.keys(selected).map(key => selected[key]);
     console.log('items: ', this.selectedItems);
-    this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.price), 0);
+    this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.total), 0);
 
+  }
+  removeFromCart(product){
+    this.cartService.removeProduct(product);
   }
 }

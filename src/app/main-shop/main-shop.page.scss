@@ -10,7 +10,7 @@ ion-badge {
 }
 .category-banner {
     border-left: 8px solid var(--ion-color-secondary);
-    background: var(--ion-color-light);
+    background-color: pink;
     height: 40px;
     padding: 10px;
     font-weight: 500;
@@ -18,10 +18,11 @@ ion-badge {
 .new-card {
     display: flex;
     flex-direction: column;
-    width: 500px;
-    height: 500px;
+    width: 190px;
+    height: 350px;
 }
 .display-items {
     background-size: contain;
     height: 350px;
+    width: 180px;
 }
