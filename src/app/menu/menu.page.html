@@ -1,4 +1,4 @@
-<ion-split-pane>
+<ion-split-pane style="background-color: blue">
   <ion-menu contentId="content" >
     <ion-header>
       <ion-toolbar>
@@ -8,10 +8,13 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
-      <ion-list >
+    <ion-content style="background: blue">
+      <p text-center>Welcome to Preeti Fashions</p>
+      <div class="menu-styles"><img align-self-center src="/assets/cbag.jpg" /></div>
+      <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages ">
             <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath === p.url">
+                <ion-icon item-start [name]="p.icon"> </ion-icon>                       
               {{ p.title }}
             </ion-item>
         </ion-menu-toggle>

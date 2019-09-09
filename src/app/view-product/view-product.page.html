@@ -1,6 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Item</ion-title>
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+    <ion-title text-center>
+      Item
+    </ion-title>
+    <ion-buttons slot="end">
+        <ion-button (click)="openCart()">
+          <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+          <ion-icon name="cart" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -8,9 +19,18 @@
   <ion-card >
     <ion-card-header text-center>Selected Product</ion-card-header>
     <ion-card-content *ngFor= "let pat of product"> 
+        <ion-grid fixed>
+            <ion-row>
       <div class = "selected-product">
         <img [src]='pat.url' />
       </div>
+      <div class="float-items">
+      <p style>Name: {{pat.name}}</p><br>
+      <p>Price: {{pat.total}}</p> 
+      <ion-button (click)="addToCart(product)"> Add to Cart </ion-button>
+    </div>
+  </ion-row>
+</ion-grid>
     </ion-card-content>
     <!-- <ion-card-content *ngFor="let jica of pat.products"> {{jica.id}}  ></ion-card-content> -->
   </ion-card>

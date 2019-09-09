@@ -35,12 +35,12 @@ export class ShoppersCartService {
       ]
     }
   ];
-  private select = [];
+  private sel = [];
   private cart = [];
 
   constructor() { }
-  getView() {
-    return this.select;
+  getSelect() {
+    return this.sel;
   }
   getProducts() {
     return this.data;
@@ -48,10 +48,14 @@ export class ShoppersCartService {
   getCart() {
     return this.cart;
   }
+  addToView(product){
+    this.sel.push(product);
+  }
   addProduct(product) {
     this.cart.push(product);
   }
   removeProduct(product) {
     this.cart.splice(product);
+
   }
 }

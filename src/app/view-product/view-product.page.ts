@@ -12,21 +12,32 @@ import { KeyRegistry } from '@angular/core/src/di/reflective_key';
 })
 export class ViewProductPage implements OnInit {
   product = [];
+  cart = [];
+  sel = [];
+  items = [];
+  
 
   constructor(private cartService: ShoppersCartService, private router: Router) { }
 
   ngOnInit() {
-    //this.product = this.cartService.getView();
-    let production = this.cartService.getView();
+    //this.cart = this.cartService.getCart();
+    this.items = this.cartService.getProducts(); 
+    let production = this.cartService.getSelect();
      let sel = {};
      for (let opt of production ) {
       if (sel[opt.id]) {
-        sel[opt.id].count++;
+        sel[opt.id];
       } else {
         sel[opt.id] = { ...opt, count: 1 };
       }
      }
      this.product= Object.keys(sel).map(key => sel[key]);
+}
+addToCart(product){
+  this.cartService.addProduct(product);
+}
+openCart(){ 
+  this.router.navigate(['menu/shoppers-cart']);
 }
 }
   

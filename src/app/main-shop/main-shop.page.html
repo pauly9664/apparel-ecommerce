@@ -15,11 +15,11 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="padding" scroll="false">
+<ion-content class="padding" scroll="true">
   <div *ngFor="let cat of items" class="category-block">
 
     <ion-row no-padding class="category-banner">
-      <ion-col text-left button tappable (click)="cat.expanded =!cat.expanded" align-self-center>
+      <ion-col text-center button tappable (click)="cat.expanded =!cat.expanded" align-self-center>
         {{cat.category }}
       </ion-col>
     </ion-row>
@@ -31,7 +31,7 @@
                     <ion-card-title style="font-family: fantasy">
                       {{product.name }} - {{ product.total }}
                     </ion-card-title>
-                    <p routerLink="/menu/view-product" (click)="addToCart(product)" tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
+                    <p routerLink="/menu/view-product" (click)="viewProduct(product)" tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
                   </ion-card-header>
                   <ion-card-content>
                       <div class="display-items"><img tappable [src]='product.url' /></div> 

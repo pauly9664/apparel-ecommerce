@@ -19,6 +19,7 @@ export class ShoppersCartPage implements OnInit {
 
   ngOnInit() {
     let items = this.cartService.getCart();
+    let item = this.cartService.getSelect();
     let bags = this.bagService.getCart();
     let suits = this.suitsService.getCart();
     let shoes = this.shoeService.getCart();
@@ -26,12 +27,19 @@ export class ShoppersCartPage implements OnInit {
 
     let selected = {};
 
-    for (let obj of items) {
+    for (let obj of item) {
       if (selected[obj.id]) {
         selected[obj.id].count++;
       } else {
         selected[obj.id] = { ...obj, count: 1 };
       }
+    }
+    
+
+    for (let obj of items) {
+      if (selected[obj.id]) {
+        selected[obj.id].count++;
+      } 
     }
     for (let obj of bags) {
       if (selected[obj.id]) {

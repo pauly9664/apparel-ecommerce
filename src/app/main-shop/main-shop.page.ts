@@ -11,7 +11,7 @@ export class MainShopPage implements OnInit {
 
   cart = [];
   items = [];
-  select = [];
+  sel = [];
 
   sliderConfig = {
     spaceBetween: 10,
@@ -23,11 +23,14 @@ export class MainShopPage implements OnInit {
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
-    this.select = this.cartService.getView();
+    this.sel = this.cartService.getSelect();
     this.items = this.cartService.getProducts(); 
   }
-  addToCart(product){
-    this.cartService.addProduct(product);
+  // addToCart(product){
+  //   this.cartService.addProduct(product);
+  // }
+  viewProduct(product){
+    this.cartService.addToView(product);
   }
   
   openCart(){ 
