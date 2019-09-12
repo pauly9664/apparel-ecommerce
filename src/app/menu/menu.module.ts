@@ -20,14 +20,15 @@ const routes: Routes = [
       { path: 'contact', loadChildren: '../contact/contact.module#ContactPageModule' },
       { path: 'shoppers-cart', loadChildren: '../shoppers-cart/shoppers-cart.module#ShoppersCartPageModule' },
       { path: 'main-shop', loadChildren: '../main-shop/main-shop.module#MainShopPageModule' },
-      { path: 'checkout', loadChildren: '../checkout/checkout.module#CheckoutPageModule'// canActivate: [AuthGuardService] 
+      { path: 'checkout/:totals', loadChildren: '../checkout/checkout.module#CheckoutPageModule'// canActivate: [AuthGuardService] 
     },
       { path: 'view-product', loadChildren: '../view-product/view-product.module#ViewProductPageModule' },
       { path: 'shoes', loadChildren: '../shoes/shoes.module#ShoesPageModule' },
       { path: 'suits', loadChildren: '../suits/suits.module#SuitsPageModule' },
       { path: 'bags', loadChildren: '../bags/bags.module#BagsPageModule' },
       { path: 'register', loadChildren: '../register/register.module#RegisterPageModule' },
-      { path: 'other-items', loadChildren: '../other-items/other-items.module#OtherItemsPageModule' }
+      { path: 'other-items', loadChildren: '../other-items/other-items.module#OtherItemsPageModule' },
+     // { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
     ]
   },
   {

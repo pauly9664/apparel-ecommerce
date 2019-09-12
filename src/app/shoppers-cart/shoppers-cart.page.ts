@@ -5,6 +5,9 @@ import { SelectControlValueAccessor } from '@angular/forms';
 import { SuitsServiceService } from '../suits-service.service';
 import { ShoeServiceService } from '../shoe-service.service';
 import { EtcServiceService } from '../etc-service.service';
+import { ConfirmationPopoverPage } from '../confirmation-popover/confirmation-popover.page';
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shoppers-cart',
@@ -14,8 +17,9 @@ import { EtcServiceService } from '../etc-service.service';
 export class ShoppersCartPage implements OnInit {
   selectedItems = [];
   total = 0;
+  totalCost = null;
 
-  constructor(private cartService: ShoppersCartService, private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
+  constructor(private cartService: ShoppersCartService, private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
 
   ngOnInit() {
     let items = this.cartService.getCart();
@@ -72,7 +76,12 @@ export class ShoppersCartPage implements OnInit {
     this.selectedItems = Object.keys(selected).map(key => selected[key]);
     console.log('items: ', this.selectedItems);
     this.total = this.selectedItems.reduce((a, b) => a + (b.count * b.total), 0);
-
+    this.totalCost = this.total;
+  
+    console.log('Total:', this.totalCost);
+  }
+  pushTotal(){
+    this.nav.navigateForward(`menu/checkout${this.totalCost}`);
   }
   removeFromCart(product){
     this.cartService.removeProduct(product);

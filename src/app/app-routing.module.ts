@@ -15,7 +15,10 @@ const routes: Routes = [
   { path: 'bags', loadChildren: './bags/bags.module#BagsPageModule' },
   { path: 'other-items', loadChildren: './other-items/other-items.module#OtherItemsPageModule' },
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
-  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },  { path: 'view-product', loadChildren: './view-product/view-product.module#ViewProductPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'view-product', loadChildren: './view-product/view-product.module#ViewProductPageModule' },
+  { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
+  //{ path: 'confirmation-popover', loadChildren: './confirmation-popover/confirmation-popover.module#ConfirmationPopoverPageModule' },
 
 
 

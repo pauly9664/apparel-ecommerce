@@ -29,7 +29,7 @@
              <ion-checkbox slot="start"></ion-checkbox>
           </ion-item>
         </ion-list> --> 
-        <ion-list>
+        <!-- <ion-list>
           <ion-radio-group>
           <ion-item>
             <ion-label>Set pick-up station around CBD</ion-label>
@@ -44,7 +44,27 @@
           <ion-radio slot="start" value="Set pick-up date"></ion-radio>
         </ion-item>       
       </ion-radio-group>
-        </ion-list>
+        </ion-list> -->
+        <article>
+        <!-- <select (change)="selectChangeHandler($event)">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+      </select>
+      <p>{{selectedDay}}</p> -->
+      <div *ngFor="let options of delivery">
+        <input
+        type="radio"
+        name="deliveryMethod"
+        value="{{options}}"
+        (change)="selectChangeHandler($event)">
+        <i>{{options}}</i> 
+      </div>
+      <p>Option selected: {{selectedDelivery}}</p>
+     
+    </article>
       </ion-card-content>
     </ion-card-header>
   </ion-card>
@@ -53,25 +73,18 @@
       <div><ion-card-title text-center><ion-text color="dark" style="font-family: Impact">Payment Method<br></ion-text><ion-icon name="cash" color="success"></ion-icon></ion-card-title></div>
       <ion-card-content>
 
- <ion-list>
-          <ion-radio-group>
-          <ion-item>
-            <ion-label>Lipa na Mpesa Online</ion-label>
-          <ion-radio slot="start" value="Set pick-up station around CBD"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>MPESA On Delivery</ion-label>
-          <ion-radio slot="start" value="Delivery to Station e.g office"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Cash on Delivery</ion-label>
-          <ion-radio slot="start" value="Set pick-up date"></ion-radio>
-        </ion-item>       
-      </ion-radio-group>
-        </ion-list>
+        <div *ngFor="let option of payment">
+          <input
+          type="radio"
+          name="paymentMethod"
+          value="{{option}}"
+          (change)="radioChangeHandler($event)">
+          <i>{{option}}</i> 
+        </div>
+        <span class="OptionPayment"><p> Option selected: {{selectedPayment}}</p></span>
       </ion-card-content>
     </ion-card-header>
   </ion-card>
-  <ion-button fill="outline">Continue</ion-button>
+  <ion-button fill="outline"(click)="openPopover($event)">Continue</ion-button>
   <ion-button routerLink= "/menu/home" fill="outline">Back Home</ion-button>
 </ion-content>

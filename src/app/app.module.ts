@@ -15,6 +15,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicSelectableModule } from 'ionic-selectable';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { ConfirmationModalPage } from './confirmation-modal/confirmation-modal.page';
+import { ConfirmationModalPageModule } from './confirmation-modal/confirmation-modal.module';
+import { ConfirmationPopoverPage } from './confirmation-popover/confirmation-popover.page';
+import { ConfirmationPopoverPageModule } from './confirmation-popover/confirmation-popover.module';
 
 export function jwtOptionsFactory(storage) {
   return {
@@ -35,6 +39,8 @@ export function jwtOptionsFactory(storage) {
     AngularFireAuthModule,
     HttpClientModule,
     IonicSelectableModule,
+    ConfirmationModalPageModule,
+    ConfirmationPopoverPageModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({
       jwtOptionsProvider: {
