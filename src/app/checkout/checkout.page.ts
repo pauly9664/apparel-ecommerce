@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { AuthService } from './../auth.service';
+import { AuthService } from './../auth.service';
 import { Storage } from '@ionic/storage';
 import { ModalController, PopoverController,NavController, } from '@ionic/angular'
 import { ConfirmationModalPage } from '../confirmation-modal/confirmation-modal.page';
@@ -40,7 +40,7 @@ export class CheckoutPage implements OnInit {
     this.selectedPayment = event.target.value;
   }
 
-  constructor(//private authService: AuthService, 
+  constructor(private authService: AuthService, 
  private storage: Storage, private activatedRoute:ActivatedRoute, private modalController: ModalController, private popoverController:PopoverController, private nav:NavController) { }
 
 ngOnInit(){   
@@ -71,9 +71,9 @@ ngOnInit(){
 
     }
   
-  // loadSpecialInfo() {
-  //   this.authService.getSpecialData().subscribe(res => {
-  //     this.data = res['msg'];
-  //   });
+   loadSpecialInfo() {
+     this.authService.getSpecialData().subscribe(res => {
+       this.data = res['msg'];
+     });
   }
-
+}

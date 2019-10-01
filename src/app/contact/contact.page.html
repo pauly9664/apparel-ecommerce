@@ -12,24 +12,26 @@
 <ion-content padding class="back-ground">
       <h1 text-left>Contact Us...</h1>
       <div class="stayOut">
+          <form [formGroup]="contactForm" (ngSubmit)="onReply()">
         <ion-list>
           <ion-item class="staythere">
             <ion-label position="floating">Your Name...</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input type="text" formControlName="name"></ion-input>
           </ion-item>
 
           <ion-item class="staythere">
             <ion-label position="floating">Your Phone Number.. </ion-label>
-            <ion-input type="tel"></ion-input>
+            <ion-input type="tel" formControlName="cell"></ion-input>
           </ion-item>
 
           <ion-item class="staythere">
             <ion-label position="floating">Your feedback..</ion-label>
-            <ion-textarea></ion-textarea>
+            <ion-input type="text" formControlName="feedback"></ion-input>
           </ion-item>
         </ion-list>
+      <ion-button color="success"  (click)="onReply()" type="button" size="default">Submit</ion-button>
+    </form>
       </div>
-      <ion-button color="success" size="default">Submit</ion-button>
       <div class="details">
       <h3 text-left>Follow us.. <br></h3>
       <div class="align-left">

@@ -36,5 +36,4 @@ export class MainShopPage implements OnInit {
   openCart(){ 
     this.router.navigate(['menu/shoppers-cart']);
   }
-
 }

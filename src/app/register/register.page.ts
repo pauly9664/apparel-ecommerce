@@ -20,9 +20,11 @@ export class RegisterPage implements OnInit {
     });
   }
   register() {
-    this.authService.register(this.credentialsForm.value).subscribe(res => {
-      //Call Login to automaticallyy login new user
-       this.authService.login(this.credentialsForm.value).subscribe();
-    });
+    this.authService.register(this.credentialsForm.value).subscribe(
+    //   res => {
+    //   //Call Login to automaticallyy login new user
+    //    this.authService.login(this.credentialsForm.value).subscribe();
+    // }
+    );
   }
 }

@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Storage } from '@ionic/storage';
 import { environment } from '../environments/environment';
 import { tap, catchError } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Http, Headers } from '@angular/http';
 
 
@@ -18,6 +18,7 @@ export class AuthService {
 
   url = environment.url;
   user = null;
+  contact = null;
   authenticationState = new BehaviorSubject(false)
 
   constructor(private http: HttpClient, private helper: JwtHelperService, private storage: Storage, private plt: Platform, private alertController: AlertController) {
@@ -43,6 +44,9 @@ export class AuthService {
     
   }
   register(credentials) {
+    // if(credentials){
+    //   console.log(credentials);
+    // }
     return this.http.post(`${this.url}/api/register`, credentials).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
@@ -64,7 +68,15 @@ export class AuthService {
       })
     );
   }
-
+  saveFeedback(contact) {
+    return this.http.post(`${this.url}/api/contact`, contact).pipe(
+        catchError(e => {
+          this.showAlert(e.error.msg);
+          //this.authenticationState.next(false);
+          throw new Error(e); 
+        })
+      );
+  }
   logout() {
     this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);
@@ -76,7 +88,7 @@ export class AuthService {
         let status = e.status;
         if (status == 401) {
           this.showAlert('No authorization in this level');
-          this.logout();
+          this.logout();  
           this.authenticationState.next(false);
         }
         throw new Error(e);
@@ -87,10 +99,11 @@ export class AuthService {
   isAuthenticated() {
     return this.authenticationState.value;
   }
+ 
   showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,
-      header: 'Error',
+      header: 'Error, Please try again',
       buttons: ['OK']
     });
     alert.then(alert => alert.present());

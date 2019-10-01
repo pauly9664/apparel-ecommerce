@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu.page';
-//import { AuthGuardService } from '../auth-guard.service';
+import { AuthGuardService } from '../auth-guard.service';
 import { equalPath } from '@angular/router/src/url_tree';
 
 const routes: Routes = [
@@ -20,7 +20,7 @@ const routes: Routes = [
       { path: 'contact', loadChildren: '../contact/contact.module#ContactPageModule' },
       { path: 'shoppers-cart', loadChildren: '../shoppers-cart/shoppers-cart.module#ShoppersCartPageModule' },
       { path: 'main-shop', loadChildren: '../main-shop/main-shop.module#MainShopPageModule' },
-      { path: 'checkout/:totals', loadChildren: '../checkout/checkout.module#CheckoutPageModule'// canActivate: [AuthGuardService] 
+      { path: 'checkout/:totals', loadChildren: '../checkout/checkout.module#CheckoutPageModule', canActivate: [AuthGuardService] 
     },
       { path: 'view-product', loadChildren: '../view-product/view-product.module#ViewProductPageModule' },
       { path: 'shoes', loadChildren: '../shoes/shoes.module#ShoesPageModule' },
