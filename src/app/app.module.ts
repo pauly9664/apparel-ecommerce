@@ -19,6 +19,7 @@ import { ConfirmationModalPage } from './confirmation-modal/confirmation-modal.p
 import { ConfirmationModalPageModule } from './confirmation-modal/confirmation-modal.module';
 import { ConfirmationPopoverPage } from './confirmation-popover/confirmation-popover.page';
 import { ConfirmationPopoverPageModule } from './confirmation-popover/confirmation-popover.module';
+import { LoginPopoverPageModule } from './login-popover/login-popover.module';
 
 export function jwtOptionsFactory(storage) {
   return {
@@ -40,6 +41,7 @@ export function jwtOptionsFactory(storage) {
     HttpClientModule,
     IonicSelectableModule,
     ConfirmationModalPageModule,
+    LoginPopoverPageModule,
     ConfirmationPopoverPageModule,
     IonicStorageModule.forRoot(),
     JwtModule.forRoot({

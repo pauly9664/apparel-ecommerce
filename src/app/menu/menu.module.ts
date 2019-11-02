@@ -28,6 +28,8 @@ const routes: Routes = [
       { path: 'bags', loadChildren: '../bags/bags.module#BagsPageModule' },
       { path: 'register', loadChildren: '../register/register.module#RegisterPageModule' },
       { path: 'other-items', loadChildren: '../other-items/other-items.module#OtherItemsPageModule' },
+      { path: 'items', loadChildren: '../items/items.module#ItemsPageModule' },
+      { path: 'history', loadChildren: '../history/history.module#HistoryPageModule' },
      // { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
     ]
   },

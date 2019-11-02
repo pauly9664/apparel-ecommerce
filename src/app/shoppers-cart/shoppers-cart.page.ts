@@ -6,8 +6,11 @@ import { SuitsServiceService } from '../suits-service.service';
 import { ShoeServiceService } from '../shoe-service.service';
 import { EtcServiceService } from '../etc-service.service';
 import { ConfirmationPopoverPage } from '../confirmation-popover/confirmation-popover.page';
-import { NavController } from '@ionic/angular';
+import { LoginPopoverPage } from '../login-popover/login-popover.page';
+import { NavController, PopoverController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-shoppers-cart',
@@ -18,10 +21,19 @@ export class ShoppersCartPage implements OnInit {
   selectedItems = [];
   total = 0;
   totalCost = null;
+ 
 
-  constructor(private cartService: ShoppersCartService, private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
+  constructor(private cartService: ShoppersCartService, private popoverController: PopoverController, private authenticatedUser: AuthService,private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
 
   ngOnInit() {
+    
+    // this.authenticatedUser.authenticationState.subscribe(state => {
+    //   if(state) {
+    //     this.router.navigate(['menu/checkout']);
+    //   } else{
+    //     this.authenticatedUser.loginPopover;
+    //   }   
+    // })
     let items = this.cartService.getCart();
     let item = this.cartService.getSelect();
     let bags = this.bagService.getCart();
@@ -79,6 +91,13 @@ export class ShoppersCartPage implements OnInit {
     this.totalCost = this.total;
   
     console.log('Total:', this.totalCost);
+  }
+  async loginPopover(ev: Event){
+    const popover = await this.popoverController.create({
+      component: LoginPopoverPage, 
+
+    });
+    popover.present();
   }
   pushTotal(){
     this.nav.navigateForward(`menu/checkout${this.totalCost}`);

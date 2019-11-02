@@ -29,10 +29,10 @@ export class MainShopPage implements OnInit {
   // addToCart(product){
   //   this.cartService.addProduct(product);
   // }
+
   viewProduct(product){
     this.cartService.addToView(product);
   }
-  
   openCart(){ 
     this.router.navigate(['menu/shoppers-cart']);
   }

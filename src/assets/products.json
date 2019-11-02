@@ -1,0 +1,267 @@
+{
+    "products": [
+        {
+            "name": "Dresses",
+            "children": [
+                {
+                    "name": "Official Dresses",
+                    "information": "Suitable while around office suites etc...."
+                },
+                {
+                    "name": "Casual Dresses",
+                    "information": "Suitable during off days"
+                },
+                {
+                    "name": "Night Dresses",
+                    "information": "Nightime dressing"
+                },
+                {
+                    "name": "Evening Dresses",
+                    "information": "For night functions"
+                }
+            ]
+        },
+            {
+                "name": "Ladies suits",
+                "children":[
+                    
+                        {
+                            "name": "Skirt Suits",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Trouser Suits",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Jump Suits",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "3 Piece Suits",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Dress Suits",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            },
+            {
+                "name": "Tops",
+                "children":[
+                    
+                        {
+                            "name": "Blouses",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Camisoles",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Regular Tops",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Ladies Shirts",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Open Camisoles",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            },
+            {
+                "name": "Hats",
+                "children":[
+                    
+                        {
+                            "name": "Ceremonial Hats",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Fascinators",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            },
+            {
+                "name": "Men's Selection",
+                "children":[
+                    
+                        {
+                            "name": "Suits",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Shirts",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Khaki Pants",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Regular Trousers",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Boxers",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Polo T-Shirts",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Shoe Collection",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            },
+            {
+                "name": "Ladies shoes",
+                "children":[
+                    
+                        {
+                            "name": "Open shoes",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Closed Shoes",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Flat Shoes",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Sandals",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            },
+            {
+                "name": "Bags",
+                "children":[
+                    
+                        {
+                            "name": "Hand Bags",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Clutch Bags",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Small Bags",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            },
+            {
+                "name": "Accessories",
+                "children":[
+                    
+                        {
+                            "name": "Earrings",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Necklaces",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Watches",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Bracelets",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Belts",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Shawls",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Scarfs",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Perfumes",
+                            "information": "Suitable while around office suites etc...."
+                        }
+
+                ]
+            },
+            {
+                "name": "Duvees",
+                "children":[
+                    
+                        {
+                            "name": "Small size (6 x 4)",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Large size (6 x 6)",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            }, 
+             {
+                "name": "Skirts",
+                "children":[
+                        {
+                            "name": "Official/straight",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Casual/ Skater",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Jump Suits",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "3 Piece Suits",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Dress Suits",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                ]
+            },
+            {
+                "name": "Ladies Trousers",
+                "children":[
+                        {
+                            "name": "Official material trousers",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Casual/ Skater",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Jeans",
+                            "information": "Suitable while around office suites etc...."
+                        },
+                        {
+                            "name": "Mother Jeans",
+                            "information": "Suitable while around office suites etc...."
+                        }
+                        
+                ]
+            }
+
+        
+    ]
+}

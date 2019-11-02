@@ -1,17 +1,17 @@
-   <ion-card>
-   <ion-list >
-        <ion-item>
-          Delivery: {{ passedDelivery }}<br>
-          Payment: {{ passedPayment }}<br>
-          Confirm total:  {{ totalCartItems }}?
-        </ion-item>
+<div class = "form-orients">
+         <form [formGroup]= "salesForm" (ngSubmit)="saleUpdate()"><select type = "text" formControlName ="delivery_status"> Delivery: <option> {{ passedDelivery }}</option></select><br>
+         <select type = "text" formControlName ="payment_status"> Payment: <option>{{ passedPayment }}</option></select><br>
+        <select type = "text" formControlName ="amount"> Confirm total:  <option>{{ totalCartItems }}</option></select>
+        <select type = "text" formControlName ="user_id"> Confirm User:  <option>{{ loggedInUser }}</option></select>
+      </form>
+        
         <ion-button  color="danger" (click)="closePopover()">
           <ion-icon name="close" slot="start"></ion-icon>
           Cancel
         </ion-button>
-        <ion-button  color="success" (click)="closePopover()">
+        <ion-button  color="success" (click)="saleUpdate()">
           <ion-icon name="checkmark" slot="start"></ion-icon>
           Buy
         </ion-button>
-      </ion-list>
-    </ion-card>
+      </div>
+

@@ -17,7 +17,10 @@ const routes: Routes = [
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'view-product', loadChildren: './view-product/view-product.module#ViewProductPageModule' },
-  { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
+  { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },  { path: 'items', loadChildren: './items/items.module#ItemsPageModule' },
+  { path: 'login-popover', loadChildren: './login-popover/login-popover.module#LoginPopoverPageModule' },
+  { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
+
   //{ path: 'confirmation-popover', loadChildren: './confirmation-popover/confirmation-popover.module#ConfirmationPopoverPageModule' },
 
 

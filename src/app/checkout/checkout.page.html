@@ -11,12 +11,16 @@
       <ion-card-title text-center style="font-family: Impact">Delivery Details</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-     <div class="details-button"> <ion-button text-center style="margin-left: auto; margin-right: auto; width: 300px" fill="outline" size="small" (click)="loadSpecialInfo()">Customer Details</ion-button></div>
+     <!-- <div class="details-button"> <ion-button text-center style="margin-left: auto; margin-right: auto; width: 300px" fill="outline" size="small" (click)="loadSpecialInfo()">Customer Details</ion-button></div> -->
+     <p text-center>Customer Details</p>
+     <ion-avatar>
+      <img width="100%" height="100%" src="/assets/oshoe.jpg" /><br>
+    </ion-avatar>
      <p text-center> {{ data }}<br></p>
     </ion-card-content>
   </ion-card>
   <ion-card>
-    <ion-card-header>
+       <ion-card-header>
       <div><ion-card-title text-center><ion-text color="dark" style="font-family: Impact">Delivery Method<br></ion-text><ion-icon name="car" color="danger"></ion-icon></ion-card-title></div>
       <ion-card-content>
         <!-- <ion-list>
@@ -63,7 +67,6 @@
         <i>{{options}}</i> 
       </div>
       <p>Option selected: {{selectedDelivery}}</p>
-     
     </article>
       </ion-card-content>
     </ion-card-header>
@@ -81,7 +84,7 @@
           (change)="radioChangeHandler($event)">
           <i>{{option}}</i> 
         </div>
-        <span class="OptionPayment"><p> Option selected: {{selectedPayment}}</p></span>
+            <span class="OptionPayment"><p> Option selected: {{selectedPayment}}</p></span>
       </ion-card-content>
     </ion-card-header>
   </ion-card>

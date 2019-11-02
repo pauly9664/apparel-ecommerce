@@ -2,26 +2,33 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { ProductsModModule} from '../products-mod/products-mod.module';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ConfirmationPopoverPage } from './confirmation-popover.page';
+import { ItemsPage } from './items.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ConfirmationPopoverPage
+    component: ItemsPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule,
     IonicModule,
+    FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild([
+      {
+        path: '',
+        component: ItemsPage
+      }
+    ]),
+    ProductsModModule
   ],
-  declarations: [ConfirmationPopoverPage]
+  declarations: [ItemsPage]
 })
-export class ConfirmationPopoverPageModule {}
+export class ItemsPageModule {}

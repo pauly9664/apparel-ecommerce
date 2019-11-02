@@ -16,7 +16,7 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Account',
-      url: '/menu/account',
+      url: '/menu/items',
       icon: 'person'
     },
     {
@@ -28,6 +28,11 @@ export class MenuPage implements OnInit {
       title: 'Cart',
       url: '/menu/shoppers-cart',
       icon: 'cart'
+    },
+    {
+      title: 'History',
+      url: '/menu/history',
+      icon: 'home'
     },
     {
       title: 'Contact',
@@ -43,7 +48,6 @@ export class MenuPage implements OnInit {
       this.selectedPath = event.url;
     });
    }
-
   ngOnInit() {
   }
 

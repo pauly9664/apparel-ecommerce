@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  
 })
 export class ShoppersCartService {
 
@@ -56,6 +56,5 @@ export class ShoppersCartService {
   }
   removeProduct(product) {
     this.cart.splice(product);
-
   }
 }
