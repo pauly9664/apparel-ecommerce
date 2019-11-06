@@ -1,5 +1,5 @@
 .intro-card {
-    background-color: crimson;
+    background-color: #f0ebf4;
     color: azure;
     margin-left:auto; 
     margin-right: auto; 
@@ -10,7 +10,7 @@
     --background: #ffff url('/assets/p11.jpg') no-repeat center center / contain;
 }
 .navigation-menu {
-    background-color:whitesmoke; 
+    background-color:#fff; 
     font-family: Impact;
 }
 .align-middle {
@@ -18,20 +18,30 @@
 }
 
 .textv {
-    background-color: whitesmoke;
+    background-color: #edf5e1;
     align-content: center;
     font-weight: 500;  
 }
 .video {
-    width: 500px;
-    height: 350px;
+    width: 31.25em;
+    height: 21.875em;
 }
 .primal {
-    background-color: black;
+    background-color: #fff;
     color: #ffff;
+   
+
+
 }
 .back-color {
     background-color: #ffff;
+    // position: absolute;
+    // top: 190px;
+    // left: 0px;
+    // right: 0px;
+    // height: 50px;
+   
+
 }
 ion-content {
     margin-top: 0px;

@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HistoryPage } from './history.page';
+import { AccountsModModule } from '../accounts-mod/accounts-mod.module';
 
 const routes: Routes = [
   {
@@ -19,7 +20,14 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild([
+      {
+        path: '',
+        component: HistoryPage
+      }
+    ]),
+    AccountsModModule
+    
   ],
   declarations: [HistoryPage]
 })

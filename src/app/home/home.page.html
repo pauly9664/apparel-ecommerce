@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title text-center>
+    <ion-title class="text-center">
       Home
     </ion-title>
   </ion-toolbar>
@@ -23,14 +23,14 @@
         <ion-row>
           <ion-grid>
             <ion-col size-sm="3" size-md="5">
-          <ion-col size-sm="2" tappable routerLink="/menu/home">Home</ion-col>
-          <ion-col size-sm="2" tappable routerLink ="/menu/history">My Account</ion-col>
-          <ion-col size-sm="2" tappable routerLink="/menu/main-shop">Shop</ion-col>
-          <ion-col size-sm="2" tappable routerLink="/menu/contact">Contact</ion-col>
-        </ion-col>
-        </ion-grid>
+              <ion-col size-sm="2" tappable routerLink="/menu/home">Home</ion-col>
+              <ion-col size-sm="2" tappable routerLink="/menu/history">My Account</ion-col>
+              <ion-col size-sm="2" tappable routerLink="/menu/main-shop">Shop</ion-col>
+              <ion-col size-sm="2" tappable routerLink="/menu/contact">Contact</ion-col>
+            </ion-col>
+          </ion-grid>
         </ion-row>
-        
+
       </div>
     </ion-card>
   </ion-grid>
@@ -81,7 +81,9 @@
     </ion-card-content>
   </ion-card>
   <div class="primal">
-    <ion-text color="light"><h2 style="color: #ffff">Top categories</h2></ion-text>
+    <ion-text color="light">
+      <h2 style="color: #000" text-center>Top categories</h2>
+    </ion-text>
   </div>
   <div class="back-color">
     <ion-grid fixed>
@@ -104,16 +106,19 @@
         <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style="font-family: Impact">Men
           <ion-thumbnail><img tappable src="/assets/suit1.jpg" routerLink="/menu/other-items" /></ion-thumbnail>
         </ion-col>
-        <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style= "font-family: Impact">Others
+        <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style="font-family: Impact">Others
           <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/menu/other-items" /></ion-thumbnail>
         </ion-col>
       </ion-row>
     </ion-grid>
   </div>
   <div class="primal">
-    <ion-text color="light"><h2> Our offer deals...</h2></ion-text>
+    <ion-text color="light">
+      <h2> Our offer deals...</h2>
+    </ion-text>
   </div>
   <div class="redirect-login">
-    <ion-button expand="block" fill="outline" (click)="logout()">Logout</ion-button>
+    <ion-button expand="block" fill="outline" (click)="presentLogoutWithOptions()" (click)="logout()">Logout
+    </ion-button>
   </div>
 </ion-content>

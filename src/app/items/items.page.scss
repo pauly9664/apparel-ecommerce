@@ -64,8 +64,9 @@ ion-content{
 }
 
 .child-active{
-    --ion-item-background: #fad86b;
+    // --ion-item-background: #fad86b;
     --ion-item-color: #fff;
+    --ion-item-background: pink;
     
     ion-icon{
         color: #fff;

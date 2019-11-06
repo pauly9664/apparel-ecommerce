@@ -16,9 +16,7 @@ export class ItemsPage implements OnInit {
   constructor(private http: HttpClient) { 
     this.http.get('assets/products.json').subscribe(res =>{
       this.produce = res['products'];
-
       this.produce[0].open = true;
-
     })
   }
 

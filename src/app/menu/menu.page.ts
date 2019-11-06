@@ -16,23 +16,18 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Account',
-      url: '/menu/items',
+      url: '/menu/history',
       icon: 'person'
     },
     {
       title: 'Shop Now',
-      url: '/menu/main-shop',
+      url: '/menu/items',
       icon: 'shirt'
     },
     {
       title: 'Cart',
       url: '/menu/shoppers-cart',
       icon: 'cart'
-    },
-    {
-      title: 'History',
-      url: '/menu/history',
-      icon: 'home'
     },
     {
       title: 'Contact',

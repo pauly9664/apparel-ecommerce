@@ -21,12 +21,14 @@ import { ConfirmationPopoverPage } from './confirmation-popover/confirmation-pop
 import { ConfirmationPopoverPageModule } from './confirmation-popover/confirmation-popover.module';
 import { LoginPopoverPageModule } from './login-popover/login-popover.module';
 
+
+
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
       return storage.get('access_token');
     },
-    whitelistedDomains: ['localhost:5000']
+    whitelistedDomains: ['localhost:5000', '192.168.200.135:5000']
   }
 }
 @NgModule({
