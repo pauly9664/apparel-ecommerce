@@ -16,7 +16,7 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Account',
-      url: '/menu/history',
+      url: '/menu/accountslanding',
       icon: 'person'
     },
     {

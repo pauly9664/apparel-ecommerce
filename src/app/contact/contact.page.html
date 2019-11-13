@@ -8,11 +8,12 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding class="back-ground">
-      <h1 text-left>Contact Us...</h1>
-      <div class="stayOut">
+      <h1 text-left style="color:gold">Contact Us...</h1>
+      <!-- <div class="stayOut"> -->
           <form [formGroup]="contactForm" (ngSubmit)="onReply()">
+      <div class= "diagonal3">
+        <div class="inside">
         <ion-list>
           <ion-item class="staythere">
             <ion-label position="floating">Your Name...</ion-label>
@@ -29,18 +30,20 @@
             <ion-input type="text" formControlName="feedback"></ion-input>
           </ion-item>
         </ion-list>
-      <ion-button color="success"  (click)="onReply()" type="button" size="default">Submit</ion-button>
+      <ion-button fill="outline"  (click)="onReply()" type="button" size="default">Submit</ion-button>
+    </div>
+  </div>
     </form>
-      </div>
+<!--   
       <div class="details">
       <h3 text-left>Follow us.. <br></h3>
+    </div>
       <div class="align-left">
         <ion-icon name="logo-facebook"></ion-icon>
         <ion-icon name="logo-instagram"></ion-icon>
         <ion-icon name="logo-pinterest"></ion-icon>
       </div>
-      <p text-right>Located along Moktar Daddar St. <br> Off Muindi Mbingu St. <br> Opposite Barclays Bank, Market
+      <p>Located along Moktar Daddar St. <br> Off Muindi Mbingu St. <br> Opposite Barclays Bank, Market
         Branch
-        <br> Telephone Lines: 0737200842, 0722932275</p>
-      </div>
+        <br> Telephone Lines: 0737200842, 0722932275</p>     -->
       </ion-content>

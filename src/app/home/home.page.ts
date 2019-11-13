@@ -15,7 +15,6 @@ export class HomePage implements OnInit{
   data = '';
   user_id = null;
   users = null;
-  
 
   slidesConfig = {
     autoplay: true,

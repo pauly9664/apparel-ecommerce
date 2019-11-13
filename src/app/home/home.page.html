@@ -11,7 +11,7 @@
 <ion-content>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="6">
+      <ion-col size="12">
         <h1 text-center style="font-family: Impact">Welcome to..</h1>
         <section text-center margin-bottom>
           <img src="/assets/PreetiLogo.png" />
@@ -118,7 +118,7 @@
     </ion-text>
   </div>
   <div class="redirect-login">
-    <ion-button expand="block" fill="outline" (click)="presentLogoutWithOptions()" (click)="logout()">Logout
+    <ion-button expand="block" fill="outline" (click)="presentLogoutWithOptions()" (click)="logout()"><ion-icon slot="start" name="log-out"></ion-icon>Logout
     </ion-button>
   </div>
 </ion-content>

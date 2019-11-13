@@ -13,7 +13,7 @@
             {{ item.name }}
           </ion-label>
         </ion-item>
-        <div *ngIf="item.children && item.open">
+        <!-- <div *ngIf="item.children && item.open">
           <ion-list *ngFor="let child of item.children; let j = index;" lines="none" class="child-list">
              <ion-item tappable (click)="toggleItem(i, j)" [ngClass]="{'child-active': child.open, 'child': !child.open}">
                  <ion-icon slot="start" name="arrow-dropright" *ngIf="!child.open"></ion-icon>
@@ -24,12 +24,12 @@
                </ion-item>
                <app-accounts [accounts]="child" *ngIf="!child.children"></app-accounts>
                <ion-list *ngIf="child.children && child.open" class="products-list" lines="none">
-                 <!-- <app-products [products] = "products" *ngFor="let products of child.children"></app-products> -->
-               </ion-list>
-          </ion-list>
-        </div> 
+               - <app-products [products] = "products" *ngFor="let products of child.children"></app-products> -->
+               <!-- </ion-list>
+          </ion-list> -->
+        <!-- </div>  --> 
      
-        <p *ngIf="item.children.length == 0 && item.open" text-center style="color: red"> No items, items under this category have been depleted</p>
+        <p *ngIf="item.length == 0 && item.open" text-center style="color: red"> No items, items under this category have been depleted</p>
        </ion-list>
      
 </ion-content>

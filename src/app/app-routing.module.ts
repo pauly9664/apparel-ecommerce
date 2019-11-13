@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },  { path: 'items', loadChildren: './items/items.module#ItemsPageModule' },
   { path: 'login-popover', loadChildren: './login-popover/login-popover.module#LoginPopoverPageModule' },
   { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
+  { path: 'accountslanding', loadChildren: './accountslanding/accountslanding.module#AccountslandingPageModule' },
 
   //{ path: 'confirmation-popover', loadChildren: './confirmation-popover/confirmation-popover.module#ConfirmationPopoverPageModule' },
 

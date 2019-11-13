@@ -36,7 +36,7 @@ export class HistoryPage implements OnInit {
         this.data = res['msg'];
         this.accountsbyid = res['accounts'];
         this.loggedInUser = res['id'];
-      // console.log(this.accountsbyid);
+       console.log(this.accountsbyid);
       })
   }
 

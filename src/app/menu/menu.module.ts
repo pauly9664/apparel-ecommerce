@@ -30,6 +30,7 @@ const routes: Routes = [
       { path: 'other-items', loadChildren: '../other-items/other-items.module#OtherItemsPageModule' },
       { path: 'items', loadChildren: '../items/items.module#ItemsPageModule' },
       { path: 'history', loadChildren: '../history/history.module#HistoryPageModule' },
+      { path: 'accountslanding', loadChildren: '../accountslanding/accountslanding.module#AccountslandingPageModule' },
      // { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
     ]
   },
