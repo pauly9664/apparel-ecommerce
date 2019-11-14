@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   rl: 'http://192.168.100.35:500',
-  url: 'http://192.168.200.159:500'
+  url: 'http://192.168.100.11:500'
 };
 /*
  * For easier debugging in development mode, you can import the following file

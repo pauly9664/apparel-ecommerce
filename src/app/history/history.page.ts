@@ -17,7 +17,7 @@ export class HistoryPage implements OnInit {
     this.authenticator.getSalesActivities().subscribe(res => {
       this.data = res['msg'];
       this.accountsbyid = res['accounts'];
-      this.accountsbyid[0].open = true;
+      // this.accountsbyid[0].open = true;
     })
   }
   toggleSection(index){
