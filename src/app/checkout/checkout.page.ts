@@ -60,7 +60,7 @@ ngOnInit(){
 
   //  loadSpecialInfo() {
      this.authService.getSpecialData().subscribe(res => {
-       this.data = res['msg'];
+       this.data = res['name'];
        this.loggedInUser = res['id'];
       //  return res;
        //console.log(this.data);
@@ -91,7 +91,7 @@ ngOnInit(){
   
    loadSpecialInfo() {
      this.authService.getSpecialData().subscribe(res => {
-       this.data = res['msg'];
+       this.data = res['name'];
        return res;
        //console.log(this.data);
      });

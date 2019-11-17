@@ -1,9 +1,9 @@
-<ion-split-pane >
+<ion-split-pane>
   <ion-menu contentId="content" >
-    <ion-header>
+    <ion-header no-border>
       <ion-toolbar>
-        <ion-title>
-          Navigation
+        <ion-title style="color:white">
+          MENU
         </ion-title>
       </ion-toolbar>
     </ion-header>
@@ -11,9 +11,9 @@
     <ion-content>
       <p text-center></p>
       <div class="menu-styles"><img align-self-center src="/assets/pr-logo.png /"></div>
-      <ion-list>
+      <ion-list lines="none">
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages ">
-            <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath === p.url">
+            <ion-item [routerLink]="p.url" routerDirection="root" [class.active-item]="selectedPath === p.url" no-lines>
                 <ion-icon item-start [name]="p.icon"> </ion-icon>                       
               {{ p.title }}
             </ion-item>

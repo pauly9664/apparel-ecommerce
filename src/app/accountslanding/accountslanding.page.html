@@ -12,9 +12,13 @@
     <ion-row>
       <ion-col size-sm="6" size-md="6">
         <ion-card>
+            <ion-card-header style="color:green"> <ion-icon name="person" slot="start"></ion-icon>Account Details
+            </ion-card-header>
           <ion-card-content>
-            <h3 style="color:green"><ion-icon name="person"></ion-icon> Account Info</h3>
-
+            <p>Name: {{name}}<br></p>
+            <p> Cell: {{number}}<br></p>
+            <p> Email: {{email}}</p>
+            <ion-button fill="outline" size="small" align-self-center><ion-icon name="build" slot="start"></ion-icon>Edit</ion-button>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -22,6 +26,7 @@
         <ion-card>
           <ion-card-content>
             <h3 style="color: blue"><ion-icon name="document"></ion-icon> Orders history</h3>
+            <ion-item lines="none" *ngFor= "let account of parsedAccount "> {{account.buying_date}}<ion-button fill="outline" slot= "end" size="small"><ion-icon name="eye" slot="start"></ion-icon>VIEW</ion-button></ion-item>
           </ion-card-content>
         </ion-card>
       </ion-col>
