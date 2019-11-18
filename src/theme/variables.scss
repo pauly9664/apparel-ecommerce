@@ -39,6 +39,11 @@
   --ion-color-success-shade: #0ec254;
   --ion-color-success-tint: #28e070;
 
+  --custom-menu: radial-gradient(
+        circle farthest-corner at 10% 20%,
+        rgb(182, 61, 61) 16.3%,
+        rgb(110, 100, 128) 60%
+    );
   /** warning **/
   --ion-color-warning: #ffce00;
   --ion-color-warning-rgb: 255, 206, 0;

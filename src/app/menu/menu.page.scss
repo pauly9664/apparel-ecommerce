@@ -5,9 +5,31 @@
     background-color:black;
     color: aliceblue; 
 }
+
 .menu-styles{
     max-width: 150px; 
     max-height: 150px;
     margin-left: auto;
     margin-right: auto;
 }
+ion-menu {
+    --ion-background-color: var(--custom-menu);
+    // max-width: 1em; 
+}
+    ion-toolbar {
+        --background: transparent;
+    }
+
+    ion-list {
+        background: transparent;
+        color: white;
+    }
+    ion-item {
+        color: rgb(255, 255, 255);
+        --background: transparent;
+        
+    }
+    ion-content {
+        --background: transparent;
+    }
+

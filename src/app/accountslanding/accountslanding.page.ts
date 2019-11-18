@@ -7,15 +7,27 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./accountslanding.page.scss'],
 })
 export class AccountslandingPage implements OnInit {
-  data= undefined;
+  name= '';
+  number= '';
+  email= undefined;
   accountsbyid = undefined;
+  parsedAccount = undefined;
   constructor(private authenticator: AuthService ) { }
 
   ngOnInit() {
+    
     this.authenticator.getSalesActivities().subscribe(res => {
-      this.data = res['msg'];
-      this.accountsbyid = res['accounts'];
-      this.accountsbyid[0].open = true;
+      this.accountsbyid = JSON.stringify(res['accounts']);
+      let parsedData = JSON.parse(this.accountsbyid);
+      this.parsedAccount = parsedData;
+      // this.accountsbyid[0].open = true;
+      let accountsarray = Object.keys(this.accountsbyid[0]);
+      console.log(this.accountsbyid[0]);
+    })
+    this.authenticator.getSpecialData().subscribe(res =>{
+      this.name = res['name'];
+      this.number = res['number'];
+      this.email = res['email'];
     })
   }
   }
