@@ -31,6 +31,7 @@ const routes: Routes = [
       { path: 'items', loadChildren: '../items/items.module#ItemsPageModule' },
       { path: 'history', loadChildren: '../history/history.module#HistoryPageModule' },
       { path: 'accountslanding', loadChildren: '../accountslanding/accountslanding.module#AccountslandingPageModule' },
+      { path: 'media', loadChildren: '../media/media.module#MediaPageModule' },
      // { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
     ]
   },

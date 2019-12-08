@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>media</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 *ngIf="images" [hidden]="images.length === 0">No Posts found</h3>
+  <h3>Play</h3>
+  <ion-list>
+    <ion-icon name="arror-forward">Yes</ion-icon>
+    <ion-item-sliding *ngFor= "let img of images">
+      <ion-item tappable (click)="openPost()">
+        <ion-thumbnail item-start>
+          <img [src]="img.url">
+        </ion-thumbnail>
+        <h2>{{ img.filename }}</h2>
+        <button ion-button clear icon-only item-end>
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button icon-only color="danger">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

@@ -1,12 +1,14 @@
 .active-item {
     border-left: 8px solid var(--ion-color-primary);
+    
 }
 .back-color {
-    background-color:black;
+    background-color: black;
     color: aliceblue; 
 }
 
 .menu-styles{
+    //border: 0.5em solid red;
     max-width: 150px; 
     max-height: 150px;
     margin-left: auto;

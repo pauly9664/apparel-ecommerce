@@ -21,6 +21,9 @@ const routes: Routes = [
   { path: 'login-popover', loadChildren: './login-popover/login-popover.module#LoginPopoverPageModule' },
   { path: 'history', loadChildren: './history/history.module#HistoryPageModule' },
   { path: 'accountslanding', loadChildren: './accountslanding/accountslanding.module#AccountslandingPageModule' },
+  { path: 'media', loadChildren: './media/media.module#MediaPageModule' },
+  { path: 'upload-media', loadChildren: './upload-media/upload-media.module#UploadMediaPageModule' },
+  { path: 'preview-media', loadChildren: './preview-media/preview-media.module#PreviewMediaPageModule' },
 
   //{ path: 'confirmation-popover', loadChildren: './confirmation-popover/confirmation-popover.module#ConfirmationPopoverPageModule' },
 
