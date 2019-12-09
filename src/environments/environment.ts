@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   rl: 'http://192.168.100.35:500',
-  url: 'http://192.168.100.11:500'
+  surl: 'http://192.168.200.182:500',
+  url: 'http://192.168.200.129:500'
 };
 /*
  * For easier debugging in development mode, you can import the following file
