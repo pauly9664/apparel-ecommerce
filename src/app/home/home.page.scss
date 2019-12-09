@@ -9,9 +9,20 @@
 .bg {
     --background: #ffff url('/assets/p11.jpg') no-repeat center center / contain;
 }
-.navigation-menu {
-    background-color:#fff; 
-    font-family: Impact;
+.slanted-corner {
+    margin-top: 30px;
+    height: 300px;
+    background:whitesmoke;
+    position: relative;
+}
+
+.slanted-corner:before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    border-top: 80px solid white;
+    border-left: 80px solid red;
+    width: 0;
 }
 .align-middle {
     width: 300px;

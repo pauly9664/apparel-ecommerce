@@ -20,6 +20,9 @@ import { ConfirmationModalPageModule } from './confirmation-modal/confirmation-m
 import { ConfirmationPopoverPage } from './confirmation-popover/confirmation-popover.page';
 import { ConfirmationPopoverPageModule } from './confirmation-popover/confirmation-popover.module';
 import { LoginPopoverPageModule } from './login-popover/login-popover.module';
+import { Camera } from '@ionic-native/camera/ngx';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { MediaFilesService } from 'src/media-files.service';
 
 
 
@@ -41,6 +44,7 @@ export function jwtOptionsFactory(storage) {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     HttpClientModule,
+    
     IonicSelectableModule,
     ConfirmationModalPageModule,
     LoginPopoverPageModule,
@@ -57,8 +61,13 @@ export function jwtOptionsFactory(storage) {
   ],
 
   providers: [
+    Camera,
+    FileTransfer,
     StatusBar,
+    MediaFilesService,
+    
     SplashScreen,
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

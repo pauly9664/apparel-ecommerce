@@ -26,10 +26,8 @@
    <div *ngIf="item.children && item.open">
      <ion-list *ngFor="let child of item.children; let j = index;" lines="none" class="child-list">
         <ion-item tappable (click)="toggleItem(i, j)" [ngClass]="{'child-active': child.open, 'child': !child.open}">
-            <ion-icon slot="start" name="arrow-dropright" *ngIf="!child.open"></ion-icon>
-            <ion-icon slot="end" name="arrow-dropdown" *ngIf="child.open"></ion-icon>
             <ion-label>
-             <p style="color:blue">{{ child.name}}</p>
+             <p style="color: #000" text-center>{{ child.name}}</p>
             </ion-label>
           </ion-item>
           <app-products [products]="child" *ngIf="!child.children"></app-products>
