@@ -18,8 +18,10 @@ export class HomePage implements OnInit{
 
   slidesConfig = {
     autoplay: true,
+    centeredSlides: true,
     speed: 5000,
-    pager: true
+    pager: true,
+    slidesPerView: 1
   }
   platform: any;
 

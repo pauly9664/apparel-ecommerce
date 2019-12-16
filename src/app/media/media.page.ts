@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaFilesService } from '../media-files.service';
-import { ModalController, NavController, ActionSheetController } from '@ionic/angular';
+import { ModalController, NavController, ActionSheetController, AlertController } from '@ionic/angular';
 import { Camera } from '@ionic-native/camera/ngx';
 import { PreviewMediaPage } from '../preview-media/preview-media.page';
 import { UploadMediaPage } from '../upload-media/upload-media.page';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ContactService } from '../contact.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-media',
@@ -12,10 +15,23 @@ import { UploadMediaPage } from '../upload-media/upload-media.page';
 })
 export class MediaPage implements OnInit {
 images = undefined;
-  constructor( private imagesProvider: MediaFilesService, public nav: NavController, private camera: Camera, private actionSheetCtrl: ActionSheetController, private modalCtr: ModalController) { 
+contactForm: FormGroup;
+  constructor( private imagesProvider: MediaFilesService, 
+    public nav: NavController, private camera: Camera,
+     private actionSheetCtrl: ActionSheetController, 
+     private modalCtr: ModalController,public formBuilder: FormBuilder,
+     private alertController: AlertController, private contactService:ContactService, 
+     private authService:AuthService) { 
     this.reloadPosts();
   }
   ngOnInit() {
+    this.contactForm = this.formBuilder.group({
+      name: ['', ],
+      cell: ['',],
+      feedback: ['',
+      // [Validators.required, Validators.minLength(20)]
+      ]
+    });
   }
    async openPost(ev: Event, img){
     let modal =  await this.modalCtr.create({
@@ -72,6 +88,9 @@ async takePicture(sourceType){
      modal.present();
     modal.onDidDismiss()
   });
+}
+onReply() {
+  return this.contactService.saveFeedback(this.contactForm.value).subscribe();
 }
 
 }
