@@ -1,17 +1,80 @@
 .intro-card {
     background-color: #f0ebf4;
     color: azure;
-    margin-left:auto; 
-    margin-right: auto; 
-    height: 6em;
-    overflow: hidden;
+    // margin-left:auto; 
+    // margin-right: auto; 
+    height: 16em;
+    //overflow: hidden;
+    position: relative;
 }
+.simple-ss {
+    width:800px;
+    height:250px;
+    background-color: #eeeeee;
+    margin:auto;
+    background: url("/assets/sample1.jpg");
+    background-size: cover ;
+    animation-name: slide;
+    animation-duration: 10s;
+    animation-direction: normal;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    }
+    @keyframes slide {
+    0% {background-position:0 0;}
+    16.66% {background-position:0 0;}
+    33.32% {background-position:-800px 0;}
+    49.98% {background-position:-800px 0;}
+    66.64% {background-position:-1600px 0;}
+    83.30% {background-position:-1600px 0;}
+    100% {background-position:0 0;}
+    }
+.contacts{
+    margin-block-end: auto;
+}
+.round-border{
+    border: 2px solid red;
+    border-radius: 0.75em;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.background{
+    // background-image: url("/assets/sample1.jpg");
+    //background-position: center;
+    
+    height: 200px;
+    background-size: cover;
+    //  filter: blur(8px);
+    // -webkit-filter: blur(8px);
+}
+.landing-page{
+    background-size: cover; 
+    background-repeat:repeat;
+    height:12.5em; 
+    width:62.5em;
+    object-fit: cover
+}
+.content{
+    background-image: url("/assets/sample1.jpg");
+}
+.text-slide {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: grey;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .slidesk{
+    background-image: url("/assets/sample1.jpg");
+  }
 .bg {
     --background: #ffff url('/assets/p11.jpg') no-repeat center center / contain;
 }
 .slanted-corner {
     margin-top: 30px;
-    height: 300px;
+    height: 200px;
     background:whitesmoke;
     position: relative;
 }
@@ -72,6 +135,9 @@ ion-content {
 .display-product {
     background-size: cover;
 }
+.slide-container {
+    position: relative;
+  }
 
 $colors:(
     danger: #ec5a5a,

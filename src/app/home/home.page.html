@@ -9,27 +9,58 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-    
         <div class="navigation-menu">
             <ion-grid>
-              <ion-col size-sm="12" size-md="12" size-lg="12" style="background: #000; color: #fff;height: 100px;
-              width: 80%;
-              padding-top:10px;">
-                <ion-col size-sm="4" tappable routerLink="/menu/home">Home</ion-col>
-                <ion-col size-sm="4" tappable routerLink="/menu/history">My Account</ion-col>
-                <ion-col size-sm="4" tappable routerLink="/menu/main-shop">Shop</ion-col>
-                <ion-col size-sm="4" tappable routerLink="/menu/contact">Contact</ion-col>
-                <ion-col size-sm="4" tappable routerLink="/menu/media">Contact</ion-col>
+              <ion-row>
+              <ion-col size-sm="4" size-md="4" size-lg="4"><img src="/assets/preetiLogo1.png" style="height:100px; width: 100px" /></ion-col>
+              <ion-col size-sm="8" size-md="8" size-lg="8" style="background: #fff; color: grey;height: 50px;width: 80%;padding-top:10px;">
+                <div class="round-border">
+                <ion-col size-sm="3" tappable routerLink="/menu/home">Home</ion-col>
+                <ion-col size-sm="3" tappable routerLink="/menu/accountslanding">Account</ion-col>
+                <ion-col size-sm="3" tappable routerLink="/menu/main-shop">Shop</ion-col>
+                <ion-col size-sm="3" tappable routerLink="/menu/contact">Contact</ion-col>
+                <ion-col size-sm="3" tappable routerLink="/menu/media">Contact</ion-col>
+               
+                
+              </div>
+                <!-- <ion-col size-sm="4"><ion-icon name="call"></ion-icon>Call us 0719000112</ion-col> -->
               </ion-col>
-            </ion-grid>
+            </ion-row>
+              </ion-grid>
+              <!-- <ion-card class="intro-card"class="background"> -->
+                <!-- <div class="simple-ss"></div> -->
+                <div class="background">
+                <ion-slides [options]="slidesConfig">
+                  <ion-slide>
+                    <div class="content"></div>
+                       <img class="landing-page" src="/assets/sample1.jpg" /> 
+                     <p class="text-slide" style="font-family: serif;"> From casual dresses to official suits<br>
+                    <ion-button fill="outline" size="small" style="color: #fff; font-family: sans-serif ;">Browse Products</ion-button>
+                    </p> 
+                  </ion-slide>
+                  <ion-slide>
+                       <img class="landing-page" src="/assets/sample2.jpg" /><br>
+                    <p class="text-slide" style="font-family:serif;"> To mens variable selections<br>
+                      <ion-button fill="outline" size="small" style="color: #fff; font-family: sans-serif;">Browse Products</ion-button>
+                    </p>
+                  </ion-slide>
+                  <ion-slide>
+                      <img class="landing-page" src="/assets/sample3.jpg" />
+                    <p class="text-slide" style="font-family: serif;"> Other items (accessories, bags, perfumes) etc.<br>
+                      <ion-button fill="outline" size="small" style="color: #fff; font-family: sans-serif ;">Browse Products</ion-button>
+                    </p>
+                  </ion-slide>
+                </ion-slides>
+              <!-- </ion-card> -->
+              <!-- <ion-col size-sm="6" size-md="6" size-lg="6" class="contacts"></ion-col> -->
+          
         </div>
       <ion-grid fixed>
     <ion-row>
       <ion-col class="slanted-corner" size="12">
         <h1 text-center style="font-family: Impact;color:whitesmoke">Welcome to..</h1>
         <section text-center margin-bottom>
-          <img src="/assets/preetiLogo1.png" />
-          
+          <img src="/assets/preetiLogo1.png" style="height:100px; width: 100px" />
         </section>
       </ion-col>
     </ion-row>
@@ -51,32 +82,32 @@
       </ion-row>
     </ion-grid>
   </ion-card>
-  <ion-card class="intro-card">
+  <!-- <ion-card class="intro-card">
     <ion-slides [options]="slidesConfig">
       <ion-slide>
         <ion-avatar>
           <img width="100%" height="100%" src="/assets/afro1.jpg" /><br>
         </ion-avatar>
-        <p style="font-family: Geneva" text-center> From casual dresses to official suits </p>
+        <p style="font-family: Geneva; color: black" text-center> From casual dresses to official suits </p>
       </ion-slide>
       <ion-slide>
         <ion-avatar>
           <img width="100%" height="100%" src="/assets/kaunda.jpg" /><br>
         </ion-avatar>
-        <p style="font-family: Geneva"> To mens variable selections </p>
+        <p style="font-family: Geneva; color: black"> To mens variable selections </p>
       </ion-slide>
       <ion-slide>
         <ion-avatar>
           <img width="100%" height="100%" src="/assets/african1.jpg" />
         </ion-avatar>
-        <p style="font-family: Geneva"> Other items (accessories, bags, perfumes) etc.</p>
+        <p style="font-family: Geneva; color: black"> Other items (accessories, bags, perfumes) etc.</p>
       </ion-slide>
     </ion-slides>
-  </ion-card>
+  </ion-card> -->
   <ion-card>
     <ion-card-content>
       <div class="textv">
-        <p text-center style="font-weight: 300">Get to know us better</p>
+        <p text-center style="font-weight: 300; ">Get to know us better</p>
       </div>
       <div class="routeit"><a routerLink="/menu/contact">Contact Us..</a></div>
     </ion-card-content>
@@ -122,4 +153,4 @@
     <ion-button expand="block" fill="outline" (click)="presentLogoutWithOptions()" (click)="logout()"><ion-icon slot="start" name="log-out"></ion-icon>Logout
     </ion-button>
   </div>
-</ion-content>
+<!-- </ion-content> -->
