@@ -8,9 +8,12 @@ ion-badge {
 .category-block {
     margin-bottom: 4px;
 }
+ion-row{
+    background-image: linear-gradient(to right, #F18C8E, #F0B784);
+}
 .category-banner {
-    border-left: 8px solid var(--ion-color-secondary);
-    background-color: palegoldenrod;
+    //border-left: 8px solid var(--ion-color-secondary);
+    --ion-background-color: var(--custom-menu);
     height: 40px;
     padding: 10px;
     font-weight: 500;
@@ -22,7 +25,7 @@ ion-badge {
     height: 350px;
 }
 .display-items {
-    background-size: contain;
-    height: 350px;
-    width: 180px;
+    background-size: cover;
+     height:400px;
+    // width: 180px;
 }

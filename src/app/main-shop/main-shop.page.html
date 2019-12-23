@@ -19,24 +19,24 @@
   <div *ngFor="let cat of items" class="category-block">
 
     <ion-row no-padding class="category-banner">
-      <ion-col text-center button tappable (click)="cat.expanded =!cat.expanded" align-self-center>
+      <ion-col text-center button tappable (click)="cat.expanded =!cat.expanded" align-self-center style="font-weight: bold">
         {{cat.category }}
       </ion-col>
     </ion-row>
     <ion-slides [options]="sliderConfig">
       <ion-slide *ngFor="let product of cat.products">
         <div *ngIf="cat.expanded">
-                <ion-card class="new-card">
+                <!-- <ion-card class="new-card">
                   <ion-card-header>
-                    <ion-card-title style="font-family: fantasy">
-                      {{product.name }} - {{ product.total }}
-                    </ion-card-title>
+                    <ion-card-title style="font-family: fantasy"> -->
+                      <p>{{product.name }} - {{ product.total }}</p>
+                    <!-- </ion-card-title> -->
                     <p routerLink="/menu/view-product" (click)="viewProduct(product)" tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
-                  </ion-card-header>
-                  <ion-card-content>
+                  <!-- </ion-card-header>
+                  <ion-card-content> -->
                       <div class="display-items"><img tappable [src]='product.url' /></div> 
-                  </ion-card-content>
-                  </ion-card>
+                  <!-- </ion-card-content>
+                  </ion-card> -->
         </div>
       </ion-slide>
     </ion-slides>

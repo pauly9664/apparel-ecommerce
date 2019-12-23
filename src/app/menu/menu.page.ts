@@ -20,7 +20,7 @@ export class MenuPage implements OnInit {
       icon: 'person'
     },
     {
-      title: 'Shop Now',
+      title: 'Categories',
       url: '/menu/items',
       icon: 'shirt'
     },
