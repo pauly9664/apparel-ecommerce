@@ -37,14 +37,17 @@ ion-content{
         --min-height: 28px;
     }
 }
+ion-list{
+    background-image: linear-gradient(to right, #F18C8E, #F0B784);
+}
 .section{
-    --ion-item-background: white;
+    // --ion-item-background: white;
     --ion-item-color: #000;
 }
 .section-active{
-    --ion-item-background: #ffc400;
+    --ion-item-background:linear-gradient(to right, #F18C8E, #F0B784);
     --ion-item-color: #fff;
-    font-weight: 600;
+    font-weight: bold;
 
     ion-icon {
         color: #fff;

@@ -24,10 +24,13 @@ ion-menu {
 
     ion-list {
         background: transparent;
-        color: white;
+        font-weight: bold;
+        color: #fff;
     }
     ion-item {
-        color: rgb(255, 255, 255);
+        // color: rgb(255, 255, 255);
+        color: #fff;
+        font-weight: bold;
         --background: transparent;
         
     }

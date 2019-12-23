@@ -41,9 +41,14 @@
 
   --custom-menu: radial-gradient(
         circle farthest-corner at 10% 20%,
-        rgb(182, 61, 61) 16.3%,
-        rgb(110, 100, 128) 60%
+        rgb(143, 77, 77) 16.3%,
+        rgb(187, 179, 202) 60%
     );
+  --custom-color: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgb(17, 14, 15) 16.3%,
+    rgb(187, 179, 202) 60%
+  );
   /** warning **/
   --ion-color-warning: #ffce00;
   --ion-color-warning-rgb: 255, 206, 0;
