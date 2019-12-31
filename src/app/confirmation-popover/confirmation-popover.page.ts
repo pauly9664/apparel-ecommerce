@@ -30,12 +30,13 @@ export class ConfirmationPopoverPage implements OnInit {
       delivery_status: [this.passedPayment],
       payment_status: [this.passedDelivery],
       user_id: [this.loggedInUser]
-
     });
   }
-
   saleUpdate() {
     this.authService.updateSales(this.salesForm.value).subscribe();
+  }
+  mpesa(){
+    this.authService.lipaMpesaOnline().subscribe();
   }
   closePopover(){
     this.popoverController.dismiss();

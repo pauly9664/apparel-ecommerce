@@ -19,6 +19,7 @@ const TOKEN_KEY = 'access_token';
 export class AuthService {
 
   url = environment.url;
+  paymentUrl = environment.mpesaUrl;
   user = null;
   contact = null;
   authenticationState = new BehaviorSubject(false)
@@ -100,6 +101,9 @@ export class AuthService {
   }
   getItems(){
     return this.http.get(`${this.url}/api/getItems`);
+  }
+  lipaMpesaOnline(){
+    return this.http.get(`${this.url}/api/mpesa`)
   }
 
   logout() {

@@ -1,8 +1,14 @@
 <div class = "form-orients">
-         <form [formGroup]= "salesForm" (ngSubmit)="saleUpdate()"><select type = "text" formControlName ="delivery_status"> Delivery: <option> {{ passedDelivery }}</option></select><br>
-         <select type = "text" formControlName ="payment_status"> Payment: <option>{{ passedPayment }}</option></select><br>
-        <select type = "text" formControlName ="amount"> Confirm total:  <option>{{ totalCartItems }}</option></select>
-        <select type = "text" formControlName ="user_id"> Confirm User:  <option>{{ loggedInUser }}</option></select>
+  <h3 style="margin-bottom: 4%; font-family: sans-serif; font-weight: bold;"> Confirm Purchase</h3>
+         <form [formGroup]= "salesForm" (ngSubmit)="saleUpdate()">
+         <label style="margin-left:-30%; position: absolute; max-width: 10em"for="User" class="highlight-content">User ID</label>
+         <select id="User" type = "text" formControlName ="user_id"  style="max-width:80px; margin-left:20%" ><option>{{ loggedInUser }}</option></select><br>
+         <label style="margin-left:-30%; position: absolute; max-width: 10em"for="Delivery" class="highlight-content">Method of Delivery</label>
+         <select id="Delivery" type = "text" style="max-width:80px; margin-left:20%" formControlName ="delivery_status"><option> {{ passedDelivery }}</option></select><br>
+         <label style="margin-left:-30%; position: absolute;max-width: 10em" for="Payment" class="highlight-content">Mode of Payment</label>
+         <select id="Payment" type = "text" formControlName ="payment_status"  style="max-width:80px; margin-left:20%"><option >{{ passedPayment }}</option></select><br>
+         <label style="margin-left:-30%; position: absolute; max-width: 10em" for="Total" class="highlight-content">Totals</label>
+         <select id="Total" type = "text" formControlName ="amount"  style="max-width:80px; margin-left:20%;"><option>{{ totalCartItems }}</option></select><br>
       </form>
         
         <ion-button  color="danger" (click)="closePopover()">
@@ -13,5 +19,9 @@
           <ion-icon name="checkmark" slot="start"></ion-icon>
           Buy
         </ion-button>
+        <ion-button  color="success" (click)="mpesa()">
+            <ion-icon name="checkmark" slot="start"></ion-icon>
+            Buy Mpesa
+          </ion-button>
       </div>
 

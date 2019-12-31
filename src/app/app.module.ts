@@ -24,14 +24,12 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { MediaFilesService } from 'src/media-files.service';
 
-
-
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
       return storage.get('access_token');
     },
-    whitelistedDomains: ['localhost:5000', '192.168.200.135:5000','192.168.100.35:5000','192.168.137.1:500', '192.168.100.11:500', '192.168.200.182:500', '192.168.200.129:500']
+    whitelistedDomains: ['localhost:5000', '192.168.200.135:5000','192.168.100.35:5000','192.168.137.1:500', '192.168.0.118:500', '192.168.200.182:500', '192.168.200.129:500', '192.168.100.35:500','192.168.0.106:500']
   }
 }
 @NgModule({
@@ -55,7 +53,6 @@ export function jwtOptionsFactory(storage) {
         provide: JWT_OPTIONS,
         useFactory: jwtOptionsFactory,
         deps: [Storage]
-
 }
     })
   ],
