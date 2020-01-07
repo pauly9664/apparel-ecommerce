@@ -103,7 +103,7 @@ export class AuthService {
     return this.http.get(`${this.url}/api/getItems`);
   }
   lipaMpesaOnline(){
-    return this.http.get(`${this.url}/api/mpesa`)
+    return this.http.get(`${this.url}/api/payments`)
   }
 
   logout() {
