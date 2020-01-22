@@ -10,7 +10,6 @@ import { ConfirmationPopoverPage } from './confirmation-popover/confirmation-pop
 import { Http, Headers } from '@angular/http';
 
 
-
 const TOKEN_KEY = 'access_token';
 
 @Injectable({
@@ -73,6 +72,7 @@ export class AuthService {
   }
 
   saveFeedback(contact) {
+    //console.log(contact);
     return this.http.post(`${this.url}/api/contact`, contact).pipe(
         catchError(e => {
           this.showAlert(e.error.msg);
@@ -102,10 +102,12 @@ export class AuthService {
   getItems(){
     return this.http.get(`${this.url}/api/getItems`);
   }
+  getOauthToken(){
+    return this.http.get(`${this.url}/api/mpesa`)
+  }
   lipaMpesaOnline(){
     return this.http.get(`${this.url}/api/payments`)
   }
-
   logout() {
     this.storage.remove(TOKEN_KEY).then(() => {
       this.authenticationState.next(false);

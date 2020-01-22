@@ -31,6 +31,8 @@ export class ContactPage implements OnInit {
     });
   }
     onReply() {
+      console.log(this.contactForm.value);
     return this.contactService.saveFeedback(this.contactForm.value).subscribe();
+    
  }
 }
