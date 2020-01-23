@@ -8,7 +8,7 @@ export const environment = {
   turl: 'http://192.168.100.35:500',
   wurl: 'http://192.168.200.142:500',
   eurl: 'http://192.168.0.106:500',
-  url: 'http://192.168.100.11:500',
+  url: 'http://192.168.137.1:500',
   mpesaUrl: 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
 };
 /*

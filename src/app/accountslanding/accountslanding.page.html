@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"></ion-back-button>
-        </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
     <ion-title>Account</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,21 +12,37 @@
     <ion-row>
       <ion-col size-sm="6" size-md="6">
         <ion-card>
-            <ion-card-header style="color:green"> <ion-icon name="person" slot="start"></ion-icon>Account Details
-            </ion-card-header>
+          <ion-card-header style="color:#fff; background-color: grey">
+            <ion-icon name="person" slot="start"></ion-icon>Account Details
+          </ion-card-header>
           <ion-card-content>
-            <p class="account-ditz">Name: {{name}}<br></p>
-            <p> Cell: {{number}}<br></p>
-            <p> Email: {{email}}</p>
-            <ion-button fill="outline" size="small" align-self-center><ion-icon name="build" slot="start"></ion-icon>Edit</ion-button>
+            <ion-item lines="none" style="margin-left: auto; margin-right: auto">
+            <p><span class="account-details">Name</span>: {{name}}<br></p>
+            </ion-item>
+            <ion-item lines="none">
+            <p> <span class="account-details">Cell</span>: {{number}}<br></p>
+          </ion-item>
+          <ion-item lines="none">
+           <p><span class="account-details">Email</span> : {{email}}</p>
+          </ion-item>
+            <ion-button fill="outline" size="small" align-self-center>
+              <ion-icon name="build" slot="start"></ion-icon>Edit
+            </ion-button>
+         
           </ion-card-content>
         </ion-card>
       </ion-col>
       <ion-col size-sm="6" size-md="6">
         <ion-card>
+          <ion-card-header style="color: #fff;background-color: grey">
+            <ion-icon name="document"></ion-icon> Orders history
+          </ion-card-header>
           <ion-card-content>
-            <h3 style="color: blue"><ion-icon name="document"></ion-icon> Orders history</h3>
-            <ion-item lines="none" *ngFor= "let account of parsedAccount "> {{account.buying_date}}<ion-button fill="outline" slot= "end" size="small"><ion-icon name="eye" slot="start"></ion-icon>VIEW</ion-button></ion-item>
+            <ion-item lines="none" *ngFor="let account of parsedAccount " style="font-weight: bold"> {{account.buying_date}}<ion-button
+                fill="outline" slot="end" size="small">
+                <ion-icon name="eye" slot="start"></ion-icon>VIEW
+              </ion-button>
+            </ion-item>
           </ion-card-content>
         </ion-card>
       </ion-col>
@@ -34,15 +50,20 @@
     <ion-row>
       <ion-col size-sm="6" size-md="6">
         <ion-card>
+
+          <ion-card-header style="color: #fff; background-color: grey">
+            <ion-icon name="contact"></ion-icon> Delivery Updates
+          </ion-card-header>
           <ion-card-content>
-            <h3 style="color: gold"><ion-icon slot="start" name="contact"></ion-icon> Delivery Updates</h3>
           </ion-card-content>
         </ion-card>
-      </ion-col>
+          </ion-col>
       <ion-col size-sm="6" size-md="6">
         <ion-card>
+          <ion-card-header style="color: #fff ;background-color: grey">
+            <ion-icon name="basket"></ion-icon> Saved Items
+          </ion-card-header>
           <ion-card-content>
-            <h3 style="color: orange"> <ion-icon slot="start" name="basket"></ion-icon> Saved Items</h3>
           </ion-card-content>
         </ion-card>
       </ion-col>

@@ -16,7 +16,8 @@ export class MainShopPage implements OnInit {
   sliderConfig = {
     spaceBetween: 10,
     centeredSlides: true,
-    slidesPerView: 1.5
+    slidesPerView: 1.5,
+    watchSlidesProgress: true,
   }
 
   constructor(private cartService: ShoppersCartService, private router: Router) { }

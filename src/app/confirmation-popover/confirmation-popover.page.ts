@@ -35,6 +35,11 @@ export class ConfirmationPopoverPage implements OnInit {
   saleUpdate() {
     this.authService.updateSales(this.salesForm.value).subscribe();
   }
+  // refresh(){
+  //   this.authService.getOauthToken().subscribe((res: any) =>{
+  //     res.next();
+  //   });
+  // }
   mpesa(){
     this.authService.mpesaOauth().subscribe(res =>{
     });

@@ -23,7 +23,7 @@
         {{cat.category }}
       </ion-col>
     </ion-row>
-    <ion-slides [options]="sliderConfig">
+    <ion-slides [options]="sliderConfig" direction="vertical">
       <ion-slide *ngFor="let product of cat.products">
         <div *ngIf="cat.expanded">
                 <!-- <ion-card class="new-card">
