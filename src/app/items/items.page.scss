@@ -32,17 +32,25 @@ ion-content{
 }
 .accordion-list{
     margin-bottom : 4px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 300px;
     --ion-item-background: white;
+   
     .section, .section-white {
         --min-height: 28px;
+    
+        font-weight: bold;
+        font-family: serif;
     }
 }
-ion-list{
-    background-image: linear-gradient(to right, #F18C8E, #F0B784);
-}
+// ion-list{
+//    // background-image: linear-gradient(to right, #F18C8E, #F0B784);
+// }
 .section{
     // --ion-item-background: white;
     --ion-item-color: #000;
+    
 }
 .section-active{
     --ion-item-background:linear-gradient(to right, #F18C8E, #F0B784);
@@ -57,8 +65,10 @@ ion-list{
 .child-list{
     padding: 0px;
     margin: 0px;
+    font-weight: bold;
     .child, .child-active{
         margin-bottom: 2px;
+        font-weight: bold;
     }
 }
 .child{

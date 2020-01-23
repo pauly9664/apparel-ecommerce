@@ -10,7 +10,7 @@ export class ShoppersCartService {
       category: 'US Dresses',
       expanded: 'true',
       products: [
-        { id: 0, name: 'SLN Fashion', total: '8000', url:'assets/p1.jpg' },
+        { id: 0, name: 'SLN Fashion', total: '8000', url:'http://localhost:500/image-1579537574298.jpg' },
         { id: 1, name: 'Ivanka Trump', total: '5000', url:'assets/p2.jpg' },
         { id: 2, name: 'Elen Tracy', total: '13500', url:'assets/p3.jpg' },
         { id: 3, name: 'Tommy Hilfiger', total: '12500', url:'assets/p4.jpg' }

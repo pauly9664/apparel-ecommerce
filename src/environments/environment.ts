@@ -6,9 +6,9 @@ export const environment = {
   production: false,
   kurl: 'http://192.168.200.129:500',
   turl: 'http://192.168.100.35:500',
-  url: 'http://192.168.200.142:500',
+  wurl: 'http://192.168.200.142:500',
   eurl: 'http://192.168.0.106:500',
-  durl: 'http://192.168.8.118:500',
+  url: 'http://192.168.100.11:500',
   mpesaUrl: 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
 };
 /*

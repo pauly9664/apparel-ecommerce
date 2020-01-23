@@ -102,9 +102,19 @@ export class AuthService {
   getItems(){
     return this.http.get(`${this.url}/api/getItems`);
   }
+  mpesaOauth(){
+    return this.http.get(`${this.url}/api/mpesa`).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        //this.authenticationState.next(false);
+        throw new Error(e); 
+      })
+    );
+  }
   lipaMpesaOnline(){
     return this.http.get(`${this.url}/api/payments`)
   }
+
 
   logout() {
     this.storage.remove(TOKEN_KEY).then(() => {

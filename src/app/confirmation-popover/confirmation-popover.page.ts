@@ -36,6 +36,10 @@ export class ConfirmationPopoverPage implements OnInit {
     this.authService.updateSales(this.salesForm.value).subscribe();
   }
   mpesa(){
+    this.authService.mpesaOauth().subscribe(res =>{
+    });
+  }
+  lipaNow(){
     this.authService.lipaMpesaOnline().subscribe();
   }
   closePopover(){

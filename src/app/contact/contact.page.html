@@ -14,7 +14,7 @@
         <ion-grid fixed>
             <ion-row>
             <ion-col size-sm="6" size-md="6">
-                    <form [formGroup]="contactForm" (ngSubmit)="onReply()">
+                    <form [formGroup]="contactForm"     (ngSubmit)="onReply()">
                 <div class= "diagonal3">
                   <div class="inside">
                   <ion-list>
@@ -29,11 +29,11 @@
                     </ion-item>
           
                     <ion-item class="staythere">
-                      <ion-label position="floating">Your feedback..</ion-label>
+                      <ion-label position="floating" >Your feedback..</ion-label>
                       <ion-input type="text" formControlName="feedback"></ion-input>
                     </ion-item>
                   </ion-list>
-                <ion-button fill="outline"  (click)="onReply()" type="button" size="default">Submit</ion-button>
+                <ion-button fill="outline"  (click)="onReply()" type="button" style="color: white"size="default">Submit</ion-button>
               </div>
             </div>
               </form>
