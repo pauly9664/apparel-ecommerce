@@ -28,7 +28,9 @@ export class AuthService {
       this.checkToken();
     });
   }
-
+oauthTok(oauth_token){
+  return this.http.post(`${this.url}/api/payments`, oauth_token);
+}
   checkToken() {
     this.storage.get(TOKEN_KEY).then(token => {
       if (token) {
@@ -43,7 +45,6 @@ export class AuthService {
         }
       }
     });
-    
   }
   register(credentials) {
     // if(credentials){
@@ -112,9 +113,8 @@ export class AuthService {
     );
   }
   lipaMpesaOnline(){
-    return this.http.get(`${this.url}/api/payments`)
+    return this.http.get(`${this.url}/api/tokenGetter`);
   }
-
 
   logout() {
     this.storage.remove(TOKEN_KEY).then(() => {

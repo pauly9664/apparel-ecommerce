@@ -13,6 +13,7 @@ export class ConfirmationPopoverPage implements OnInit {
   passedPayment = null;
   totalCartItems = null;
   loggedInUser = null;
+  acc_token = null;
   salesForm: FormGroup;
 
   constructor(private navParams: NavParams, private formBuilder: FormBuilder, private popoverController: PopoverController, private authService: AuthService) {
@@ -29,7 +30,8 @@ export class ConfirmationPopoverPage implements OnInit {
       amount: [this.totalCartItems],
       delivery_status: [this.passedPayment],
       payment_status: [this.passedDelivery],
-      user_id: [this.loggedInUser]
+      user_id: [this.loggedInUser],
+      
     });
   }
   saleUpdate() {
@@ -45,7 +47,13 @@ export class ConfirmationPopoverPage implements OnInit {
     });
   }
   lipaNow(){
-    this.authService.lipaMpesaOnline().subscribe();
+    this.authService.lipaMpesaOnline().subscribe(res =>{
+        this.acc_token = res['access_token'];
+        console.log(this.acc_token);
+    });
+  }
+  postToken(){
+    this.authService.oauthTok(this.acc_token).subscribe();
   }
   closePopover(){
     this.popoverController.dismiss();

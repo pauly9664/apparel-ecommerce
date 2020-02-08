@@ -12,8 +12,8 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [scrollEvents]="true">
+<div class="poster-image"></div>
+<ion-content [scrollEvents]="true" class="poster-image">
   <h1 style="color: linear-gradient" text-center> Select Item </h1>
   <ion-list *ngFor = "let item of produce; let i = index;" class="accordion-list" lines="none" detail="false" no-padding>
    <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': item.open, 'section': !item.open}">

@@ -1,27 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title text-center style="font-weight: bold;">Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <div class="bg-image"></div>
+  <div class="bg-text">
   <div class = "styleInput">
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
 
     <ion-item class = "curved">
-      <ion-label position="floating">Email</ion-label>
+      <ion-label position="floating" style="font-weight: bold;">Email</ion-label>
       <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
 
     <ion-item class = "curved">
-      <ion-label position="floating">Password</ion-label>
+      <ion-label position="floating" style="font-weight: bold;">Password</ion-label>
       <ion-input type="password" formControlName="password"></ion-input>
     </ion-item>
 
-    <div class="loading-spinner"><ion-button expand="full" type="submit" fill="outline"  (click)="presentLoadingWithOptions()" [disabled]="!credentialsForm.valid">Login</ion-button>
+    <div class="loading-spinner"><ion-button expand="full" type="submit" fill="outline"  (click)="presentLoadingWithOptions()" [disabled]="!credentialsForm.valid" style="color: #fff">Login</ion-button>
     <h1 text-center style="font-size: 1.4em"> OR <br></h1>
-    <ion-button expand="full" type="button" routerLink="/menu/register"  (click)="presentLoadingWithOptions()" fill="outline">Register</ion-button>
+    <ion-button expand="full" type="button" routerLink="/menu/register"  (click)="presentLoadingWithOptions()" fill="outline" style="color: #fff">Register</ion-button>
   </div>
   </form>
+</div>
 </div>
 </ion-content>
