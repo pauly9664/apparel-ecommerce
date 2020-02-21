@@ -11,6 +11,12 @@ ion-badge {
 ion-row{
     background-image: linear-gradient(to right, #F18C8E, #F0B784);
 }
+p.navigation-arrows{
+    border: 5px round;
+    //border-width: 15px;
+    font-size: small; 
+    //color: #fff;
+}
 .category-banner {
     //border-left: 8px solid var(--ion-color-secondary);
     --ion-background-color: var(--custom-menu);

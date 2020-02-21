@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ShoppersCartService } from '../shoppers-cart.service';
 import { Router } from '@angular/router';
+import { IonSlides } from '@ionic/angular';
+//import {ViewChild} from '@ionic/angular';
 
 @Component({
   selector: 'app-main-shop',
@@ -8,10 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./main-shop.page.scss'],
 })
 export class MainShopPage implements OnInit {
-
+  @ViewChild(IonSlides) slides: IonSlides;
   cart = [];
   items = [];
   sel = [];
+
 
   sliderConfig = {
     spaceBetween: 10,
@@ -20,13 +23,16 @@ export class MainShopPage implements OnInit {
     watchSlidesProgress: true,
   }
 
-  constructor(private cartService: ShoppersCartService, private router: Router) { }
+  constructor(private cartService: ShoppersCartService, private router: Router, 
+    //private slides: IonSlides
+    ) { }
 
   ngOnInit() {
     this.cart = this.cartService.getCart();
     this.sel = this.cartService.getSelect();
     this.items = this.cartService.getProducts(); 
   }
+  
   // addToCart(product){
   //   this.cartService.addProduct(product);
   // }
@@ -36,5 +42,12 @@ export class MainShopPage implements OnInit {
   }
   openCart(){ 
     this.router.navigate(['menu/shoppers-cart']);
+  }
+  // @ViewChild(Slides) slides: Slides;
+  slidePrev() {
+    this.slides.slidePrev();
+  }
+  slideNext() {
+    this.slides.slideNext();
   }
 }

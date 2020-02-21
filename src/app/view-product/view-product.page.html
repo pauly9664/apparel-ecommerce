@@ -25,9 +25,10 @@
         <img [src]='pat.url' />
       </div>
       <div class="float-items">
-      <p style>Name: {{pat.name}}</p><br>
-      <p>Price: {{pat.total}}</p> 
-      <ion-button (click)="addToCart(product)" fill="outline" ><ion-icon name="add"></ion-icon> Add to Cart </ion-button>
+      <p><span style="font-weight: bold;">Name</span>: {{pat.name}}</p><br>
+      <p><span style="font-weight: bold;">Price</span>: {{pat.total}}</p> 
+      <ion-button (click)="addToCart(product)" color="dark" ><ion-icon name="cart"></ion-icon> Add to Basket </ion-button>
+      <ion-button (click)="addToCart(product)" color="dark" ><ion-icon name="add"></ion-icon> Book Item </ion-button>
     </div>
   </ion-row>
 </ion-grid>

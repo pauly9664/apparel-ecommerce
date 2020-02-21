@@ -1,36 +1,47 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title text-center style="font-weight: bold;">Register</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+  <div class="bg-image"></div>
+  <div class="bg-text">
   <div class="styleInput">
-    <form [formGroup]="credentialsForm" (ngSubmit)="register()">
-
+    <form [formGroup]="credentialsForm" (ngSubmit)="register()" >
+      <img src="/assets/preetiLogo1.png" style="height:100px; width: 100px" />
       <ion-item class="curved">
-        <ion-label position="floating">Names</ion-label>
-        <ion-input type="text" formControlName="names"></ion-input>
+        <ion-label position="floating" style="font-weight: bold;">Names</ion-label>
+        <ion-input type="text" formControlName="names" id="names"></ion-input>
+        
       </ion-item>
+      <div class="validation-errors">
+        <ng-container *ngFor="let validation of validation_messages.names">
+          <div class="error-message" *ngIf="credentialsForm.get('names').hasError(validation.type) && (credentialsForm.get('names').dirty || credentialsForm.get('names').touched)">
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
 
       <ion-item class="curved">
-        <ion-label position="floating">Phone Number</ion-label>
+        <ion-label position="floating" style="font-weight: bold;">Phone Number</ion-label>
         <ion-input type="tel" formControlName="number"></ion-input>
       </ion-item>
 
       <ion-item class="curved">
-        <ion-label position="floating">Email</ion-label>
+        <ion-label position="floating" style="font-weight: bold;">Email</ion-label>
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
 
-      <ion-item class="curved">
-        <ion-label position="floating">Password</ion-label>
+      <ion-item class="curved" >
+        <ion-label position="floating" style="font-weight: bold;">Password</ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
 
-      <ion-button expand="full" type="button" (click)="register()" [disabled]="!credentialsForm.valid">Register
+      <ion-button expand="full" type="button" (click)="register()" >Register
       </ion-button>
     </form>
   </div>
-
+  <p style="color: blue;" tappable routerLink="/menu/login">Already have an account? LOGIN</p>
+</div>
 </ion-content>

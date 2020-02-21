@@ -22,14 +22,25 @@
       <ion-col text-center button tappable (click)="cat.expanded =!cat.expanded" align-self-center style="font-weight: bold">
         {{cat.category }}
       </ion-col>
-    </ion-row>
-    <ion-slides [options]="sliderConfig" direction="vertical">
+    </ion-row>   
+    <div style="position: absolute;top: 50%;left: 16px;font-size: 25px;z-index: 2;" (click)="slidePrev()">
+      <p class="navigation-arrows">Previous</p>
+      <ion-icon name="arrow-back"></ion-icon>
+    </div>
+    <div style="position: absolute;top: 50%;right: 16px;font-size: 25px;z-index: 2;" (click)="slideNext()">
+      <p class="navigation-arrows"><span>Next</span></p>
+      <ion-icon name="arrow-forward"></ion-icon>
+    </div>
+    <ion-slides [options]="sliderConfig">
+      
       <ion-slide *ngFor="let product of cat.products">
+        
         <div *ngIf="cat.expanded">
+         
                 <!-- <ion-card class="new-card">
                   <ion-card-header>
                     <ion-card-title style="font-family: fantasy"> -->
-                      <p>{{product.name }} - {{ product.total }}</p>
+                      <p style="font-size: small;">{{product.name }} - {{ product.total }}</p>
                     <!-- </ion-card-title> -->
                     <p routerLink="/menu/view-product" (click)="viewProduct(product)" tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
                   <!-- </ion-card-header>
@@ -37,8 +48,10 @@
                       <div class="display-items"><img tappable [src]='product.url' /></div> 
                   <!-- </ion-card-content>
                   </ion-card> -->
+                
         </div>
       </ion-slide>
+   
     </ion-slides>
   </div>
 </ion-content>

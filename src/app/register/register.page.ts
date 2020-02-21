@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,6 +8,20 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+  validation_messages = {
+    'names': [
+        { type: 'required', message: 'Username is required.' },
+        { type: 'minlength', message: 'Username must be at least 5 characters long.' },
+      //   { type: 'maxlength', message: 'Username cannot be more than 25 characters long.' },
+      //   { type: 'pattern', message: 'Your username must contain only numbers and letters.' },
+      //   { type: 'validUsername', message: 'Your username has already been taken.' }
+      // ],
+      // 'name': [
+      //   { type: 'required', message: 'Name is required.' }
+      ],
+    
+     //more messages
+    }
   credentialsForm: FormGroup;
   constructor(public formBuilder: FormBuilder, private authService: AuthService) { }
 
