@@ -32,11 +32,28 @@
     margin-block-end: auto;
 }
 .round-border{
-    border: 2px solid red;
+    //border: 2px solid red;
     border-radius: 0.75em;
-    margin-top: 10%;
+    margin-top: 1%;
     margin-bottom: 10%;
 }
+ion-fab-button {
+    height: 50px;
+    width: 70px;
+  }
+.cart-length {
+    color: var(--ion-color-primary);
+    position: absolute;
+    top: 18px;
+    left: 25px;
+    font-weight: 600;
+    font-size: 1.2em;
+    min-width: 25px;
+    z-index: 10;
+  }
+  .cart-icon {
+    font-size: 50px;
+  }
 .background{
     // background-image: url("/assets/sample1.jpg");
     //background-position: center;

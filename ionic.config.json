@@ -4,5 +4,11 @@
     "cordova": {}
   },
   "type": "angular",
-  "id": "ff70c028"
+  "id": "ff70c028",
+  "proxies": [
+    {
+      "path": "/",
+      "proxyUrl": "http://192.168.200.140:500/"
+    }
+  ]
 }

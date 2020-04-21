@@ -9,15 +9,19 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
-  accountsbyid: any[];
   data = null;
   loggedInUser = '';
   autoClose = false;
-  constructor(private authenticator: AuthService, private activatedRoute: ActivatedRoute, public loadingController: LoadingController) { 
-    this.authenticator.getSalesActivities().subscribe(res => {
-      this.data = res['msg'];
-      this.accountsbyid = res['accounts'];
+  accountsbyid = undefined;
+  parsedAccount = undefined;
+  constructor(private orders: AuthService, private activatedRoute: ActivatedRoute, public loadingController: LoadingController) { 
+    this.orders.getSalesActivities().subscribe(res => {
+      this.accountsbyid = JSON.stringify(res['accounts']);
+      let parsedData = JSON.parse(this.accountsbyid);
+      this.parsedAccount = parsedData;
       // this.accountsbyid[0].open = true;
+      let accountsarray = Object.keys(this.accountsbyid[0]);
+      console.log(this.accountsbyid[0]);
     })
   }
   toggleSection(index){
@@ -32,12 +36,6 @@ export class HistoryPage implements OnInit {
 
   ngOnInit() { 
     // this.loggedInUser = this.activatedRoute.snapshot.paramMap.get('user_id');
-      this.authenticator.getSalesActivities().subscribe(res => {
-        this.data = res['msg'];
-        this.accountsbyid = res['accounts'];
-        this.loggedInUser = res['id'];
-       console.log(this.accountsbyid);
-      })
   }
 
 }

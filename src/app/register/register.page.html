@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-title text-center style="font-weight: bold;">Register</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,33 +12,37 @@
       <img src="/assets/preetiLogo1.png" style="height:100px; width: 100px" />
       <ion-item class="curved">
         <ion-label position="floating" style="font-weight: bold;">Names</ion-label>
-        <ion-input type="text" formControlName="names" id="names"></ion-input>
-        
+        <ion-input type="text" formControlName="names" id="names"></ion-input>    
       </ion-item>
-      <div class="validation-errors">
-        <ng-container *ngFor="let validation of validation_messages.names">
-          <div class="error-message" *ngIf="credentialsForm.get('names').hasError(validation.type) && (credentialsForm.get('names').dirty || credentialsForm.get('names').touched)">
-            {{ validation.message }}
-          </div>
-        </ng-container>
-      </div>
+      <ion-item *ngIf="!credentialsForm.controls.names.valid && credentialsForm.controls.number.dirty ">
+        <p style="font-size: 0.8em;color:red">Please enter a valid Username.</p>
+    </ion-item>
 
       <ion-item class="curved">
-        <ion-label position="floating" style="font-weight: bold;">Phone Number</ion-label>
-        <ion-input type="tel" formControlName="number"></ion-input>
+        <ion-label position="floating" style="font-weight: bold;">Phone Number <span style="font-size:0.8em"></span>e.g<span style="color: pink; font-size:0.8em"> 07XXXXXXXX</span>)</ion-label>
+        <ion-input type="tel" formControlName="number" [class.invalid]="!credentialsForm.controls.number.valid && credentialsForm.controls.number.dirty"></ion-input>
       </ion-item>
+      <ion-item *ngIf="!credentialsForm.controls.number.valid && credentialsForm.controls.number.dirty ">
+        <p style="font-size: 0.8em;color:red">Please enter a valid phone number.</p>
+    </ion-item>
 
       <ion-item class="curved">
         <ion-label position="floating" style="font-weight: bold;">Email</ion-label>
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
+      <ion-item *ngIf="!credentialsForm.controls.email.valid && credentialsForm.controls.number.dirty ">
+        <p style="font-size: 0.8em;color:red">Please enter a valid email address.</p>
+    </ion-item>
 
       <ion-item class="curved" >
         <ion-label position="floating" style="font-weight: bold;">Password</ion-label>
         <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
+      <ion-item *ngIf="!credentialsForm.controls.password.valid && credentialsForm.controls.number.dirty ">
+        <p style="font-size: 0.8em;color:red">Your password is too weak.</p>
+    </ion-item>
 
-      <ion-button expand="full" type="button" (click)="register()" >Register
+      <ion-button expand="full" fill="outline" [disabled]="!credentialsForm.valid" (click)="register()" >Register
       </ion-button>
     </form>
   </div>

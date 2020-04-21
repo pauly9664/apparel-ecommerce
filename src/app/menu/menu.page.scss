@@ -14,10 +14,10 @@
     margin-left: auto;
     margin-right: auto;
 }
-ion-menu {
-    --ion-background-color: var(--custom-menu);
-    // max-width: 1em; 
-}
+// ion-menu {
+//     //--ion-background-color: var(--custom-menu);
+//     // max-width: 1em; 
+// }
     ion-toolbar {
         --background: transparent;
     }
@@ -25,12 +25,12 @@ ion-menu {
     ion-list {
         background: transparent;
         font-weight: bold;
-        color: #fff;
+        //color: #fff;
     }
     ion-item {
         // color: rgb(255, 255, 255);
-        color: #fff;
-        font-weight: bold;
+        //color: #fff;
+        font-family: fantasy;
         --background: transparent;
         
     }

@@ -1,60 +1,113 @@
 import { Injectable } from '@angular/core';
-
+import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { ProductsComponent } from './products/products.component';
+import { map } from 'rxjs/operators';
+export interface Product{
+  _id: string;
+  filename: string;
+  description: string;
+  price: number;
+  category: string;
+  count: number;
+  created_at: Date; 
+  url: string;
+  amount: number;
+  //  getImages();
+  
+}
 @Injectable({
   providedIn: 'root'  
 })
 export class ShoppersCartService {
+  url = environment.url;
+  items:Observable<any>;
+  //    data = [
+  //   {
+  //     category: 'US Dresses',
+  //     expanded: 'true',
+  //     products: [
+  //       { id: 0, name: 'SLN Fashion', total: '8000', url:'assets/p4.jpg' },
+  //       { id: 1, name: 'Ivanka Trump', total: '5000', url:'assets/p2.jpg' },
+  //       { id: 2, name: 'Elen Tracy', total: '13500', url:'assets/p3.jpg' },
+  //       { id: 3, name: 'Tommy Hilfiger', total: '12500', url:'assets/p4.jpg' }
+  //     ]
+  //   },
+  //   {
+  //     category: 'Turkey Dresses',
+  //     products: [
+  //       { id: 4, name: 'Izzet candan', total: '5000', url:'assets/p5.jpg' },
+  //       { id: 5, name: 'La fiera', total: '9500', url:'assets/p6.jpg' },
+  //       { id: 6, name: 'Visconi', total: '10500', url:'assets/p7.jpg' },
+  //       { id: 7, name: 'Xmeric', total: '8500', url:'assets/p8.jpg'  }
+  //     ]
+  //   },
+  //   {
+  //     category: 'All tops',
+  //     products: [
+  //       { id: 8, name: 'Ali Yavuz', total: '2300', url: 'assets/p9.jpg' },
+  //       { id: 9, name: 'Sioni ', total: '3500', url:'assets/p10.jpg' },
+  //       { id: 10, name: 'Milano ', total: '2500', url:'assets/ssuit.jpg' },
+  //       { id: 11, name: 'Vazi ', total: '3400', url:'assets/suit3.jpg' }
+  //     ]
+  //   }
+  // ];
+  // private sel = [];
+  private cart=[];
+  private cartItemCount = new BehaviorSubject(0);
 
-    data = [
-    {
-      category: 'US Dresses',
-      expanded: 'true',
-      products: [
-        { id: 0, name: 'SLN Fashion', total: '8000', url:'http://localhost:500/image-1579537574298.jpg' },
-        { id: 1, name: 'Ivanka Trump', total: '5000', url:'assets/p2.jpg' },
-        { id: 2, name: 'Elen Tracy', total: '13500', url:'assets/p3.jpg' },
-        { id: 3, name: 'Tommy Hilfiger', total: '12500', url:'assets/p4.jpg' }
-      ]
-    },
-    {
-      category: 'Turkey Dresses',
-      products: [
-        { id: 4, name: 'Izzet candan', total: '5000', url:'assets/p5.jpg' },
-        { id: 5, name: 'La fiera', total: '9500', url:'assets/p6.jpg' },
-        { id: 6, name: 'Visconi', total: '10500', url:'assets/p7.jpg' },
-        { id: 7, name: 'Xmeric', total: '8500', url:'assets/p8.jpg'  }
-      ]
-    },
-    {
-      category: 'All tops',
-      products: [
-        { id: 8, name: 'Ali Yavuz', total: '2300', url: 'assets/p9.jpg' },
-        { id: 9, name: 'Sioni ', total: '3500', url:'assets/p10.jpg' },
-        { id: 10, name: 'Milano ', total: '2500', url:'assets/ssuit.jpg' },
-        { id: 11, name: 'Vazi ', total: '3400', url:'assets/suit3.jpg' }
-      ]
-    }
-  ];
-  private sel = [];
-  private cart = [];
+  constructor(private http: HttpClient) { }
+  // getSelect() {
+  //   return this.sel;
+  // }
+  getImages(): Observable<Product> {
+  //    return this.items = this.http.get<Product>(this.url + '/api/images').pipe(map(data =>{
+  //       this.items = data;
+  //       return this.items;
+  //      }));
+  // }
+  return this.http.get<Product>(this.url + '/api/images').pipe(map((response:Product)=> response)) ;
 
-  constructor() { }
-  getSelect() {
-    return this.sel;
-  }
-  getProducts() {
-    return this.data;
+  // getProducts() {
+  //    return this.data;
+    
+   }
+  getCartItemCount() {
+    return this.cartItemCount;
   }
   getCart() {
     return this.cart;
   }
-  addToView(product){
-    this.sel.push(product);
-  }
+  // addToView(product){
+  // //   //  console.log('yes',this.sel);
+  // //   this.sel.push(product);
+  // // }
   addProduct(product) {
-    this.cart.push(product);
+    
+    let added = false;
+    for (let p of this.cart) {
+      if (p._id === product._id) {
+        // console.log("Produce",product)
+        p.amount += 1;
+        console.log("p.amount", p.amount);
+        added = true;
+        break;
+      }
+    }
+    if (!added) {
+      console.log("Produce",product)
+      product.amount = 1;
+      this.cart.push(product);
+    }
+    this.cartItemCount.next(this.cartItemCount.value + 1);
   }
   removeProduct(product) {
-    this.cart.splice(product);
+    // for (let [index, p] of this.cart.entries()) {
+    //   if (p.id === product.id) {
+    //     // this.cartItemCount.next(this.cartItemCount.value - p.amount);
+    //     this.cart.splice(index, 1);
+    //   }
+    // }
   }
 }

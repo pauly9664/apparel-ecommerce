@@ -23,13 +23,15 @@ import { LoginPopoverPageModule } from './login-popover/login-popover.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { MediaFilesService } from 'src/media-files.service';
+import { ViewProductPageModule } from './view-product/view-product.module';
+import { ShoppersCartService } from './shoppers-cart.service';
 
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
       return storage.get('access_token');
     },
-    whitelistedDomains: ['*','localhost:5000','192.168.137.1:500', '192.168.200.135:5000','192.168.100.35:5000','192.168.137.1:500', '192.168.0.118:500', '192.168.200.142:500', '192.168.200.129:500', '192.168.100.35:500','192.168.0.106:500', '192.168.8.118:500','192.168.100.11:500']
+    whitelistedDomains: ['192.168.137.1:500', '192.168.0.122:500','192.168.200.154:500','192.168.200.187:500', '192.168.200.135:5000','192.168.100.35:500','192.168.137.1:500', '192.168.0.118:500', '192.168.200.142:5000', '192.168.200.129:500', '192.168.100.35:5000','192.168.0.106:500', '192.168.8.118:500','192.168.200.140:500','192.168.100.11:500']
   }
 }
 @NgModule({
@@ -39,6 +41,7 @@ export function jwtOptionsFactory(storage) {
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    ViewProductPageModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     HttpClientModule,
@@ -62,6 +65,7 @@ export function jwtOptionsFactory(storage) {
     FileTransfer,
     StatusBar,
     MediaFilesService,
+    ShoppersCartService,
     
     SplashScreen,
     

@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
@@ -8,7 +8,7 @@
     </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="openCart()">
-        <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+        <ion-badge *ngIf="cart.length > 0">{{ cartItemCount | async}}</ion-badge>
         <ion-icon name="cart" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -16,10 +16,10 @@
 </ion-header>
 
 <ion-content class="padding" scroll="true">
-  <div *ngFor="let cat of items" class="category-block">
+  <div *ngFor="let cat of item" class="category-block">
 
     <ion-row no-padding class="category-banner">
-      <ion-col text-center button tappable (click)="cat.expanded =!cat.expanded" align-self-center style="font-weight: bold">
+      <ion-col  text-center  tappable (click)="cat.expanded =!cat.expanded" align-self-center style=" color: #fff;font-family: Fantasy">
         {{cat.category }}
       </ion-col>
     </ion-row>   
@@ -33,25 +33,24 @@
     </div>
     <ion-slides [options]="sliderConfig">
       
-      <ion-slide *ngFor="let product of cat.products">
+      <ion-slide *ngFor="let img of item  ">
         
         <div *ngIf="cat.expanded">
          
-                <!-- <ion-card class="new-card">
+                <ion-card class="new-card">
                   <ion-card-header>
-                    <ion-card-title style="font-family: fantasy"> -->
-                      <p style="font-size: small;">{{product.name }} - {{ product.total }}</p>
-                    <!-- </ion-card-title> -->
-                    <p routerLink="/menu/view-product" (click)="viewProduct(product)" tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
-                  <!-- </ion-card-header>
-                  <ion-card-content> -->
-                      <div class="display-items"><img tappable [src]='product.url' /></div> 
-                  <!-- </ion-card-content>
-                  </ion-card> -->
-                
+                    <ion-card-title style="font-family: fantasy">
+                      <p style="font-size: small;">{{img.description }} - {{ img.price }}</p>
+                    </ion-card-title>
+                    <p (click)="openImage(img)"  tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
+                  </ion-card-header>
+                  <ion-card-content>
+                      <div class="display-items"><img tappable [src]='img.url' /></div> 
+                  </ion-card-content>
+                  </ion-card>       
         </div>
       </ion-slide>
    
-    </ion-slides>
+    </ion-slides> 
   </div>
 </ion-content>

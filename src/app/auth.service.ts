@@ -57,7 +57,9 @@ oauthTok(oauth_token){
       })
     );
   }
-
+  getImages() {
+    return this.http.get(this.url + 'api/images');
+  }
   login(credentials) {
     return this.http.post(`${this.url}/api/login`, credentials).pipe(
       tap(res => {

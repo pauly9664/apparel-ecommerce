@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="dark">
       <ion-buttons slot="start">
-          <ion-back-button defaultHref="/"></ion-back-button>
+          <ion-button  (click)="closePopover()">Close</ion-button>
         </ion-buttons>
     <ion-title text-center>
       Item
     </ion-title>
     <ion-buttons slot="end">
-        <ion-button (click)="openCart()">
+        <ion-button (click)="closePopover()" (click)="openCart()">
           <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
           <ion-icon name="cart" slot="icon-only"></ion-icon>
         </ion-button>
@@ -15,24 +15,25 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <!-- <div *ngFor="let pat of product"> -->
+  <!-- <div *ngFor="let pat of product">  -->
   <ion-card >
     <ion-card-header text-center>Selected Product</ion-card-header>
-    <ion-card-content *ngFor= "let pat of product"> 
+    <ion-card-content> 
         <ion-grid fixed>
             <ion-row>
       <div class = "selected-product">
-        <img [src]='pat.url' />
+        <img [src]='img.url' />
       </div>
       <div class="float-items">
-      <p><span style="font-weight: bold;">Name</span>: {{pat.name}}</p><br>
-      <p><span style="font-weight: bold;">Price</span>: {{pat.total}}</p> 
+      <p><span style="font-weight: bold;">Name</span>: {{img.description}}</p><br>
+      <p><span style="font-weight: bold;">Price</span>: {{img.price}}</p> 
       <ion-button (click)="addToCart(product)" color="dark" ><ion-icon name="cart"></ion-icon> Add to Basket </ion-button>
-      <ion-button (click)="addToCart(product)" color="dark" ><ion-icon name="add"></ion-icon> Book Item </ion-button>
+      <ion-button (click)="addProduct(product)" color="dark" ><ion-icon name="add"></ion-icon> Book Item </ion-button>
     </div>
   </ion-row>
 </ion-grid>
     </ion-card-content>
     <!-- <ion-card-content *ngFor="let jica of pat.products"> {{jica.id}}  ></ion-card-content> -->
   </ion-card>
+  <!-- </div> -->
 </ion-content>
