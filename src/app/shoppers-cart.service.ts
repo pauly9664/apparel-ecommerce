@@ -3,7 +3,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
+import { AlertController } from '@ionic/angular';
 export interface Product{
   _id: string;
   filename: string;
@@ -57,7 +58,7 @@ export class ShoppersCartService {
   private cart=[];
   private cartItemCount = new BehaviorSubject(0);
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alertController: AlertController) { }
   // getSelect() {
   //   return this.sel;
   // }
@@ -73,6 +74,22 @@ export class ShoppersCartService {
   //    return this.data;
     
    }
+   showAlert(msg) {
+    let alert = this.alertController.create({
+      message: msg,
+      header: 'Error, Please try again',
+      buttons: ['OK']
+    });
+    alert.then(alert => alert.present());
+  }
+   postCart(order){
+    return this.http.post(`${this.url}/api/mailer`, order).pipe(
+      catchError(e => {
+        this.showAlert(e.error.msg);
+        throw new Error(e);
+      })
+    );
+  }
   getCartItemCount() {
     return this.cartItemCount;
   }
@@ -96,18 +113,19 @@ export class ShoppersCartService {
       }
     }
     if (!added) {
-      console.log("Produce",product)
       product.amount = 1;
       this.cart.push(product);
     }
     this.cartItemCount.next(this.cartItemCount.value + 1);
   }
   removeProduct(product) {
-    // for (let [index, p] of this.cart.entries()) {
-    //   if (p.id === product.id) {
-    //     // this.cartItemCount.next(this.cartItemCount.value - p.amount);
-    //     this.cart.splice(index, 1);
-    //   }
-    // }
+  
+    for (let [index, p] of this.cart.entries()) {
+      if (p._id) {
+        console.log(product);
+        //this.cartItemCount.next(this.cartItemCount.value - p.amount);
+        this.cart.splice(index,1);
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   kurl: 'http://192.168.200.129:500',
-  url: 'http://192.168.100.35:500',
+  url: 'http://192.168.100.35:501',
   wurl: 'http://192.168.200.142:500',
   eurl: 'http://192.168.0.106:500',
   hurl: 'http://192.168.0.122:500',

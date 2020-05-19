@@ -7,7 +7,7 @@ import { ShoeServiceService } from '../shoe-service.service';
 import { EtcServiceService } from '../etc-service.service';
 import { ConfirmationPopoverPage } from '../confirmation-popover/confirmation-popover.page';
 import { LoginPopoverPage } from '../login-popover/login-popover.page';
-import { NavController, PopoverController, NavParams } from '@ionic/angular';
+import { NavController, PopoverController, NavParams, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
@@ -27,7 +27,7 @@ export class ShoppersCartPage implements OnInit {
   cart = [];
  
 
-  constructor(private cartService: ShoppersCartService, private popoverController: PopoverController, private authenticatedUser: AuthService,private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
+  constructor(private cartService: ShoppersCartService, private popoverController: PopoverController,private modalCtrl:ModalController, private authenticatedUser: AuthService,private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
 
   ngOnInit() {
     
@@ -140,5 +140,8 @@ export class ShoppersCartPage implements OnInit {
   // }
   removeFromCart(product){
     this.cartService.removeProduct(product);
+  }
+  closePopover(){
+    this.modalCtrl.dismiss();
   }
 }

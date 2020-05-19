@@ -1,10 +1,11 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { AuthService } from './../auth.service';
 import { Storage } from '@ionic/storage';
-import { ToastController, NavController, LoadingController } from '@ionic/angular';
+import { ToastController, NavController, LoadingController, ModalController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ShoppersCartService } from '../shoppers-cart.service';
+import { ShoppersCartPage } from '../shoppers-cart/shoppers-cart.page';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class HomePage implements OnInit{
   }
   platform: any;
 
-  constructor(private authService: AuthService, private cartService: ShoppersCartService, private nav: NavController, private router: Router,public loadingController: LoadingController, private storage: Storage, private activatedRoute:ActivatedRoute)
+  constructor(private authService: AuthService, private modalCtrl:ModalController, private cartService: ShoppersCartService, private nav: NavController, private router: Router,public loadingController: LoadingController, private storage: Storage, private activatedRoute:ActivatedRoute)
   {}
 
   ngOnInit() { 
@@ -47,8 +48,16 @@ export class HomePage implements OnInit{
   logout() {
     this.authService.logout();
 }
-openCart(){ 
-  this.router.navigate(['menu/shoppers-cart']);
+async openCart(){ 
+  //this.router.navigate(['menu/shoppers-cart']);
+  let modal = await this.modalCtrl.create({
+      
+    component: ShoppersCartPage, 
+      // componentProps:{
+      //   img: img,
+      // }
+    });
+  modal.present();
 }
 pushUser(){
   this.nav.navigateForward(`menu/history${this.users}`);
@@ -63,4 +72,5 @@ async presentLogoutWithOptions() {
   });
   return await loading.present();
 }
+
 }

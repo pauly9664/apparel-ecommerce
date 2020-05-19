@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, PopoverController } from '@ionic/angular';
+import { NavParams, PopoverController, AlertController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { ShoppersCartService } from '../shoppers-cart.service';
+import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-confirmation-popover',
@@ -15,17 +17,49 @@ export class ConfirmationPopoverPage implements OnInit {
   loggedInUser = null;
   acc_token = null;
   salesForm: FormGroup;
+  cart=[] 
+  productsForm : FormGroup;
+   desc='';
+   id='';
+   category='';
+   amount='';
+   price='';
+   count='';
 
-  constructor(private navParams: NavParams, private formBuilder: FormBuilder, private popoverController: PopoverController, private authService: AuthService) {
+   value:any;
+  constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: PopoverController, private authService: AuthService) {
    }
    
   ngOnInit() {
-  
+ 
+    
+    
+    
     this.passedDelivery = this.navParams.get('delivery_id');
     this.passedPayment = this.navParams.get('payment_id');
     this.totalCartItems = this.navParams.get('total_id');
     this.loggedInUser = this.navParams.get('user_id');
+    this.cart = this.shoppercart.getCart();
+    // for (let i = 0, len = this.cart.length; i < len; i++) {
+    //   
+    //   }
+    this.cart.forEach((element, index, array) => {
+      // this.desc = element.description; // 100, 200, 300
+   // let data = this.cart.filter(obj =>{return Object.values(obj.description)});
+   this.desc = element.description;
+   this.id = element._id;
+   this.category = element.category;
+   this.price = element.price;
+   this.amount = element.amount;
+   this.count = element.count;
 
+   console.log('Yeeee', typeof this.desc, this.id, this.category, this.price, this.amount, this.count); 
+    });
+    
+       //this.shoppercart.postCart(this.desc).subscribe();
+      // console.log(typeof item.description,'X', item.amount,'=',item.price * item.amount);
+    // });  
+   // console.log(this.desc);
     this.salesForm = this.formBuilder.group({
       amount: [this.totalCartItems],
       delivery_status: [this.passedPayment],
@@ -33,9 +67,36 @@ export class ConfirmationPopoverPage implements OnInit {
       user_id: [this.loggedInUser],
       
     });
+    this.productsForm = this.formBuild.group({
+      description: ['',],
+      amount: ['',],
+      price: [''],
+      category: ['',],
+      count: ['',],
+      item: ['',]
+      
+    });
+    console.log('this desc', this.desc)
+    this.productsForm.get('description').patchValue(this.desc);
+      
   }
   saleUpdate() {
     this.authService.updateSales(this.salesForm.value).subscribe();
+  }
+  postToMail(){
+    const  productUpload = new FormData();
+   
+    let gokart = JSON.stringify(this.cart);
+    console.log("description", this.desc);
+    // console.log("this one, look", gokart);
+    productUpload.append('description', this.productsForm.get('description').value);
+    productUpload.append('amount', this.productsForm.get('amount').value);
+    productUpload.append('count', this.productsForm.get('count').value);
+    productUpload.append('category', this.productsForm.get('category').value);
+    productUpload.append('price', this.productsForm.get('price').value);
+    productUpload.append('item', this.productsForm.get('item').value);
+    console.log('checkout what is being sent', productUpload)
+      this.shoppercart.postCart(productUpload).subscribe();
   }
   // refresh(){
   //   this.authService.getOauthToken().subscribe((res: any) =>{
@@ -57,5 +118,15 @@ export class ConfirmationPopoverPage implements OnInit {
   }
   closePopover(){
     this.popoverController.dismiss();
+  }
+  async checkout() {
+    // Perfom PayPal or Stripe checkout process
+ 
+    let alert = await this.alertCtrl.create({
+      header: 'Thanks for your Order!',
+      message: 'We will deliver your goods as soon as possible',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 }

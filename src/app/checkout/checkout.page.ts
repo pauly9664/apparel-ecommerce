@@ -44,7 +44,7 @@ export class CheckoutPage implements OnInit {
   }
 
   constructor(private authService: AuthService, 
- private storage: Storage, private activatedRoute:ActivatedRoute, private router: Router, private authenticatedUser: AuthService, private modalController: ModalController, private popoverController:PopoverController, private nav:NavController) { }
+ private storage: Storage, private activatedRoute:ActivatedRoute, private router: Router, private authenticatedUser: AuthService, private modalController: ModalController,private cartserver: ShoppersCartService, private popoverController:PopoverController, private nav:NavController) { }
 
 ngOnInit(){   
   // this.authenticatedUser.authenticationState.subscribe(state => {
@@ -54,7 +54,6 @@ ngOnInit(){
   //     this.router.navigate(['menu/login']);
   //   }   
   // })
-  
   //this.totalCost = this.navParams.get('total_id');
   this.overallCost = this.activatedRoute.snapshot.paramMap.get('totals');
 

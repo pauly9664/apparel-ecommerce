@@ -30,6 +30,10 @@ export class HistoryPage implements OnInit {
       this.accountsbyid.filter((item, itemIndex) => itemIndex != index).map(item =>item.open=false);
     }
   }
+  orderDetails(){
+    console.log('orders', this.parsedAccount);
+   this.parsedAccount;
+  }
   toggleItem(index, childIndex){
     this.accountsbyid[index].children[childIndex].open = !this.accountsbyid[index].children[childIndex].open;
   }

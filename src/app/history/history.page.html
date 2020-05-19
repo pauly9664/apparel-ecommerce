@@ -11,11 +11,11 @@
      <ion-card-content>
       
   <ion-item lines="inset" *ngFor="let account of parsedAccount " style="font-weight: bold;">
-    <p style="padding: 4%;margin-right: 10%;"> {{account.buying_date | date }}</p>
-    <p style="font-weight: bold;">Status:<span style="color: green"> Delivered</span></p>
+    <p style="max-width: 4.2em;margin-right: 20%;"> {{account.buying_date | date }}</p>
+    <p style="font-weight: bold;"><span style="color: red"> Delivery ongoing</span></p>
     <ion-button
-    fill="outline" slot="end" size="small">
-    <ion-icon name="eye" slot="start"></ion-icon>VIEW
+    fill="outline" slot="end" size="small" (click)="orderDetails()">
+    <ion-icon name="eye" slot="start" ></ion-icon>VIEW
   </ion-button>
 </ion-item>
 
