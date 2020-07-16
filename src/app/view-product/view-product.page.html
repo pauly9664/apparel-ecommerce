@@ -24,16 +24,18 @@
       <div class = "selected-product">
         <img [src]='img.url' />
       </div>
-      <div class="float-items">
-      <p><span style="font-weight: bold;">Name</span>: {{img.description}}</p><br>
-      <p><span style="font-weight: bold;">Price</span>: {{img.price}}</p> 
-      <ion-button (click)="addToCart(product)" color="dark" ><ion-icon name="cart"></ion-icon> Add to Basket </ion-button>
-      <ion-button (click)="addProduct(product)" color="dark" ><ion-icon name="add"></ion-icon> Book Item </ion-button>
-    </div>
+   
   </ion-row>
 </ion-grid>
     </ion-card-content>
     <!-- <ion-card-content *ngFor="let jica of pat.products"> {{jica.id}}  ></ion-card-content> -->
   </ion-card>
+  <div class="float-items">
+    <p><span style="font-weight: bold;">Name</span>: {{img.description}}</p><br>
+    <p><span style="font-weight: bold;">Category</span>: {{img.category}}</p><br>
+    <p><span style="font-weight: bold;">Price</span>: KES <span style="color: green;">{{img.price}}</span></p> 
+    <ion-button (click)="addToCart(product)" color="dark" ><ion-icon name="cart"></ion-icon> Add to Basket </ion-button>
+    <ion-button (click)="addProduct(product)" color="dark" ><ion-icon name="add"></ion-icon> Book Item </ion-button>
+  </div>
   <!-- </div> -->
 </ion-content>

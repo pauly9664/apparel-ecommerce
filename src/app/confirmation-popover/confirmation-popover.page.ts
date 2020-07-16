@@ -16,24 +16,23 @@ export class ConfirmationPopoverPage implements OnInit {
   totalCartItems = null;
   loggedInUser = null;
   acc_token = null;
+  arrObj:any = [];
   salesForm: FormGroup;
   cart=[] 
   productsForm : FormGroup;
    desc='';
-   id='';
-   category='';
-   amount='';
-   price='';
-   count='';
+   id:any
+   category:any;
+   amount:any;
+   price:any;
+   count:any;
+   setval:any;
 
    value:any;
   constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: PopoverController, private authService: AuthService) {
    }
    
   ngOnInit() {
- 
-    
-    
     
     this.passedDelivery = this.navParams.get('delivery_id');
     this.passedPayment = this.navParams.get('payment_id');
@@ -46,14 +45,18 @@ export class ConfirmationPopoverPage implements OnInit {
     this.cart.forEach((element, index, array) => {
       // this.desc = element.description; // 100, 200, 300
    // let data = this.cart.filter(obj =>{return Object.values(obj.description)});
-   this.desc = element.description;
+  //  let arrObj =  [];
+  //  this.desc.push(element.description);
+  
+  //  this.desc = element.description;
    this.id = element._id;
    this.category = element.category;
    this.price = element.price;
    this.amount = element.amount;
    this.count = element.count;
-
-   console.log('Yeeee', typeof this.desc, this.id, this.category, this.price, this.amount, this.count); 
+   this.arrObj.push(element.description);
+   this.desc = JSON.stringify(this.arrObj);
+   console.log('Yeeee', typeof this.arrObj); 
     });
     
        //this.shoppercart.postCart(this.desc).subscribe();
@@ -65,38 +68,44 @@ export class ConfirmationPopoverPage implements OnInit {
       delivery_status: [this.passedPayment],
       payment_status: [this.passedDelivery],
       user_id: [this.loggedInUser],
+      description: [this.arrObj],
       
     });
     this.productsForm = this.formBuild.group({
-      description: ['',],
-      amount: ['',],
-      price: [''],
-      category: ['',],
-      count: ['',],
-      item: ['',]
+      description: [this.desc],
+      delivery_status: [this.passedPayment],
+      payment_status: [this.passedDelivery],
+      user_id: [this.loggedInUser],
       
     });
     console.log('this desc', this.desc)
-    this.productsForm.get('description').patchValue(this.desc);
+    this.setval = this.salesForm.get('description').setValue(this.desc);
+    this.setval = this.salesForm.get('user_id').setValue(this.loggedInUser);
+    this.setval = this.salesForm.get('amount').setValue(this.totalCartItems);
+    this.setval = this.salesForm.get('delivery_status').setValue(this.passedDelivery);
+    this.setval = this.salesForm.get('payment_status').setValue(this.passedPayment);
+  
       
   }
   saleUpdate() {
+    console.log(this.salesForm.value);
     this.authService.updateSales(this.salesForm.value).subscribe();
   }
   postToMail(){
-    const  productUpload = new FormData();
+    this.shoppercart.postCart(this.salesForm.value).subscribe();
+    // const  productUpload = new FormData();
    
-    let gokart = JSON.stringify(this.cart);
-    console.log("description", this.desc);
+    // let gokart = JSON.stringify(this.cart);
+    // console.log("description", this.desc);
     // console.log("this one, look", gokart);
-    productUpload.append('description', this.productsForm.get('description').value);
-    productUpload.append('amount', this.productsForm.get('amount').value);
-    productUpload.append('count', this.productsForm.get('count').value);
-    productUpload.append('category', this.productsForm.get('category').value);
-    productUpload.append('price', this.productsForm.get('price').value);
-    productUpload.append('item', this.productsForm.get('item').value);
-    console.log('checkout what is being sent', productUpload)
-      this.shoppercart.postCart(productUpload).subscribe();
+    // productUpload.append('description', this.setval);
+    // productUpload.append('amount', this.productsForm.get('amount').value);
+    // productUpload.append('count', this.productsForm.get('count').value);
+    // productUpload.append('category', this.productsForm.get('category').value);
+    // productUpload.append('price', this.productsForm.get('price').value);
+    // productUpload.append('item', this.productsForm.get('item').value);
+    // console.log('checkout what is being sent', productUpload)
+    //   this.shoppercart.postCart(productUpload).subscribe();
   }
   // refresh(){
   //   this.authService.getOauthToken().subscribe((res: any) =>{

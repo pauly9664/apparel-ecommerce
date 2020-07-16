@@ -4,9 +4,14 @@ import { ModalController, NavController, ActionSheetController, AlertController 
 import { Camera } from '@ionic-native/camera/ngx';
 import { PreviewMediaPage } from '../preview-media/preview-media.page';
 import { UploadMediaPage } from '../upload-media/upload-media.page';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ContactService } from '../contact.service';
 import { AuthService } from '../auth.service';
+import { ShoppersCartService } from '../shoppers-cart.service';
+import { element } from 'protractor';
+import { debounceTime } from 'rxjs/operators';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { ViewProductPage } from '../view-product/view-product.page';
 
 @Component({
   selector: 'app-media',
@@ -14,83 +19,130 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./media.page.scss'],
 })
 export class MediaPage implements OnInit {
-images = undefined;
+products:any=[];
+product:any=[];
+item:any;
+productCategory = [];
+items = [];
+prods:any;
+categorySelected = null;
+searchControl:FormControl;
 contactForm: FormGroup;
-  constructor( private imagesProvider: MediaFilesService, 
-    public nav: NavController, private camera: Camera,
-     private actionSheetCtrl: ActionSheetController, 
-     private modalCtr: ModalController,public formBuilder: FormBuilder,
-     private alertController: AlertController, private contactService:ContactService, 
-     private authService:AuthService) { 
-    this.reloadPosts();
+  price: any;
+  pricesCart = [];
+  constructor(private productsService: ShoppersCartService,private modalCtrl: ModalController
+    //  private modalCtr: ModalController,public formBuilder: FormBuilder,
+    //  private alertController: AlertController, private contactService:ContactService, 
+    //  private authService:AuthService
+     ) { 
+    //  this.queryProductsData();
+     this.filterAgain();
+    //  this.FilterArrayObjects(Event);
+    this.searchControl = new FormControl();
   }
   ngOnInit() {
-    this.contactForm = this.formBuilder.group({
-      name: ['', ],
-      cell: ['',],
-      feedback: ['',
-      // [Validators.required, Validators.minLength(20)]
-      ]
-    });
+  this.queryOnBrowse();
+  
   }
-   async openPost(ev: Event, img){
-    let modal =  await this.modalCtr.create({
-      component: PreviewMediaPage,
-      componentProps:{
-        img : img
-      }
-    });
-       modal.present();
+   FilterArrayObjects(ev:any){
+    this.prods = ev.target.value;
+    console.log("event data",this.prods);
+    if(this.prods && this.prods.trim() != ''){
+      this.products = this.products.filter((item)=>{
+        // this.productCategory.push(item.category);
+        
+        return(item.description.toLowerCase().indexOf(this.prods.toLowerCase())>-1)
+      })
+    }
   }
-  reloadPosts(){
-    this.imagesProvider.getPosts().subscribe(data =>{
-      this.images = data;
-    })
-  }
-async presentActionSheet(){
-  let actionSheet = this.actionSheetCtrl.create({
-    buttons: [
-      {
-        text: 'Load from Library',
-        handler: () => {
-          this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-        }
-      },
-      {
-        text: 'Use camera',
-        handler: () =>{
-          this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-        }
-      },
-      {
-        text: 'Cancel',
-        role: 'cancel'
-      }
-    ]
-  });
-  (await actionSheet).present();
-}
-async takePicture(sourceType){
-  var options = {
-    quality: 100,
-    destinationType: this.camera.DestinationType.FILE_URI,
-    sourceType: sourceType,
-    saveToPhotoAlbum: false,
-    correctOrientation: true
-  }
-  this.camera.getPicture(options).then(async imagePath =>{
-    let modal =  await this.modalCtr.create({
-      component: UploadMediaPage,
-      componentProps:{
-        data : imagePath
-      }
-    });
-     modal.present();
-    modal.onDidDismiss()
-  });
-}
-onReply() {
-  return this.contactService.saveFeedback(this.contactForm.value).subscribe();
+  async filterItems(ev:any){
+    // this.queryProductsData();
+    // this.searchControl.valueChanges;
+    this.categorySelected = ev.target.value;
+    console.log("dropdown cat:",this.categorySelected);
+
+        this.products = this.products.filter(products=>
+          products.category == this.categorySelected
+          );
+          console.log("this is iiiiiiit", this.product);
 }
 
+queryOnBrowse(){
+  this.productsService.getImages().subscribe(data => {
+    this.products = data;
+  })
+}
+filterAgain(){
+  this.productsService.getCategories().subscribe(data => {
+    this.product = data;
+    console.log('Cats:', this.product)
+    this.product.forEach((item)=>{
+      console.log("Categories", item.description);
+      // if(item.category.indexOf(value) ==)
+        this.productCategory.push(item.description);
+      
+      });
+  })
+}
+async openImage(img) {
+  console.log(img)
+  let modal = await this.modalCtrl.create({
+    
+    component: ViewProductPage, 
+      componentProps:{
+        img: img,
+      }
+    });
+  modal.present();
+}
+filterByPrice(ev){
+//  this.price = ev.target.value;
+this.price = ev;
+
+this.products = this.products.forEach((item)=>{
+  if(item.price < this.price){
+    this.pricesCart.push(item);
+    console.log('Built array', this.products);
+  }
+
+})
+// for(this.price = 0; this.price > this.products.price; this.price++){
+
+// }
+// this.products = this.products.filter((items)=>{
+//   items.price < this.price;
+  // console.log('Built array', this.pricesCart)
+
+// })
+
+ console.log("What the price",this.price);
+}
+  queryProductsData() {
+    // let categorySelected = ev.target.value;
+    //this.filterItems(Event);
+    // this.productsService.getCategories().subscribe(data => {
+    //   this.product = data;
+    //   console.log("Actual cat", this.product);
+    
+      
+    this.products = this.products.filter(products=>
+      products.category == this.categorySelected
+      
+      );
+      console.log('Getting there', this.categorySelected)
+     
+    
+  //    let categories = document.getElementById("Category");
+  //    for(let i=0; i<this.productCategory.length; i++){
+  //      categories.options.add(new Option(this.productCategory[i]))
+  //    }
+  //   $('Category').empty();
+  //   $.each(this.productCategory, function(i, p) {
+  //       $('Category').append($('<option></option>').val(p).html(p));
+    // });
+  //  }
+  //  selectedProduct(prods){
+  //    alert(prods);
+  //  }
+    }
 }

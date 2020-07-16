@@ -1,79 +1,56 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>media</ion-title>
+    <!-- <ion-title text-center>Shop</ion-title> -->
   </ion-toolbar>
+ 
 </ion-header>
 
 <ion-content>
-    <div class="bg-image"></div>
-    <div class="bg-text">
-        <ion-grid fixed>
-            <ion-row>
-            <ion-col size-sm="6" size-md="6">
-                    <form [formGroup]="contactForm" (ngSubmit)="onReply()">
-                <div class= "diagonal3">
-                  <div class="inside">
-                  <ion-list>
-                    <ion-item class="staythere">
-                      <ion-label position="floating">Your Name...</ion-label>
-                      <ion-input type="text" formControlName="name"></ion-input>
-                    </ion-item>
-          
-                    <ion-item class="staythere">
-                      <ion-label position="floating">Your Phone Number.. </ion-label>
-                      <ion-input type="tel" formControlName="cell"></ion-input>
-                    </ion-item>
-          
-                    <ion-item class="staythere">
-                      <ion-label position="floating">Your feedback..</ion-label>
-                      <ion-input type="text" formControlName="feedback"></ion-input>
-                    </ion-item>
-                  </ion-list>
-                <ion-button fill="outline"  (click)="onReply()" type="button" size="default">Submit</ion-button>
-              </div>
-            </div>
-              </form>
-            </ion-col>  
-           <ion-col size-md="6" size-sm="6">
-              <div class= "diagonal3">
-                  <div class="inside">
-                  <!-- <div class="details"> -->
-                  <h3 text-left>Follow us.. <br></h3>
-                <!-- </div> -->
-                  <div class="align-left">
-                    <ion-icon name="logo-facebook" style="font-size:2em"></ion-icon>
-                    <ion-icon name="logo-instagram" style="font-size: 2em"></ion-icon>
-                    <ion-icon name="logo-pinterest" style="font-size: 2em"></ion-icon>
-                    
-                    <p> Telephone Lines: 0737200842, 0722932275</p>  
-                  </div>
-                  </div>
-                  </div>
-           </ion-col>
-         </ion-row> 
-      </ion-grid>
-      </div>
+  <!-- <p text-center style="color: skyblue;"> Filter using Item name</p>  -->
+   <!-- <ion-searchbar [formControl]="searchControl" style="max-width:50%" (ionChange)="FilterArrayObjects($event)"></ion-searchbar> -->
+ <!-- <div>
+   <ion-list >
+     <ion-item (click)= "selectedProduct(prods)" *ngFor="let product of products">{{product.description}}</ion-item>
+   </ion-list>
+ </div> -->
+ 
+ <div style="background-color: whitesmoke;">
+  <ion-grid>
+    <ion-row>
+      <ion-col>  
+  <label style="font-weight: bold;font-family: Open Sans;">Filter By Category</label> 
+</ion-col>
+<ion-col><p style="font-size: 11px;font-family: Open Sans;"><i> *Before changing on category list, reset to default category</i></p>
+  <label>Categories</label> <select style="margin-right: 10px;" (change)="filterItems($event)" type = "text"  style="max-width:80px; margin-left:20%" ><option *ngFor="let category of productCategory" [value]="category">{{category}}</option></select>
 
-  <!-- <h3 *ngIf="images" [hidden]="images.length === 0">No Posts found</h3>
-  <h3>Play</h3>
-  <ion-list>
-    <ion-icon name="arror-forward">Yes</ion-icon>
-    <ion-item-sliding *ngFor= "let img of images">
-      <ion-item tappable (click)="openPost()">
-        <ion-thumbnail item-start>
-          <img [src]="img.url">
-        </ion-thumbnail>
-        <h2>{{ img.filename }}</h2>
-        <button ion-button clear icon-only item-end>
-          <ion-icon name="arrow-forward"></ion-icon>
-        </button>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button icon-only color="danger">
-          <ion-icon name="trash"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list> -->
+ <ion-button size="small" color="success" style="color:#fff" (click)="queryOnBrowse()"><span> Reset Category</span></ion-button>
+</ion-col>
+<!-- <ion-col>
+
+  <ion-label>Filter By Price Range</ion-label>
+  <input id ="price-range" (input)="filterByPrice($event.target.value)" type="range" min="100" max="25000"/>
+
+<p>Hey{{price}}</p>
+</ion-col> -->
+</ion-row>
+</ion-grid>
+</div>
+ <div *ngFor="let img of products">
+  <ion-card>
+ <div class="row">
+  <div class="column">
+    <img style="max-width: 200px;" [src]='img.url'>
+    <div style="margin-right: auto; margin-left: auto;">
+    <p style="font-family: Open Sans; font-weight: bold"> {{img.description}}<br></p>
+    <!-- <p><span class="styler">Item category</span>: {{img.category}}<br></p> -->
+    <p><span style="color: lightgreen;"> KES {{img.price}}</span><br></p>
+    <ion-button size="small" color="danger" style='color: #fff;' (click)="openImage(img)">VIEW MORE</ion-button>
+  </div>
+    <!-- <p><span class="styler">Availability</span>: In Stock<br></p> -->
+  </div>
+</div>
+</ion-card>
+
+</div>
 
 </ion-content>

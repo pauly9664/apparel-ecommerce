@@ -36,6 +36,7 @@
     border-radius: 0.75em;
     margin-top: 1%;
     margin-bottom: 10%;
+    font-family: Open Sans;
 }
 ion-fab-button {
     height: 50px;
@@ -67,8 +68,11 @@ ion-fab-button {
     background-size: cover; 
     background-repeat:repeat;
     height:12.5em; 
-    width:62.5em;
-    object-fit: cover
+    // width:62.5em;
+    // object-fit: cover;
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
 }
 .content{
     background-image: url("/assets/sample1.jpg");
@@ -77,8 +81,8 @@ ion-fab-button {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background-color: grey;
-    color: white;
+    background-color: white;
+    color: #000;
     padding-left: 20px;
     padding-right: 20px;
   }

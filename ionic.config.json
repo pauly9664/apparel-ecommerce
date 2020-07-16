@@ -7,8 +7,8 @@
   "id": "ff70c028",
   "proxies": [
     {
-      "path": "/",
-      "proxyUrl": "http://192.168.200.140:500/"
+      "path": "/api",
+      "proxyUrl": "http://192.168.100.35:501/"
     }
   ]
 }

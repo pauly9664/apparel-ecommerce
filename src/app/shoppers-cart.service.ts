@@ -18,6 +18,11 @@ export interface Product{
   //  getImages();
   
 }
+export interface Categories{
+  _id: string;
+  description: string;
+  created_at: Date;
+}
 @Injectable({
   providedIn: 'root'  
 })
@@ -74,6 +79,12 @@ export class ShoppersCartService {
   //    return this.data;
     
    }
+   getItems(){
+     return this.http.get(this.url + '/api/images');
+   }
+   getCategories(): Observable<Categories>{
+    return this.http.get<Categories>(this.url + '/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
+   }
    showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,
@@ -83,7 +94,7 @@ export class ShoppersCartService {
     alert.then(alert => alert.present());
   }
    postCart(order){
-    return this.http.post(`${this.url}/api/mailer`, order).pipe(
+    return this.http.post(`${this.url}/api/postSales`, order).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);

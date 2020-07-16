@@ -19,18 +19,20 @@
   <div *ngFor="let cat of item" class="category-block">
 
     <ion-row no-padding class="category-banner">
-      <ion-col  text-center  tappable (click)="cat.expanded =!cat.expanded" align-self-center style=" color: #fff;font-family: Fantasy">
-        {{cat.category }}
+      <ion-col  text-center  tappable id="filerCat" align-self-center style=" color: #fff;font-family: Open Sans">
+       <a>{{cat.category }}</a> 
+       <select   type = "text"  style="max-width:80px; margin-left:20%" ><option *ngFor="let category of productCategory" [value]="category"><span style="color:#000">{{category}}</span></option></select>
       </ion-col>
     </ion-row>   
-    <div style="position: absolute;top: 50%;left: 16px;font-size: 25px;z-index: 2;" (click)="slidePrev()">
+    <!-- <p *ngFor="let seefirst of item " (click)="FilterByCategory($event)" >{{seefirst.category}}</p> -->
+    <!-- <div style="position: absolute;top: 50%;left: 16px;font-size: 25px;z-index: 2;" (click)="slidePrev()">
       <p class="navigation-arrows">Previous</p>
       <ion-icon name="arrow-back"></ion-icon>
     </div>
     <div style="position: absolute;top: 50%;right: 16px;font-size: 25px;z-index: 2;" (click)="slideNext()">
       <p class="navigation-arrows"><span>Next</span></p>
       <ion-icon name="arrow-forward"></ion-icon>
-    </div>
+    </div> -->
     <ion-slides [options]="sliderConfig">
       
       <ion-slide *ngFor="let img of item  ">
@@ -42,10 +44,11 @@
                     <ion-card-title style="font-family: fantasy">
                       <p style="font-size: small;">{{img.description }} - {{ img.price }}</p>
                     </ion-card-title>
-                    <p (click)="openImage(img)"  tappable style="font-family: Fantasy; color:burlywood">VIEW PRODUCT</p>
+                    <p (click)="openImage(img)"  tappable style="font-family: Fantasy; color:burlywood" click="getMarketplaceItems()">VIEW PRODUCT</p>
                   </ion-card-header>
                   <ion-card-content>
                       <div class="display-items"><img tappable [src]='img.url' /></div> 
+                      
                   </ion-card-content>
                   </ion-card>       
         </div>

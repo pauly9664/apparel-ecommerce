@@ -21,7 +21,7 @@ export class MenuPage implements OnInit {
     },
     {
       title: 'Categories',
-      url: '/menu/items',
+      url: '/menu/media',
       icon: 'shirt'
     },
     {

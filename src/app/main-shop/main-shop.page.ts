@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Output } from '@angular/core';
 import { ShoppersCartService, Product } from '../shoppers-cart.service';
 import { Router } from '@angular/router';
 import { IonSlides, ModalController } from '@ionic/angular';
@@ -14,9 +14,12 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class MainShopPage implements OnInit {
   @ViewChild(IonSlides) slides: IonSlides;
   cart = [];
-  items:any
+  items = [];
   sel:any;
+  prods:any;
   item:any;
+  catchit:any;
+  Kpi:any;
   cartItemCount: BehaviorSubject<number>;
 
   sliderConfig = {
@@ -25,6 +28,9 @@ export class MainShopPage implements OnInit {
     slidesPerView: 1.5,
     watchSlidesProgress: true,
   }
+  categorySelected: any;
+  products: any;
+  productCategory = [];
 
   constructor(private cartService: ShoppersCartService, private modalCtrl: ModalController, private router: Router, 
     //private slides: IonSlides
@@ -35,8 +41,16 @@ export class MainShopPage implements OnInit {
     }
 
   ngOnInit() {
+    this.queryProductsData();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();
+    // this.items = this.cartService.getImages();
+    // this.item.forEach((element, index, array) => {
+  
+    //   this.catchit = element.category;
+    //   console.log("Kwendaaa",this.catchit)
+    // });
+    console.log("Reveal",this.catchit);
     // this.reloadImages()
     // this.items = this.reloadImages();
     // this.item = this.cartService.getImages();
@@ -54,11 +68,34 @@ export class MainShopPage implements OnInit {
   async addToCart(product){
     this.cartService.addProduct(product);
   }
+ 
+  filterItems(ev:any){
+    // this.searchControl.valueChanges;
+    this.categorySelected = ev.target.value;
+    console.log("dropdown cat:",this.categorySelected);
 
+        this.item = this.item.filter(products=>
+          products.category == this.categorySelected);
+}
+queryProductsData() {
+  // let categorySelected = ev.target.value;
+  //this.filterItems(Event);
+  this.cartService.getImages().subscribe(data => {
+    
+    this.products = data;
+    
+    this.products.forEach((item)=>{
+      // console.log("Categories", item.category);
+      // if(item.category.indexOf(value) ==)
+        this.productCategory.push(item.category);
+        console.log("categories", item.category);
+      })
+   });
+  }
   reloadImages() {
    this.cartService.getImages().subscribe(data => {
       this.item = data;
-        console.log(typeof this.item);
+        console.log("cheki ii kwanza", this.item);
     });
   }
   async openImage(img) {
@@ -72,6 +109,11 @@ export class MainShopPage implements OnInit {
       });
     modal.present();
   }
+//   getMarketplaceItems() {
+//  this.item.filter(item => 
+//   this.items= item.category);   
+  
+//   }
   viewProduct(product){
      this.cartService.addProduct(product);
   }
