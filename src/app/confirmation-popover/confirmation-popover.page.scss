@@ -1,11 +1,17 @@
 .form-orients{
-    margin-top: 20%;
-    margin-left: auto;
-    margin-right: auto;
+    // margin-top: 20%;
+    margin-left: 20%;
+    // margin-right: auto;
     text-align: center;
 }
 .highlight-content{
     font-weight: bold;
+}
+.labelStyler{
+    margin-left:-30%;
+    position: absolute;
+    max-width: 10em;
+    font-family: Open Sans;
 }
 form{
     font-family: Open Sans;

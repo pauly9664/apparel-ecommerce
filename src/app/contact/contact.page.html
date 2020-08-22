@@ -1,5 +1,5 @@
-<!-- <ion-header>
-  <ion-toolbar color="dark">
+<ion-header>
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
@@ -7,7 +7,7 @@
       Contact
     </ion-title>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 <ion-content>
     <div class="bg-image"></div>
     <div class="bg-text">
@@ -19,21 +19,21 @@
                   <div class="inside">
                   <ion-list>
                     <ion-item class="staythere" lines="none">
-                      <ion-label position="fixed" style="font-family: Open Sans;">Name...</ion-label>
+                      <ion-label position="fixed" style="font-family: Open Sans; font-weight: bold;">Name...</ion-label>
                       <input class="style-input" type="text" formControlName="name"/>
                     </ion-item>
           
                     <ion-item class="staythere" lines="none">
-                      <ion-label position="fixed" style="font-family: Open Sans;">Number.. </ion-label>
+                      <ion-label position="fixed" style="font-family: Open Sans; font-weight: bold">Number.. </ion-label>
                       <input class="style-input"type="tel" formControlName="cell"/>
                     </ion-item>
           
                     <ion-item class="staythere" lines="none">
-                      <ion-label position="fixed" style="font-family: Open Sans;">Feedback..</ion-label>
+                      <ion-label position="fixed" style="font-family: Open Sans;font-weight: bold">Feedback..</ion-label>
                       <input class="style-input" type="text" formControlName="feedback"/>
                     </ion-item>
                   </ion-list>
-                <ion-button color="success"  (click)="onReply()" type="button" style="color: white"size="default">Submit</ion-button>
+                <ion-button color="danger"  (click)="onReply()" type="button" style="color: white"size="default">Submit</ion-button>
               </div>
             </div>
               </form>

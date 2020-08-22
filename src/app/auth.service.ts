@@ -57,8 +57,30 @@ oauthTok(oauth_token){
       })
     );
   }
+  resetPassword(pass){
+    console.log(pass);
+    return this.http.patch(`${this.url}/api/reset`, pass).pipe(catchError(e => {
+      this.showAlert(e.error.msg);
+      throw new Error(e);
+    }),
+      tap(res =>{
+        this
+        this.showAlert("Password reset successfully");
+      })
+    );
+  }
   getImages() {
     return this.http.get(this.url + 'api/images');
+  }
+  forgotPassword(creds){
+    return this.http.post(`${this.url}/api/forgot`, creds).pipe( catchError(e => {
+      this.showAlert(e.error.msg);
+      throw new Error(e);
+    }),
+    tap(res =>{
+      this.showAlert("Your request has been received, please check your email for further instructions");
+    })
+  );
   }
   login(credentials) {
     return this.http.post(`${this.url}/api/login`, credentials).pipe(
@@ -123,13 +145,19 @@ oauthTok(oauth_token){
       this.authenticationState.next(false);
     });
   }
+  checkAuth(){
+    this.storage.get(TOKEN_KEY).then(()=>{
+      console.log('Yooooo', TOKEN_KEY)
+    })
+    
+  }
 
   getSpecialData() {
     return this.http.get(`${this.url}/api/special`).pipe(
       catchError(e => {
         let status = e.status;
         if (status == 401) {
-          this.showAlert('No authorization in this level');
+          this.showAlert('Please login first');
           this.logout();  
           this.authenticationState.next(false);
         }
@@ -144,11 +172,14 @@ oauthTok(oauth_token){
   getSalesActivities(){
     return this.http.get(`${this.url}/api/getPastActivities`);
   }
+  getSalesActivity(){
+    return this.http.get(`${this.url}/api/getOrders`);
+  }
  
   showAlert(msg) {
     let alert = this.alertController.create({
       message: msg,
-      header: 'Error, Please try again',
+      header: 'Message',
       buttons: ['OK']
     });
     alert.then(alert => alert.present());

@@ -29,9 +29,14 @@ export class AppComponent {
       this.auth.authenticationState.subscribe(state => {
         if(state) {
           this.router.navigate(['menu/checkout']);
-        } else{
-          this.router.navigate(['menu/login']);
-        }    
+        } 
+        // if(!state){
+        //   this.router.navigate(['menu/sendmail-reset']);
+        // }
+      
+        // else{
+        //   this.router.navigate(['menu/login']);
+        // }    
 })  
   });
   }

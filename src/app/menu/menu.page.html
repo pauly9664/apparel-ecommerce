@@ -1,5 +1,5 @@
 <ion-split-pane >
-  <ion-menu contentId="content" style="max-width: 150px;">
+  <ion-menu contentId="content" style="max-width: 12.5em;">
     <ion-header no-border>
       <ion-toolbar>
         <ion-title style="color:white">
@@ -10,9 +10,10 @@
 
     <ion-content>
       <p text-center></p>
-      <div class="menu-styles"><ion-avatar align-self-center>
-        <img src="assets/pau.jpg">
-      </ion-avatar>
+      <div class="menu-styles">
+        <!-- <ion-icon style="font-size: 40px" name="person"></ion-icon> -->
+        <img src="/assets/preetiLogo1.png" style="height:100px; width: 100px;"/>
+        <p *ngIf="checkAuth">{{name}}</p>
     </div>
             <ion-list lines="none">
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages ">

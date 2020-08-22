@@ -20,6 +20,7 @@ export class HomePage implements OnInit{
   users = null;
   cart = [];
   cartItemCount: BehaviorSubject<number>;
+  checkAuth: boolean;
 
   slidesConfig = {
     autoplay: true,
@@ -34,7 +35,7 @@ export class HomePage implements OnInit{
   {}
 
   ngOnInit() { 
-   
+   this.checkAuth = this.authService.authenticationState.value;
     this.cartItemCount = this.cartService.getCartItemCount();
     this.cart = this.cartService.getCart();
     //  loadSpecialInfo() {

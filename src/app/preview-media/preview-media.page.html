@@ -1,9 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>previewMedia</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="closePopover()" defaultHref="/"></ion-back-button>
+  </ion-buttons>
+    <!-- <ion-title>Order Deta</ion-title> -->
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
+  <div class="back-im">
+  <ion-card style="margin-top: 6%;">
+    <ion-card-header style="margin-left: 40%;background-color: transparent;" >
+      <span style="font-weight: bold; font-size: medium; font-family: Open Sans; color: #fff;">Order Details</span> 
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button color="danger" style="margin-left: 40%;" (click)="getDetails()" (click)="presentLoadingWithOptions()" >View Details</ion-button>
+      <div *ngIf="orderDetail;" style="background-color: transparent; font-weight: bold;" >  
+    
+      <p class="details-styles"><span class="detailsStyle">Amount</span>: KES {{amount}}</p><br>    
+      <p class="details-styles"><span class="detailsStyle">Payment Option</span>: {{payment}}</p><br> 
+      <p class="details-styles"><span class="detailsStyle">Delivery Option</span>:  {{delivery}}</p><br>
+      <p class="details-styles"><span class="detailsStyle">Order Date</span>: {{dday}}</p>
+  </div>
 
+    </ion-card-content> 
+  </ion-card>
+</div>
 </ion-content>

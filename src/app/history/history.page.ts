@@ -11,6 +11,7 @@ import { LoadingController } from '@ionic/angular';
 export class HistoryPage implements OnInit {
   data = null;
   loggedInUser = '';
+  pageOfItems: Array<any>;
   autoClose = false;
   accountsbyid = undefined;
   parsedAccount = undefined;
@@ -30,16 +31,29 @@ export class HistoryPage implements OnInit {
       this.accountsbyid.filter((item, itemIndex) => itemIndex != index).map(item =>item.open=false);
     }
   }
-  orderDetails(){
+  orderDetail(){
     console.log('orders', this.parsedAccount);
    this.parsedAccount;
   }
   toggleItem(index, childIndex){
     this.accountsbyid[index].children[childIndex].open = !this.accountsbyid[index].children[childIndex].open;
   }
+  onChangePage(pageOfItems: Array<any>) {
+    // update current page of items
+    this.pageOfItems = pageOfItems;
+}
 
   ngOnInit() { 
     // this.loggedInUser = this.activatedRoute.snapshot.paramMap.get('user_id');
   }
-
+  orderDetails(){
+    this.orders.getSalesActivities().subscribe(res => {
+      this.accountsbyid = JSON.stringify(res['accounts']);
+      let parsedData = JSON.parse(this.accountsbyid);
+      this.parsedAccount = parsedData;
+      // this.accountsbyid[0].open = true;
+      let accountsarray = Object.keys(this.accountsbyid[0]);
+      console.log(this.accountsbyid[0]);
+    })
+  }
 }

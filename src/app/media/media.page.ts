@@ -12,6 +12,7 @@ import { element } from 'protractor';
 import { debounceTime } from 'rxjs/operators';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ViewProductPage } from '../view-product/view-product.page';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-media',
@@ -21,6 +22,7 @@ import { ViewProductPage } from '../view-product/view-product.page';
 export class MediaPage implements OnInit {
 products:any=[];
 product:any=[];
+produce=[];
 item:any;
 productCategory = [];
 items = [];
@@ -30,11 +32,7 @@ searchControl:FormControl;
 contactForm: FormGroup;
   price: any;
   pricesCart = [];
-  constructor(private productsService: ShoppersCartService,private modalCtrl: ModalController
-    //  private modalCtr: ModalController,public formBuilder: FormBuilder,
-    //  private alertController: AlertController, private contactService:ContactService, 
-    //  private authService:AuthService
-     ) { 
+  constructor(private productsService: ShoppersCartService,private modalCtrl: ModalController, private loadingController: LoadingController ) { 
     //  this.queryProductsData();
      this.filterAgain();
     //  this.FilterArrayObjects(Event);
@@ -60,11 +58,12 @@ contactForm: FormGroup;
     // this.searchControl.valueChanges;
     this.categorySelected = ev.target.value;
     console.log("dropdown cat:",this.categorySelected);
-
-        this.products = this.products.filter(products=>
+    this.presentLoadingWithOptions()
+        this.produce = this.products.filter(products=>
           products.category == this.categorySelected
           );
-          console.log("this is iiiiiiit", this.product);
+          // this.produce.push(this.products);
+          console.log("this is iiiiiiit", this.produce);
 }
 
 queryOnBrowse(){
@@ -98,14 +97,12 @@ async openImage(img) {
 filterByPrice(ev){
 //  this.price = ev.target.value;
 this.price = ev;
-
-this.products = this.products.forEach((item)=>{
-  if(item.price < this.price){
-    this.pricesCart.push(item);
-    console.log('Built array', this.products);
-  }
-
-})
+this.presentLoadingWithOptions();
+this.produce = this.products.filter(item=>
+  item.price < this.price
+    // this.pricesCart.push(item); 
+)
+console.log("Price List", this.produce);
 // for(this.price = 0; this.price > this.products.price; this.price++){
 
 // }
@@ -131,18 +128,15 @@ this.products = this.products.forEach((item)=>{
       );
       console.log('Getting there', this.categorySelected)
      
-    
-  //    let categories = document.getElementById("Category");
-  //    for(let i=0; i<this.productCategory.length; i++){
-  //      categories.options.add(new Option(this.productCategory[i]))
-  //    }
-  //   $('Category').empty();
-  //   $.each(this.productCategory, function(i, p) {
-  //       $('Category').append($('<option></option>').val(p).html(p));
-    // });
-  //  }
-  //  selectedProduct(prods){
-  //    alert(prods);
-  //  }
+    }
+    async presentLoadingWithOptions() {
+      const loading = await this.loadingController.create({
+        spinner: "circles",
+        duration: 500,
+        message: 'Fetching...',
+        // translucent: true,
+        cssClass: 'custom-class custom-loading'
+      });
+      return await loading.present();
     }
 }

@@ -32,6 +32,9 @@ const routes: Routes = [
       { path: 'history', loadChildren: '../history/history.module#HistoryPageModule' },
       { path: 'accountslanding', loadChildren: '../accountslanding/accountslanding.module#AccountslandingPageModule' },
       { path: 'media', loadChildren: '../media/media.module#MediaPageModule' },
+      { path: 'reset-password', loadChildren: '../reset-password/reset-password.module#ResetPasswordPageModule' },
+      { path: 'sendmail-reset/:id', loadChildren: '../sendmail-reset/sendmail-reset.module#SendmailResetPageModule' },
+      { path: 'preview-media/:id', loadChildren: '../preview-media/preview-media.module#PreviewMediaPageModule' },
      // { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
     ]
   },

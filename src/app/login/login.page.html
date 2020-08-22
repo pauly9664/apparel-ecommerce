@@ -1,16 +1,16 @@
 <ion-header>
-  <!-- <ion-toolbar color="dark">
-    <ion-title text-center style="font-weight: bold;">Login</ion-title>
+  <!-- <ion-toolbar>
+    <img src="/assets/preetiLogo1.png" style="height:100px; width: 100px; margin-left: 45%" />
   </ion-toolbar> -->
 </ion-header>
 
 <ion-content >
-  
+  <img src="/assets/preetiLogo1.png" style="height:80px; width: 100px; margin-left: 40%" />
   <div class="bg-image"></div>
   <div class="bg-text">
   <div class = "styleInput">
   <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
-    <img src="/assets/preetiLogo1.png" style="height:100px; width: 100px" />
+    <div style="height: 100px;"></div>
     <ion-item class = "curved" lines="none">
       <ion-label position="fixed" style="font-weight: bold; font-family: Open Sans;">Email</ion-label>
       <input class="style-input" type="email" formControlName="email" />
@@ -28,7 +28,7 @@
   </div>
   </form>
 </div>
-<p style="color: #000; font-size: smaller; font-family: Open Sans" tappable>Forgot Password?<br></p>
-<p style="color: blue;font-size: small; font-family: Open Sans" tappable routerLink="/menu/register">REGISTER a new account now</p>
+<p style="color: #fff; font-size: smaller; font-family: Open Sans" tappable routerLink="/menu/reset-password">Forgot Password? Click <br></p>
+<p style="color: #fff;font-size: small; font-family: Open Sans" tappable routerLink="/menu/register">REGISTER a new account now</p>
 </div>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterEvent, Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,7 +8,8 @@ import { RouterEvent, Router } from '@angular/router';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-
+  checkAuth: boolean;
+  name:string;
   pages=[
     {
       title: 'Home',
@@ -20,7 +22,7 @@ export class MenuPage implements OnInit {
       icon: 'person'
     },
     {
-      title: 'Categories',
+      title: 'Shop',
       url: '/menu/media',
       icon: 'shirt'
     },
@@ -43,12 +45,16 @@ export class MenuPage implements OnInit {
   ];
 
   selectedPath = '';
-  constructor(private router: Router) {
+  constructor(private router: Router, private authenticator:AuthService) {
     this.router.events.subscribe((event:RouterEvent) => {
       this.selectedPath = event.url;
     });
    }
   ngOnInit() {
+    this.checkAuth = this.authenticator.authenticationState.value;
+    this.authenticator.getSpecialData().subscribe(res =>{
+      this.name = res['name'];
+    })
   }
 
 }

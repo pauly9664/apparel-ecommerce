@@ -1,6 +1,10 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title text-center>Account History</ion-title>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button (click)="closePopover()" defaultHref="/"></ion-back-button>
+  </ion-buttons>
+    <ion-title text-center>Orders History</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
@@ -14,7 +18,7 @@
     <p style="max-width: 4.2em;margin-right: 20%;"> {{account.buying_date | date }}</p>
     <p style="font-family: Open Sans;"><span style="color: red"> Delivery ongoing</span></p>
     <ion-button
-    fill="outline" slot="end" size="small" (click)="orderDetails()">
+    fill="outline" slot="end" size="small" (click)="orderDetails()" [routerLink]="['/menu/preview-media', account._id]">
     <ion-icon name="eye" slot="start" ></ion-icon>VIEW
   </ion-button>
 </ion-item>

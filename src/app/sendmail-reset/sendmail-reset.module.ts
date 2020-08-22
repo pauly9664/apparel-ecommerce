@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
 import { SendmailResetPage } from './sendmail-reset.page';
+import { IonicPageModule } from 'ionic-angular';
 
 const routes: Routes = [
   {
@@ -19,8 +20,12 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    // IonicPageModule.forChild(SendmailResetPage),
+    ReactiveFormsModule,
+    RouterModule.forChild(routes),
+    
   ],
-  declarations: [SendmailResetPage]
+  declarations: [SendmailResetPage],
+  // entryComponents: [SendmailResetPage]
 })
 export class SendmailResetPageModule {}

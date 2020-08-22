@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar>
     <!-- <ion-title text-center>Shop</ion-title> -->
+    <ion-buttons slot="start">
+      <ion-back-button (click)="closePopover()" defaultHref="/"></ion-back-button>
+  </ion-buttons>
+    <img src="/assets/preetiLogo1.png" style="height:75px; width: 100px; margin-left: 40%;"/>
   </ion-toolbar>
  
 </ion-header>
@@ -17,40 +21,40 @@
  <div style="background-color: whitesmoke;">
   <ion-grid>
     <ion-row>
-      <ion-col>  
-  <label style="font-weight: bold;font-family: Open Sans;">Filter By Category</label> 
-</ion-col>
-<ion-col><p style="font-size: 11px;font-family: Open Sans;"><i> *Before changing on category list, reset to default category</i></p>
-  <label>Categories</label> <select style="margin-right: 10px;" (change)="filterItems($event)" type = "text"  style="max-width:80px; margin-left:20%" ><option *ngFor="let category of productCategory" [value]="category">{{category}}</option></select>
+<ion-col size-sm="6" size-lg="6" size-md="6">
+  <label style="font-weight: bold">Categories</label> <select (change)="filterItems($event)" type = "text"  style="max-width:100px; margin-left: 1%;" ><option *ngFor="let category of productCategory" [value]="category">{{category}}</option></select>
 
- <ion-button size="small" color="success" style="color:#fff" (click)="queryOnBrowse()"><span> Reset Category</span></ion-button>
+  <!-- <ion-button size="small" color="danger" style="color:#fff;margin-bottom: 1%; margin-left: 3%;" (click)="queryOnBrowse()"><span> Reset Category</span></ion-button>  -->
 </ion-col>
-<!-- <ion-col>
+<ion-col size-sm="6" size-lg="6" size-md="6">
 
-  <ion-label>Filter By Price Range</ion-label>
+  <!-- <p style="font-family: Open Sans;"><i>*Filter By Price</i></p>  -->
   <input id ="price-range" (input)="filterByPrice($event.target.value)" type="range" min="100" max="25000"/>
 
-<p>Hey{{price}}</p>
-</ion-col> -->
+<!-- <p>Hey{{price}}</p> -->
+</ion-col>
 </ion-row>
 </ion-grid>
 </div>
- <div *ngFor="let img of products">
-  <ion-card>
+ <div *ngFor="let img of produce">
+   <!-- <div *ngIf="produce.length === 0"><p>No category selected</p> -->
+  <!-- <div *ngIf="produce === undefined"><p>Please select a category</p></div> -->
+  <!-- <ion-card> -->
  <div class="row">
   <div class="column">
+   
     <img style="max-width: 200px;" [src]='img.url'>
     <div style="margin-right: auto; margin-left: auto;">
     <p style="font-family: Open Sans; font-weight: bold"> {{img.description}}<br></p>
     <!-- <p><span class="styler">Item category</span>: {{img.category}}<br></p> -->
-    <p><span style="color: lightgreen;"> KES {{img.price}}</span><br></p>
+    <p><ion-icon name="cash"></ion-icon><span style="color: lightgreen;"> KES {{img.price}}</span><br></p>
     <ion-button size="small" color="danger" style='color: #fff;' (click)="openImage(img)">VIEW MORE</ion-button>
   </div>
     <!-- <p><span class="styler">Availability</span>: In Stock<br></p> -->
   </div>
 </div>
-</ion-card>
-
+<!-- </ion-card> -->
+<!-- </div> -->
 </div>
 
 </ion-content>

@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>sendmail-reset</ion-title>
+    <ion-title text-center>Reset Password</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <form [formGroup]="credentialsForm" (ngSubmit)="onSubmit()">
+    <ion-item lines="none">
+      <ion-label position="fixed">Email</ion-label>
+      <input type="email" formControlName="email">
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label position="fixed">New Password</ion-label>
+      <input type="password" formControlName="password" />
+    </ion-item>
+    <ion-button color="danger" (click)="onSubmit()">Change Password</ion-button>
+  </form>
 </ion-content>

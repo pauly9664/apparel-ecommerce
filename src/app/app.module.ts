@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import { IonicPageModule } from 'ionic-angular';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -26,7 +26,8 @@ import { MediaFilesService } from 'src/media-files.service';
 import { ViewProductPageModule } from './view-product/view-product.module';
 import { ShoppersCartService } from './shoppers-cart.service';
 import { ShoppersCartPageModule } from './shoppers-cart/shoppers-cart.module';
-
+import { SendmailResetPageModule } from './sendmail-reset/sendmail-reset.module';
+import { JwPaginationComponent } from 'jw-angular-pagination';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -36,7 +37,7 @@ export function jwtOptionsFactory(storage) {
   }
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, JwPaginationComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
@@ -46,7 +47,7 @@ export function jwtOptionsFactory(storage) {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     HttpClientModule,
-    
+  
     IonicSelectableModule,
     ConfirmationModalPageModule,
     LoginPopoverPageModule,
