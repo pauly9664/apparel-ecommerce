@@ -17,13 +17,15 @@ export class HistoryPage implements OnInit {
   parsedAccount = undefined;
   constructor(private orders: AuthService, private activatedRoute: ActivatedRoute, public loadingController: LoadingController) { 
     this.orders.getSalesActivities().subscribe(res => {
-      this.accountsbyid = JSON.stringify(res['accounts']);
+      this.accountsbyid = res['accounts'];
       let parsedData = JSON.parse(this.accountsbyid);
       this.parsedAccount = parsedData;
+      console.log("Parsed data", this.parsedAccount)
       // this.accountsbyid[0].open = true;
       let accountsarray = Object.keys(this.accountsbyid[0]);
       console.log(this.accountsbyid[0]);
     })
+    
   }
   toggleSection(index){
     this.accountsbyid[index].open = !this.accountsbyid[index].open;
@@ -45,10 +47,21 @@ export class HistoryPage implements OnInit {
 
   ngOnInit() { 
     // this.loggedInUser = this.activatedRoute.snapshot.paramMap.get('user_id');
+    // this.orders.getSalesActivities().subscribe(res => {
+    //   this.accountsbyid = JSON.stringify(res['accounts']);
+    //   let parsedData = JSON.parse(this.accountsbyid);
+    //   this.parsedAccount = parsedData;
+    //   console.log("Parsed data", this.parsedAccount)
+    //   // this.accountsbyid[0].open = true;
+    //   let accountsarray = Object.keys(this.accountsbyid[0]);
+    //   console.log(this.accountsbyid[0]);
+    // })
+    // this.orderDetails()
+    
   }
   orderDetails(){
     this.orders.getSalesActivities().subscribe(res => {
-      this.accountsbyid = JSON.stringify(res['accounts']);
+      this.accountsbyid = JSON.stringify(res);
       let parsedData = JSON.parse(this.accountsbyid);
       this.parsedAccount = parsedData;
       // this.accountsbyid[0].open = true;

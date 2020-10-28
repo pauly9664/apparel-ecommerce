@@ -16,14 +16,14 @@ export class AccountslandingPage implements OnInit {
 
   ngOnInit() {
     
-    this.authenticator.getSalesActivities().subscribe(res => {
-      this.accountsbyid = JSON.stringify(res['accounts']);
-      let parsedData = JSON.parse(this.accountsbyid);
-      this.parsedAccount = parsedData;
-      // this.accountsbyid[0].open = true;
-      let accountsarray = Object.keys(this.accountsbyid[0]);
-      console.log(this.accountsbyid[0]);
-    })
+    // this.authenticator.getSalesActivities().subscribe(res => {
+    //   // this.accountsbyid = JSON.stringify(res['accounts']);
+    //   // let parsedData = JSON.parse(this.accountsbyid);
+    //   // this.parsedAccount = parsedData;
+    //   // this.accountsbyid[0].open = true;
+    //   // let accountsarray = Object.keys(this.accountsbyid[0]);
+    //   // console.log(this.accountsbyid[0]);
+    // })
     this.authenticator.getSpecialData().subscribe(res =>{
       this.name = res['name'];
       this.number = res['number'];

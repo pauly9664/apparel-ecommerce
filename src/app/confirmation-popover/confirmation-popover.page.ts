@@ -17,6 +17,7 @@ export class ConfirmationPopoverPage implements OnInit {
   loggedInUser = null;
   acc_token = null;
   arrObj:any = [];
+  arrArr:any = [];
   salesForm: FormGroup;
   cart=[] 
   productsForm : FormGroup;
@@ -54,8 +55,10 @@ export class ConfirmationPopoverPage implements OnInit {
    this.price = element.price;
    this.amount = element.amount;
    this.count = element.count;
-   this.arrObj.push(element.description);
-   this.desc = JSON.stringify(this.arrObj);
+   this.arrObj.push(element.description + ' - ' + element.price);
+   this.arrArr.push(element._id);
+  // this.desc = JSON.stringify(this.arrObj);
+  this.desc = this.arrObj.toString();
    console.log('Yeeee', typeof this.arrObj); 
     });
     
@@ -69,6 +72,7 @@ export class ConfirmationPopoverPage implements OnInit {
       payment_status: [this.passedDelivery],
       user_id: [this.loggedInUser],
       description: [this.arrObj],
+      // object_id: [this.arrArr]
       
     });
     this.productsForm = this.formBuild.group({
@@ -79,6 +83,7 @@ export class ConfirmationPopoverPage implements OnInit {
       
     });
     console.log('this desc', this.desc)
+
     this.setval = this.salesForm.get('description').setValue(this.desc);
     this.setval = this.salesForm.get('user_id').setValue(this.loggedInUser);
     this.setval = this.salesForm.get('amount').setValue(this.totalCartItems);

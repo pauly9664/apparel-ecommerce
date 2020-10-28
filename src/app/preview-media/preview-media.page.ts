@@ -18,11 +18,12 @@ export class PreviewMediaPage implements OnInit {
   amount = [];
 
   constructor(private activatedRoute: ActivatedRoute, private orders: AuthService, private loadingController: LoadingController) {
-    this.getAllOrders();
+  
   }
 
   ngOnInit() {
     this.order = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getAllOrders();
   }
   getAllOrders(){
     this.orders.getSalesActivity().subscribe(res => {

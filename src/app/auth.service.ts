@@ -17,7 +17,7 @@ const TOKEN_KEY = 'access_token';
 })
 export class AuthService {
 
-  url = environment.url;
+  url = environment.url
   paymentUrl = environment.mpesaUrl;
   user = null;
   contact = null;
@@ -158,7 +158,7 @@ oauthTok(oauth_token){
         let status = e.status;
         if (status == 401) {
           this.showAlert('Please login first');
-          this.logout();  
+          // this.logout();  
           this.authenticationState.next(false);
         }
         throw new Error(e);
@@ -170,7 +170,18 @@ oauthTok(oauth_token){
     return this.authenticationState.value;
   }
   getSalesActivities(){
-    return this.http.get(`${this.url}/api/getPastActivities`);
+    return this.http.get(`${this.url}/api/getPastActivities`).pipe(
+      catchError(e => {
+        let status = e.status;
+        if (status == 401) {
+          this.showAlert('Please login first');
+          // this.logout();  
+          this.authenticationState.next(false);
+        }
+        throw new Error(e);
+      })
+    )
+    
   }
   getSalesActivity(){
     return this.http.get(`${this.url}/api/getOrders`);

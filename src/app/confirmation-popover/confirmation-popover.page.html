@@ -1,17 +1,19 @@
-<img src="/assets/preetiLogo1.png" style="height:70px; width: 100px; margin-left: 40%;"/>
+<img src="/assets/PreetiLogo.png" style="height:70px; width: 100px; margin-left: 40%;"/>
 <div class = "form-orients">
   <h3 style="margin-bottom: 4%; font-family: sans-serif; font-weight: bold;"> Confirm Purchase</h3>
          <form [formGroup]= "salesForm" (ngSubmit)="saleUpdate()">
-         <label class="labelStyler" for="User" class="highlight-content">User</label>
-         <input id="User" type = "text" formControlName ="user_id"  style="max-width:50%; "/><br>
+         <!-- <label class="labelStyler" for="User" class="highlight-content">User</label> -->
+         <!-- <input id="User" type = "text" formControlName ="user_id"  style="max-width:50%; "/><br> -->
          <label class="labelStyler" for="description" class="highlight-content">Items Bought</label>
-         <input id="description" type = "text" style="max-width:50%; " formControlName ="description"/><br>
-         <label class="labelStyler" for="Delivery" class="highlight-content">Delivery</label>
-         <input id="Delivery" type = "text" style="max-width:50%; " formControlName ="delivery_status"/><br>
-         <label class="labelStyler" for="Payment" class="highlight-content">Payment Mode</label>
-         <input id="Payment" type = "text" formControlName ="payment_status"  style="max-width:50%;"/><br>
-         <label class="labelStyler" for="Total" class="highlight-content">Totals</label>
+         <p *ngFor="let items of arrObj">{{items}}</p>
+         <!-- <input id="description" type = "text" style="max-width:50%; " formControlName ="description"/><br> -->
+         <label class="labelStyler" for="Total" class="highlight-content">Totals </label>
          <input id="Total" type = "text" formControlName ="amount"  style="max-width:50%;"/><br>
+         <label class="labelStyler" for="Delivery" class="highlight-content">Delivery Option </label>
+         <input id="Delivery" type = "text" style="max-width:50%; " formControlName ="delivery_status"/><br>
+         <label class="labelStyler" for="Payment" class="highlight-content">Payment Option </label>
+         <input id="Payment" type = "text" formControlName ="payment_status"  style="max-width:50%;"/><br>
+  
       </form>
       <!-- <form [formGroup]= "productsForm">
         <label>Description</label>
@@ -23,7 +25,7 @@
         </ion-button>
         <ion-button  color="success" (click)="checkout()" (click)="postToMail()">
           <ion-icon name="checkmark" slot="start"></ion-icon>
-          Buy Now
+          CONFIRM
         </ion-button>
        
           <!-- <ion-button  color="success" (click)="lipaNow()">

@@ -94,12 +94,13 @@ export class ShoppersCartService {
     alert.then(alert => alert.present());
   }
    postCart(order){
-    return this.http.post(`${this.url}/api/postSales`, order).pipe(
-      catchError(e => {
-        this.showAlert(e.error.msg);
-        throw new Error(e);
-      })
-    );
+    return this.http.post(`${this.url}/api/postSales`, order)
+    // .pipe(
+    //   catchError(e => {
+    //     this.showAlert(e.error.msg);
+    //     throw new Error(e);
+    //   })
+    // );
   }
   getCartItemCount() {
     return this.cartItemCount;
