@@ -14,7 +14,7 @@
     }
     .bg-image {
         /* The image used */
-        background-image: url("/assets/sample1.jpg");
+        background-image: url("/assets/register3.jpg");
       
         /* Add the blur effect */
         // filter: blur(8px);
@@ -24,9 +24,9 @@
         height: 100%;
       
         /* Center and scale the image nicely */
-        //background-position: center;
-        background-repeat: repeat;
-        background-size: cover;
+        background-position: center;
+        // background-repeat: repeat;
+        // background-size: cover;
     }
     .style-input{
         max-width: 50%;
