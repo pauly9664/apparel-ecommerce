@@ -73,17 +73,17 @@ export class ShoppersCartService {
   //       return this.items;
   //      }));
   // }
-  return this.http.get<Product>(this.url + '/api/images').pipe(map((response:Product)=> response)) ;
+  return this.http.get<Product>('/api/images').pipe(map((response:Product)=> response)) ;
 
   // getProducts() {
   //    return this.data;
     
    }
    getItems(){
-     return this.http.get(this.url + '/api/images');
+     return this.http.get('/api/images');
    }
    getCategories(): Observable<Categories>{
-    return this.http.get<Categories>(this.url + '/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
+    return this.http.get<Categories>('/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
    }
    showAlert(msg) {
     let alert = this.alertController.create({
@@ -94,7 +94,7 @@ export class ShoppersCartService {
     alert.then(alert => alert.present());
   }
    postCart(order){
-    return this.http.post(`${this.url}/api/postSales`, order)
+    return this.http.post('/api/postSales', order)
     // .pipe(
     //   catchError(e => {
     //     this.showAlert(e.error.msg);

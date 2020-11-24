@@ -11,6 +11,7 @@ import { NavController, PopoverController, NavParams, ModalController } from '@i
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
+import { ConfirmationModalPage } from '../confirmation-modal/confirmation-modal.page';
 
 
 @Component({
@@ -25,11 +26,14 @@ export class ShoppersCartPage implements OnInit {
   item:any = []
   // img:any;
   cart = [];
+  checkAuth: boolean;
  
 
-  constructor(private cartService: ShoppersCartService, private popoverController: PopoverController,private modalCtrl:ModalController, private authenticatedUser: AuthService,private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
+  constructor(private cartService: ShoppersCartService, private authService: AuthService, private popoverController: PopoverController,private modalCtrl:ModalController, private authenticatedUser: AuthService,private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
 
   ngOnInit() {
+    this.checkAuth = this.authService.authenticationState.value;
+    // console.log("Auth Val:", this.checkAuth);
     
     // this.authenticatedUser.authenticationState.subscribe(state => {
     //   if(state) {
@@ -143,5 +147,18 @@ export class ShoppersCartPage implements OnInit {
   }
   closePopover(){
     this.modalCtrl.dismiss();
+  }
+  async checkAuthent(){
+  
+    if(this.checkAuth === false){
+      let modal = await this.popoverController.create({
+      
+        component: ConfirmationModalPage, 
+          // componentProps:{
+          //   img: img,
+          // }
+        });
+      modal.present();
+    }
   }
 }

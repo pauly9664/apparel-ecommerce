@@ -29,7 +29,7 @@ export class AuthService {
     });
   }
 oauthTok(oauth_token){
-  return this.http.post(`${this.url}/api/payments`, oauth_token);
+  return this.http.post('/api/payments', oauth_token);
 }
   checkToken() {
     this.storage.get(TOKEN_KEY).then(token => {
@@ -50,7 +50,7 @@ oauthTok(oauth_token){
     // if(credentials){
     //   console.log(credentials);
     // }
-    return this.http.post(`${this.url}/api/register`, credentials).pipe(
+    return this.http.post('/api/register', credentials).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -59,7 +59,7 @@ oauthTok(oauth_token){
   }
   resetPassword(pass){
     console.log(pass);
-    return this.http.patch(`${this.url}/api/reset`, pass).pipe(catchError(e => {
+    return this.http.patch('/api/reset', pass).pipe(catchError(e => {
       this.showAlert(e.error.msg);
       throw new Error(e);
     }),
@@ -70,10 +70,10 @@ oauthTok(oauth_token){
     );
   }
   getImages() {
-    return this.http.get(this.url + 'api/images');
+    return this.http.get('/api/images');
   }
   forgotPassword(creds){
-    return this.http.post(`${this.url}/api/forgot`, creds).pipe( catchError(e => {
+    return this.http.post('/api/forgot', creds).pipe( catchError(e => {
       this.showAlert(e.error.msg);
       throw new Error(e);
     }),
@@ -83,7 +83,7 @@ oauthTok(oauth_token){
   );
   }
   login(credentials) {
-    return this.http.post(`${this.url}/api/login`, credentials).pipe(
+    return this.http.post('/api/login', credentials).pipe(
       tap(res => {
         this.storage.set(TOKEN_KEY, res['token']);
         this.user = this.helper.decodeToken(res['token']);
@@ -98,7 +98,7 @@ oauthTok(oauth_token){
 
   saveFeedback(contact) {
     //console.log(contact);
-    return this.http.post(`${this.url}/api/contact`, contact).pipe(
+    return this.http.post('/api/contact', contact).pipe(
         catchError(e => {
           this.showAlert(e.error.msg);
           //this.authenticationState.next(false);
@@ -107,7 +107,7 @@ oauthTok(oauth_token){
       ); 
   }
   updateSales(sale){
-    return this.http.post(`${this.url}/api/postSales`, sale).pipe(
+    return this.http.post('/api/postSales', sale).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -116,7 +116,7 @@ oauthTok(oauth_token){
   }
   
   postItems(item) {
-    return this.http.post(`${this.url}/api/postItems`, item).pipe(
+    return this.http.post('/api/postItems', item).pipe(
         catchError(e => {
           this.showAlert(e.error.msg);
           //this.authenticationState.next(false);
@@ -125,10 +125,10 @@ oauthTok(oauth_token){
       );
   }
   getItems(){
-    return this.http.get(`${this.url}/api/getItems`);
+    return this.http.get('/api/getItems');
   }
   mpesaOauth(){
-    return this.http.get(`${this.url}/api/mpesa`).pipe(
+    return this.http.get('/api/mpesa').pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         //this.authenticationState.next(false);
@@ -137,7 +137,7 @@ oauthTok(oauth_token){
     );
   }
   lipaMpesaOnline(){
-    return this.http.get(`${this.url}/api/tokenGetter`);
+    return this.http.get('/api/tokenGetter');
   }
 
   logout() {
@@ -153,7 +153,7 @@ oauthTok(oauth_token){
   }
 
   getSpecialData() {
-    return this.http.get(`${this.url}/api/special`).pipe(
+    return this.http.get('/api/special').pipe(
       catchError(e => {
         let status = e.status;
         if (status == 401) {
@@ -170,7 +170,7 @@ oauthTok(oauth_token){
     return this.authenticationState.value;
   }
   getSalesActivities(){
-    return this.http.get(`${this.url}/api/getPastActivities`).pipe(
+    return this.http.get('/api/getPastActivities').pipe(
       catchError(e => {
         let status = e.status;
         if (status == 401) {
@@ -184,7 +184,7 @@ oauthTok(oauth_token){
     
   }
   getSalesActivity(){
-    return this.http.get(`${this.url}/api/getOrders`);
+    return this.http.get('/api/getOrders');
   }
  
   showAlert(msg) {

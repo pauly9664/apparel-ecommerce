@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, ModalController } from '@ionic/angular';
+import { NavParams, ModalController, PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-confirmation-modal',
@@ -8,14 +8,14 @@ import { NavParams, ModalController } from '@ionic/angular';
 })
 export class ConfirmationModalPage implements OnInit {
 
-  passedDelivery = null;
-  passedPayment = null;
-
-  constructor(private modalController:ModalController, private navParams: NavParams) { }
+  constructor(private popovercontroller: PopoverController) { }
 
   ngOnInit() {
-    this.passedDelivery = this.navParams.get('custom_id');
+    
 
+}
+  closePopover(){
+    this.popovercontroller.dismiss();
   }
 
 }

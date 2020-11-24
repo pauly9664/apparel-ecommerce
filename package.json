@@ -4,6 +4,7 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
+    "heroku-postbuild": "ng-build --prod",
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.config.json",
     "build": "ng build",
@@ -11,11 +12,18 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "engines": {
+    "node": "10.x",
+    "npm": "6.9.0"
+  },
   "private": true,
   "dependencies": {
     "@angular/animation": "^4.0.0-beta.8",
     "@angular/common": "^7.2.15",
     "@angular/core": "^7.2.15",
+    "@angular/cli": "^7.3.9",
+    "@angular/compiler": "^7.2.15",
+    "@angular/compiler-cli": "^7.2.15",
     "@angular/fire": "^5.2.1",
     "@angular/forms": "^7.2.15",
     "@angular/http": "^7.2.15",
@@ -59,6 +67,7 @@
     "natives": "^1.1.6",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.6.0",
+    "typescript": "~3.2.4",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {

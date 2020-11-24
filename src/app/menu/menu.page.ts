@@ -32,11 +32,6 @@ export class MenuPage implements OnInit {
       icon: 'cart'
     },
     {
-      title: 'Orders',
-      url: '/menu/history',
-      icon: 'albums'
-    },
-    {
       title: 'Contact',
       url: '/menu/contact',
       icon: 'call'

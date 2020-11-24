@@ -22,5 +22,5 @@
       <span style="font-weight: bold;">Total:</span> <span slot="end" style="font-weight: bolder;">{{  getTotal() | currency:'KES ' }}</span>
     </ion-item>
   </ion-list>
- <div class="align-button"> <ion-button color="danger"  style="color: #fff"size="default" [routerLink]="['/menu/checkout', getTotal()] " routerDirection="forward" (click)="closePopover()" >Proceed to checkout</ion-button></div>
+ <div class="align-button"> <ion-button color="danger"  style="color: #fff"size="default" [routerLink]="['/menu/checkout', getTotal()] " routerDirection="forward" (click)="checkAuthent()" (click)="closePopover()" >Proceed to checkout</ion-button></div>
 </ion-content>

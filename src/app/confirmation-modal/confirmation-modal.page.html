@@ -1,12 +1,11 @@
 <ion-content padding>
-  Delivery Details: {{ passedDelivery }}
-
-  Payment Details: {{ passedPayment }}
+  <h2 text-center><i>Oops!</i></h2>
+  <div style="margin-top: 10%">
+  <p >You need to login/create a new account to checkoout successfully</p>
+  <ion-button style="margin-left: 30%;" size="small" routerLink="/menu/login" (click)="closePopover()">
+    LOGIN/REGISTER
+  </ion-button>
+</div>
 </ion-content>
-<ion-footer>
-  <ion-toolbar color="primary">
-    <ion-button expand="medium" fill="outline" (click)="closeModal()">
-      Close
-    </ion-button>
-  </ion-toolbar>
-</ion-footer>
+
+   

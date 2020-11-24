@@ -17,7 +17,7 @@
  
   <ion-fab vertical="top" horizontal="end">
     <ion-button color="danger" (click)="openCart()">
-      <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+      <ion-badge  *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
       <ion-icon name="cart" slot="icon-only"></ion-icon>
     </ion-button>
   </ion-fab>
@@ -28,10 +28,10 @@
               <ion-col size-sm="12" size-md="12" size-lg="12" style="background: #fff; color: grey;height: 50px;width: 80%;padding-top:10px;">
                 <div class="round-border">
                 <ion-col size-sm="2" tappable routerLink="/menu/home" style="color: #000;font-weight: bold;"></ion-col>
-                <ion-col size-sm="2" tappable routerLink="/menu/accountslanding"style="color: #000;font-weight: bold;">Account </ion-col>
-                <ion-col size-sm="2"tappable routerLink="/menu/media" style="color: #000;font-weight: bold;">Shop </ion-col>
-                <ion-col size-sm="2" tappable routerLink="/menu/history" style="color: #000; font-weight: bold;">Orders </ion-col> 
-                <ion-col size-sm="2" tappable routerLink="/menu/contact" style="color: #000; font-weight: bold;">Contact Us </ion-col>
+                <ion-col size-sm="2" tappable routerLink="/menu/accountslanding"style="color: #000;font-weight: bold;"><i>Account </i></ion-col>
+                <ion-col size-sm="2"tappable routerLink="/menu/media" style="color: rgb(68, 49, 49);font-weight: bold;"><i>Shop </i></ion-col>
+                <ion-col size-sm="2" tappable routerLink="/menu/history" style="color: #000; font-weight: bold;"><i>Orders </i></ion-col> 
+                <ion-col size-sm="2" tappable routerLink="/menu/contact" style="color: #000; font-weight: bold;"><i>Contact Us </i></ion-col>
 
                 <!-- <ion-col size-sm="3" tappable routerLink="/menu/media" style="font-weight: bold;">Media</ion-col> -->
               </div>
@@ -46,25 +46,25 @@
                   <ion-slide>
                     <div class="content"></div>
                        <img class="landing-page" src="/assets/dress2.jpg" /> 
-                     <p class="text-slide" style="font-family: Open Sans;">Dress selections<br>
+                     <p class="text-slide" style="font-family: Open Sans;"><i>Dress selections</i><br>
                     <ion-button color="danger"  size="small" style="color: #fff; font-family: Open Sans ;" routerLink="/menu/media">View</ion-button>
                     </p> 
                   </ion-slide>
                   <ion-slide>
                        <img class="landing-page" src="/assets/sample6.jpg" /><br>
-                    <p class="text-slide" style="font-family:Open Sans;"> Men's Casual Wear<br>
+                    <p class="text-slide" style="font-family:Open Sans;"><i>Men's Casual Wear</i><br>
                       <ion-button color="danger" size="small" style="color: #fff; font-family: Open Sans;" routerLink="/menu/media">View</ion-button>
                     </p>
                   </ion-slide>
                   <ion-slide>
                     <img class="landing-page" src="/assets/sample3.jpg" /><br>
-                 <p class="text-slide" style="font-family:Open Sans;"> Shoes and Footwear<br>
+                 <p class="text-slide" style="font-family:Open Sans;"><i>Shoes and Footwear </i><br>
                    <ion-button color="danger" size="small" style="color: #fff; font-family: Open Sans;" routerLink="/menu/media">View</ion-button>
                  </p>
                </ion-slide>
                   <ion-slide>
                       <img class="landing-page" src="/assets/lhbag.jpg" />
-                    <p class="text-slide" style="font-family: Open Sans;"> Accessories<br>
+                    <p class="text-slide" style="font-family: Open Sans;"><i>Accessories </i><br>
                       <ion-button color="danger" size="small" style="color: #fff; font-family: Open Sans;"routerLink="/menu/media">View</ion-button>
                     </p>
                   </ion-slide>
@@ -76,7 +76,7 @@
       <ion-grid fixed>
     <ion-row>
       <ion-col class="slanted-corner" size="12">
-        <h1 text-center style="font-family: Impact;color:#000">Welcome to..</h1>
+        <h1 text-center style="font-family: Impact;color:#000"><i>Welcome to..</i></h1>
         <section text-center margin-bottom>
           <img src="/assets/PreetiLogo.png" style="height:100px; width: 100px" />
         </section>
@@ -125,39 +125,42 @@
   <ion-card>
     <ion-card-content>
       <div class="textv">
-        <p text-center style="font-weight: 300; ">Get to know us better</p>
+        <p text-center style="font-weight: bold; ">Get to know us better</p>
+        <a href="https://web.facebook.com/preetifashions" target="_blank"> <ion-icon name="logo-facebook" style="font-size:5em; margin-right: 30%;" ></ion-icon></a>
+        <a href="https://www.instagram.com/preetifashions_ke/" target="_blank"><ion-icon name="logo-instagram" style="font-size: 5em; margin-right: 30%;" ></ion-icon></a>
+        <ion-icon name="logo-whatsapp" style="font-size: 5em" ></ion-icon>
       </div>
       <div class="routeit"><a routerLink="/menu/contact">Contact Us..</a></div>
     </ion-card-content>
   </ion-card>
   <div class="primal">
     <ion-text color="light">
-      <h2 style="color: #000" text-center>Top categories</h2>
+      <p style ="font-weight: bold;background-color: #edf5e1;color: #000" text-center>Top categories</p>
     </ion-text>
   </div>
   <div class="back-color">
     <ion-grid fixed>
       <ion-row>
         <ion-col class="ion-align-self-start" size-sm="3" size-md="3" style="font-family: Impact">Dresses
-          <ion-thumbnail><img tappable routerLink="/menu/main-shop" src="/assets/slf2.jpg" /></ion-thumbnail>
+          <ion-thumbnail><img tappable routerLink="/menu/media" src="/assets/slf2.jpg" /></ion-thumbnail>
         </ion-col>
         <ion-col class="ion-align-self-start" size-sm="3" size-md="3" style="font-family: Impact">Tops
-          <ion-thumbnail><img tappable routerLink="/menu/main-shop" src="/assets/img3.jpg" /></ion-thumbnail>
+          <ion-thumbnail><img tappable routerLink="/menu/media" src="/assets/img3.jpg" /></ion-thumbnail>
         </ion-col>
         <ion-col class="ion-align-self-center" size-sm="3" size-md="3" style="font-family: Impact">Shoes
-          <ion-thumbnail><img tappable src="/assets/oshoe3.jpg" routerLink="/menu/shoes" /></ion-thumbnail>
+          <ion-thumbnail><img tappable src="/assets/oshoe3.jpg" routerLink="/menu/media" /></ion-thumbnail>
         </ion-col>
         <ion-col class="ion-align-self-center" size-sm="3" size-md="3" style="font-family: Impact">Suits
-          <ion-thumbnail><img tappable src="/assets/tsuit5.jpg" routerLink="/menu/suits" /></ion-thumbnail>
+          <ion-thumbnail><img tappable src="/assets/tsuit5.jpg" routerLink="/menu/media" /></ion-thumbnail>
         </ion-col>
         <ion-col class="ion-align-self-center" size-sm="3" size-md="3" style="font-family: Impact">Bags
-          <ion-thumbnail><img tappable src="/assets/hbag2.jpg" routerLink="/menu/bags" /></ion-thumbnail>
+          <ion-thumbnail><img tappable src="/assets/hbag2.jpg" routerLink="/menu/media" /></ion-thumbnail>
         </ion-col>
         <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style="font-family: Impact">Men
-          <ion-thumbnail><img tappable src="/assets/suit1.jpg" routerLink="/menu/other-items" /></ion-thumbnail>
+          <ion-thumbnail><img tappable src="/assets/suit1.jpg" routerLink="/menu/media" /></ion-thumbnail>
         </ion-col>
         <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style="font-family: Impact">Others
-          <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/menu/other-items" /></ion-thumbnail>
+          <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/menu/media" /></ion-thumbnail>
         </ion-col>
       </ion-row>
     </ion-grid>

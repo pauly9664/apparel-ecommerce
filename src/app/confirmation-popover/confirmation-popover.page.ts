@@ -28,6 +28,7 @@ export class ConfirmationPopoverPage implements OnInit {
    price:any;
    count:any;
    setval:any;
+   viewer = 0;
 
    value:any;
   constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: PopoverController, private authService: AuthService) {
@@ -72,6 +73,7 @@ export class ConfirmationPopoverPage implements OnInit {
       payment_status: [this.passedDelivery],
       user_id: [this.loggedInUser],
       description: [this.arrObj],
+      viewed_status: [this.viewer],
       // object_id: [this.arrArr]
       
     });
@@ -89,6 +91,7 @@ export class ConfirmationPopoverPage implements OnInit {
     this.setval = this.salesForm.get('amount').setValue(this.totalCartItems);
     this.setval = this.salesForm.get('delivery_status').setValue(this.passedDelivery);
     this.setval = this.salesForm.get('payment_status').setValue(this.passedPayment);
+    this.setval = this.salesForm.get('viewed_status').setValue(this.viewer)
   
       
   }
