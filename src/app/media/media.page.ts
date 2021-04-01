@@ -13,6 +13,8 @@ import { debounceTime } from 'rxjs/operators';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ViewProductPage } from '../view-product/view-product.page';
 import { LoadingController } from '@ionic/angular';
+import { BehaviorSubject } from 'rxjs';
+import { ShoppersCartPage } from '../shoppers-cart/shoppers-cart.page';
 
 @Component({
   selector: 'app-media',
@@ -22,7 +24,7 @@ import { LoadingController } from '@ionic/angular';
 export class MediaPage implements OnInit {
 products:any=[];
 product:any=[];
-produce=[];
+produce:any=[];
 item:any;
 productCategory = [];
 items = [];
@@ -32,15 +34,33 @@ searchControl:FormControl;
 contactForm: FormGroup;
   price: any;
   pricesCart = [];
-  constructor(private productsService: ShoppersCartService,private modalCtrl: ModalController, private loadingController: LoadingController ) { 
+  cart = [];
+  cartItemCount: BehaviorSubject<number>;
+  constructor(private productsService: ShoppersCartService, private alertCtrl: AlertController, private cartService: ShoppersCartService,private modalCtrl: ModalController, private loadingController: LoadingController ) { 
     //  this.queryProductsData();
      this.filterAgain();
     //  this.FilterArrayObjects(Event);
     this.searchControl = new FormControl();
   }
   ngOnInit() {
+    this.presentLoadingWithOptions2();
+    this.cartItemCount = this.cartService.getCartItemCount();
+    this.cart = this.cartService.getCart();
+    // this.produce = this.products;
   this.queryOnBrowse();
+  // this.mediaLaunch();
   
+  }
+  async openCart(){ 
+    //this.router.navigate(['menu/shoppers-cart']);
+    let modal = await this.modalCtrl.create({
+        
+      component: ShoppersCartPage, 
+        // componentProps:{
+        //   img: img,
+        // }
+      });
+    modal.present();
   }
    FilterArrayObjects(ev:any){
     this.prods = ev.target.value;
@@ -69,6 +89,8 @@ contactForm: FormGroup;
 queryOnBrowse(){
   this.productsService.getImages().subscribe(data => {
     this.products = data;
+    this.produce = data;
+    console.log("This produce", this.produce)
   })
 }
 filterAgain(){
@@ -133,10 +155,30 @@ console.log("Price List", this.produce);
       const loading = await this.loadingController.create({
         spinner: "circles",
         duration: 500,
-        message: 'Fetching...',
+        message: 'Fetching... '+this.categorySelected,
         // translucent: true,
         cssClass: 'custom-class custom-loading'
       });
       return await loading.present();
+    }
+    async presentLoadingWithOptions2() {
+      const loading = await this.loadingController.create({
+        spinner: "crescent",
+        duration: 500,
+        message: 'LOADING...',
+        // translucent: true,
+        cssClass: 'custom-class custom-loading'
+      });
+      return await loading.present();
+    }
+    async mediaLaunch() {
+      // Perfom PayPal or Stripe checkout process
+    
+      let alert = await this.alertCtrl.create({
+        header: 'Shopping Page',
+        message: 'Please select a category first or use the price range option to set max price limit',
+        buttons: ['OK']
+      });
+      alert.present();
     }
 }

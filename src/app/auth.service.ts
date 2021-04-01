@@ -50,7 +50,7 @@ oauthTok(oauth_token){
     // if(credentials){
     //   console.log(credentials);
     // }
-    return this.http.post('/api/register', credentials).pipe(
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/register', credentials).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -59,7 +59,7 @@ oauthTok(oauth_token){
   }
   resetPassword(pass){
     console.log(pass);
-    return this.http.patch('/api/reset', pass).pipe(catchError(e => {
+    return this.http.patch('https://preeti-fashion.herokuapp.com/api/reset', pass).pipe(catchError(e => {
       this.showAlert(e.error.msg);
       throw new Error(e);
     }),
@@ -73,7 +73,7 @@ oauthTok(oauth_token){
     return this.http.get('/api/images');
   }
   forgotPassword(creds){
-    return this.http.post('/api/forgot', creds).pipe( catchError(e => {
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/forgot', creds).pipe( catchError(e => {
       this.showAlert(e.error.msg);
       throw new Error(e);
     }),
@@ -83,7 +83,7 @@ oauthTok(oauth_token){
   );
   }
   login(credentials) {
-    return this.http.post('/api/login', credentials).pipe(
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/login', credentials).pipe(
       tap(res => {
         this.storage.set(TOKEN_KEY, res['token']);
         this.user = this.helper.decodeToken(res['token']);
@@ -98,7 +98,7 @@ oauthTok(oauth_token){
 
   saveFeedback(contact) {
     //console.log(contact);
-    return this.http.post('/api/contact', contact).pipe(
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/contact', contact).pipe(
         catchError(e => {
           this.showAlert(e.error.msg);
           //this.authenticationState.next(false);
@@ -107,7 +107,7 @@ oauthTok(oauth_token){
       ); 
   }
   updateSales(sale){
-    return this.http.post('/api/postSales', sale).pipe(
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/postSles', sale).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);
@@ -153,14 +153,14 @@ oauthTok(oauth_token){
   }
 
   getSpecialData() {
-    return this.http.get('/api/special').pipe(
+    return this.http.get('https://preeti-fashion.herokuapp.com/api/special').pipe(
       catchError(e => {
         let status = e.status;
-        if (status == 401) {
-          this.showAlert('Please login first');
-          // this.logout();  
-          this.authenticationState.next(false);
-        }
+        // if (status == 401) {
+        //   this.showAlert('Please login first');
+        //   // this.logout();  
+        //   this.authenticationState.next(false);
+        // }
         throw new Error(e);
       })
     )
@@ -170,7 +170,7 @@ oauthTok(oauth_token){
     return this.authenticationState.value;
   }
   getSalesActivities(){
-    return this.http.get('/api/getPastActivities').pipe(
+    return this.http.get('https://preeti-fashion.herokuapp.com/api/getPastActivities').pipe(
       catchError(e => {
         let status = e.status;
         if (status == 401) {
@@ -184,7 +184,7 @@ oauthTok(oauth_token){
     
   }
   getSalesActivity(){
-    return this.http.get('/api/getOrders');
+    return this.http.get('https://preeti-fashion.herokuapp.com/api/getOrders');
   }
  
   showAlert(msg) {

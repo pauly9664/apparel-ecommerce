@@ -6,10 +6,15 @@
   </ion-buttons>
     <img src="/assets/PreetiLogo.png" style="height:75px; width: 100px; margin-left: 40%;"/>
   </ion-toolbar>
- 
+  <ion-fab vertical="top" horizontal="end">
+    <ion-button color="dark" (click)="openCart()">
+      <ion-badge  *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+      <ion-icon name="cart" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-fab>
 </ion-header>
 
-<ion-content>
+<ion-content >
   <!-- <p text-center style="color: skyblue;"> Filter using Item name</p>  -->
    <!-- <ion-searchbar [formControl]="searchControl" style="max-width:50%" (ionChange)="FilterArrayObjects($event)"></ion-searchbar> -->
  <!-- <div>
@@ -18,51 +23,53 @@
    </ion-list>
  </div> -->
  
- <div style="background-color: whitesmoke;">
-  <!-- <ion-grid>
+ <!-- <div style="background-color: black;"> -->
+  <ion-grid style="background-color: whitesmoke;">
     <ion-row>
-<ion-col size-sm="12" size-lg="12" size-md="12"> -->
-  <label style="font-weight: bold; font-size: 12px">Categories</label> <select (change)="filterItems($event)" type = "text"  style="max-width:100px; margin-left: 1%;" ><option *ngFor="let category of productCategory" [value]="category">{{category}}</option></select>
+<ion-col size-sm="6" size-lg="6" size-md="6">
+  <ion-item lines="none" >
+  <label style="font-weight: bold; font-size: 12px; color: #000">Categories</label>
+  <select (change)="filterItems($event)" type = "text"  style="max-width:100px; margin-left: 1%;" ><option *ngFor="let category of productCategory" [value]="category">{{category}}</option></select>
+</ion-item>
+  <ion-item lines="none">
+  <label style="font-size: 12px;font-weight:bold;color: #000">Price Range</label> 
 
-  <!-- <ion-button size="small" color="danger" style="color:#fff;margin-bottom: 1%; margin-left: 3%;" (click)="queryOnBrowse()"><span> Reset Category</span></ion-button>  -->
-<!-- </ion-col> -->
-<!-- <ion-col size-sm="12" size-lg="12" size-md="12"> -->
-
-  <label style=" margin-left: 10%;font-size: 12px; font-weight:bold ">Price Filter</label> 
-
-  <input id ="price-range" (input)="filterByPrice($event.target.value)" type="range" min="100" max="25000" style="margin-left: 1%;" /><p style="font-weight: bold" style="margin-left: 50%;font-size: 12px; color: red"><span style="font-size: 13px; font-weight: bolder;"> Max Price Limit: </span> KES {{price}}</p>
-
-<!-- <p>Hey{{price}}</p> -->
-<!-- </ion-col>
-</ion-row>
-</ion-grid> -->
-</div>
-<div class="row">
- <div *ngFor="let img of produce" >
-   <!-- <div *ngIf="produce.length === 0"><p>No category selected</p> -->
-  <!-- <div *ngIf="produce === undefined"><p>Please select a category</p></div> -->
-  <!-- <ion-card> -->
- <!-- <div class="row">
-  <div class="column"> -->
+  <input id ="price-range" (input)="filterByPrice($event.target.value)" type="range" min="100" max="25000" style="margin-left: 1%;" />
   
-    <!-- <ion-grid>
-      <ion-col size-sm="4" size-md="8" size-lg="12"> -->
-        <img style="max-width: 200px;" [src]='img.url'>
-        <div>
+</ion-item>
+<ion-item>
+  <p style="font-weight: bold" style="margin-left: 50%;font-size: 12px; color: #000"><span style="font-size: 13px; font-weight: bolder;"> Max Price Limit - </span> KES {{price}}</p>
+</ion-item>
+</ion-col>
+<ion-col size-sm="6" size-lg="6" size-md="6">
+  <div class="row">
+    <div *ngFor="let img of produce" >
+      <img style="max-width: 200px;" (click)="openImage(img)" [src]='img.url'>
+        <div class="column">
         <p style="font-family: Open Sans; font-weight: bold"> {{img.description}}<br></p>
-        <!-- <p><span class="styler">Item category</span>: {{img.category}}<br></p> -->
-        <p><span style="background-color: #fff;color: #000; font-size: 13px;"><i> KES {{img.price}}</i></span><br></p>
-        <ion-button size="small" color="light" style='color: #000;' (click)="openImage(img)"><ion-icon  name="information"></ion-icon>VIEW MORE</ion-button>    
-      </div>    
-      <!-- </ion-col>
-    </ion-grid>  -->
-  
-       <!-- <p><span class="styler">Availability</span>: In Stock<br></p>  -->
-  <!-- </div> 
-</div> -->
-<!-- </ion-card> -->
+        <p><span style="background-color: #000;color: #fff; font-size: 13px;"><i> KES {{img.price}} <span style="color: red;">(All prices are negotiable)</span></i></span><br></p>
+        <ion-button size="small" color="light" style='color: #000;' (click)="openImage(img)"><ion-icon  name="information"></ion-icon>VIEW MORE</ion-button>  
+         
+      </div>
+</div>
+</div>
+</ion-col>
+</ion-row>
+</ion-grid> 
 <!-- </div> -->
+<!-- <div class="row">
+ <div *ngFor="let img of produce" >
+  <img style="max-width: 200px;" (click)="openImage(img)" [src]='img.url'>
+  <div class="column">
+  <p style="font-family: Open Sans; font-weight: bold"> {{img.description}}<br></p>
+        <img style="max-width: 200px;" (click)="openImage(img)" [src]='img.url'>
+        <div class="column">
+        <p style="font-family: Open Sans; font-weight: bold"> {{img.description}}<br></p>
+        <p><span style="background-color: #fff;color: #000; font-size: 13px;"><i> KES {{img.price}} <span style="color: red;">(All prices are negotiable)</span></i></span><br></p>
+        <ion-button size="small" color="light" style='color: #000;' (click)="openImage(img)"><ion-icon  name="information"></ion-icon>VIEW MORE</ion-button>  
+         
+      </div>
 </div>
-</div>
+</div> -->
 
 </ion-content>

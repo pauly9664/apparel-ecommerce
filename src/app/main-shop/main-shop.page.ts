@@ -41,6 +41,7 @@ export class MainShopPage implements OnInit {
     }
 
   ngOnInit() {
+    
     this.queryProductsData();
     this.cart = this.cartService.getCart();
     this.cartItemCount = this.cartService.getCartItemCount();

@@ -16,11 +16,11 @@
       <ion-thumbnail> <img src= '{{ item.url }}' /> </ion-thumbnail>
       <p> {{ item.amount }} x {{ item.description }}</p>
       
-      <ion-label slot="end" text-right style="font-family: Open Sans;color: green"> <p tappable (click)="removeFromCart(p)">Remove </p>{{ (item.price * item.amount) | currency: 'KES': 'KES ' }}</ion-label> 
+      <ion-label slot="end" text-right style="font-family: Open Sans;color: #000"> <p tappable (click)="removeFromCart(p)">Remove </p>{{ (item.price * item.amount) | currency: 'KES': 'KES ' }}</ion-label> 
     </ion-item>
     <ion-item>
-      <span style="font-weight: bold;">Total:</span> <span slot="end" style="font-weight: bolder;">{{  getTotal() | currency:'KES ' }}</span>
+      <span style="font-weight: bold;">Total:</span> <span slot="end" style="font-weight: bold;color: green">{{  getTotal() | currency:'KES ' }}</span>
     </ion-item>
   </ion-list>
- <div class="align-button"> <ion-button color="danger"  style="color: #fff"size="default" [routerLink]="['/menu/checkout', getTotal()] " routerDirection="forward" (click)="checkAuthent()" (click)="closePopover()" >Proceed to checkout</ion-button></div>
+ <div class="align-button"> <ion-button color="danger"  style="color: #fff"size="default" [routerLink]="['/menu/checkout', getTotal()] " routerDirection="forward" (click)="closePopover()" >Proceed to checkout</ion-button></div>
 </ion-content>

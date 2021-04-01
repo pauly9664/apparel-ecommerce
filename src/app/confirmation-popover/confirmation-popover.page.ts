@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavParams, PopoverController, AlertController } from '@ionic/angular';
+import { NavParams, PopoverController, AlertController, ModalController } from '@ionic/angular';
 import { AuthService } from '../auth.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ShoppersCartService } from '../shoppers-cart.service';
 import { pipe } from 'rxjs';
 
@@ -13,6 +13,9 @@ import { pipe } from 'rxjs';
 export class ConfirmationPopoverPage implements OnInit {
   passedDelivery = null;
   passedPayment = null;
+  cust_name = null;
+  cust_num = null;
+  cust_email = null;
   totalCartItems = null;
   loggedInUser = null;
   acc_token = null;
@@ -29,18 +32,23 @@ export class ConfirmationPopoverPage implements OnInit {
    count:any;
    setval:any;
    viewer = 0;
+   checkAuth:boolean
 
    value:any;
-  constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: PopoverController, private authService: AuthService) {
+  constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: ModalController, private authService: AuthService) {
    }
    
   ngOnInit() {
-    
+    this.checkAuth = this.authService.authenticationState.value;
     this.passedDelivery = this.navParams.get('delivery_id');
     this.passedPayment = this.navParams.get('payment_id');
+    this.cust_name = this.navParams.get('cust_name');
+    this.cust_num = this.navParams.get('cust_num');
+    this.cust_email = this.navParams.get('cust_email');
     this.totalCartItems = this.navParams.get('total_id');
     this.loggedInUser = this.navParams.get('user_id');
     this.cart = this.shoppercart.getCart();
+    
     // for (let i = 0, len = this.cart.length; i < len; i++) {
     //   
     //   }
@@ -74,6 +82,10 @@ export class ConfirmationPopoverPage implements OnInit {
       user_id: [this.loggedInUser],
       description: [this.arrObj],
       viewed_status: [this.viewer],
+      customer_name: [this.cust_name],
+      customer_contact: [this.cust_num,[Validators.required, Validators.minLength(10)]],
+      customer_email: [this.cust_email]
+
       // object_id: [this.arrArr]
       
     });
@@ -100,6 +112,7 @@ export class ConfirmationPopoverPage implements OnInit {
     this.authService.updateSales(this.salesForm.value).subscribe();
   }
   postToMail(){
+    console.log("SalesForm", this.salesForm.value)
     this.shoppercart.postCart(this.salesForm.value).subscribe();
     // const  productUpload = new FormData();
    

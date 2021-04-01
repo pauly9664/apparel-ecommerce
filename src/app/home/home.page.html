@@ -3,88 +3,205 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <!-- <img src="/assets/preetiLogo1.png" style="height:70px; width: 100px; margin-left: 40%;"/> -->
-    <!-- <ion-buttons slot="end">
-      <ion-button (click)="openCart()">
-        <ion-badge *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+    <ion-fab vertical="top" horizontal="end">
+      <ion-button color="dark" (click)="openCart()">
+        <ion-badge  *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
         <ion-icon name="cart" slot="icon-only"></ion-icon>
       </ion-button>
-    </ion-buttons> -->
-    <ion-button  *ngIf="!checkAuth" slot="end" style="margin-top: 3%;"color="danger"size="small"routerLink="/menu/login" ><ion-icon name="log-in"></ion-icon>Login</ion-button>
+    </ion-fab>
+    <!-- <ion-button  *ngIf="!checkAuth" slot="end" style="margin-top: 3%;"color="danger"size="small"routerLink="/menu/login" ><ion-icon name="log-in"></ion-icon>Login</ion-button> -->
   </ion-toolbar>
 </ion-header>
-<ion-content>
+<ion-content class="card-background-page" >
  
-  <ion-fab vertical="top" horizontal="end">
-    <ion-button color="danger" (click)="openCart()">
-      <ion-badge  *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
-      <ion-icon name="cart" slot="icon-only"></ion-icon>
-    </ion-button>
-  </ion-fab>
-        <div class="navigation-menu">
-            <ion-grid>
+
+  <img src="/assets/PreetiLogo.png" style="margin-left: 35%; height:7.5em; width: 9.375em" />
+  <!-- <ion-card>
+    <ion-card-title routerLink="/menu/main-shop" style="font-weight: bold; font-family: Open Sans;">New Arrivals</ion-card-title> -->
+    <div class="categoryblock">
+        <h3 text-center style="font-weight: bold;">New Arrivals</h3>
+    <ion-slides [options]="slidesConfig">
+    
+      <ion-slide *ngFor="let img of item">
+        <!-- <div *ngIf="cat.expanded"> -->
+                <ion-card class="new-card">
+                  <ion-card-header>
+                    <ion-card-title style="font-family: fantasy">
+                      <p style="font-size: small;">{{img.description }} - {{ img.price }}</p>
+                    </ion-card-title>
+                    <p (click)="openImage(img)" tappable style="font-family: Fantasy; color:burlywood" click="getMarketplaceItems()">VIEW PRODUCT</p>
+                  </ion-card-header>
+                  <ion-card-content>
+                      <div class="display-items"><img tappable class="landing-page" (click)="openImage(img)" [src]='img.url' /></div> 
+                  </ion-card-content>
+                  </ion-card>       
+        <!-- </div> -->
+      </ion-slide>
+   
+    </ion-slides> 
+  </div>
+  <!-- </ion-card> -->
+  <div *ngIf="isWebLayout">
+  <ion-grid>
+    <ion-row>
+    <ion-col  size-lg="4" >
+      <ion-card routerLink="/menu/media">
+        <img class="bg-image" src="assets/jeans_dress.jpeg"/>
+        <div routerLink="/menu/media" class="card-title">Dresses</div>
+        <div class="card-subtitle">Selections from Turkey & US</div>
+        
+      </ion-card>
+    </ion-col>
+    <ion-col size-lg="4" >
+      <ion-card routerLink="/menu/media">
+        <img class="bg-image" src="assets/casual_green.jpeg"/>
+        <div routerLink="/menu/media" class="card-title">Casual Suits</div>
+        <div class="card-subtitle">Selections from Turkey & US</div>
+      </ion-card>
+    </ion-col>
+    <ion-col size-sm="12" size-lg="4" size-md="4">
+      <ion-card routerLink="/menu/media">
+        <img class="bg-image" src="assets/skirt_suit.jpeg"/>
+        <div routerLink="/menu/media" class="card-title">Skirt Suits</div>
+        <div class="card-subtitle">Official Wear </div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size-lg="4" >
+      <ion-card routerLink="/menu/media">
+        <img class="bg-image" src="assets/sweater_mustard.jpeg"/>
+        <div routerLink="/menu/media" class="card-title">Sweaters</div>
+        <div class="card-subtitle">Warm & Cozy</div>
+      </ion-card>
+    </ion-col>
+    <ion-col  size-lg="4">
+      <ion-card routerLink="/menu/media">
+        <img class="bg-image" src="assets/sweater_tribal.jpeg"/>
+        <div routerLink="/menu/media" class="card-title">Jackets</div>
+        <div class="card-subtitle">Get that swag on</div>
+      </ion-card>
+    </ion-col>
+    <ion-col size-lg="4" >
+      <ion-card routerLink="/menu/media">
+        <img class="bg-image" src="assets/suit1.jpg"/>
+        <div routerLink="/menu/media" class="card-title">Men's Stuff</div>
+        <div class="card-subtitle">Official, Casual etc...</div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</div>
+  <div *ngIf="isMobileLayout">
+    <ion-card routerLink="/menu/media">
+      <img class="bg-image" src="assets/jeans_dress.jpeg"/>
+      <div routerLink="/menu/media" class="card-title">Dresses</div>
+      <div class="card-subtitle">Selections from Turkey & US</div>
+    </ion-card>
+  <ion-card routerLink="/menu/media">
+    <img class="bg-image" src="assets/casual_green.jpeg"/>
+    <div routerLink="/menu/media" class="card-title">Casual Suits</div>
+    <div class="card-subtitle">Selections from Turkey & US</div>
+  </ion-card>
+  <ion-card routerLink="/menu/media">
+    <img class="bg-image" src="assets/skirt_suit.jpeg"/>
+    <div routerLink="/menu/media" class="card-title">Skirt Suits</div>
+    <div class="card-subtitle">Official Wear </div>
+  </ion-card>
+  <ion-card routerLink="/menu/media">
+    <img class="bg-image" src="assets/sweater_mustard.jpeg"/>
+    <div routerLink="/menu/media" class="card-title">Sweaters</div>
+    <div class="card-subtitle">Warm & Cozy</div>
+  </ion-card>
+  <ion-card routerLink="/menu/media">
+    <img class="bg-image" src="assets/sweater_tribal.jpeg"/>
+    <div routerLink="/menu/media" class="card-title">Jackets</div>
+    <div class="card-subtitle">Get that swag on</div>
+  </ion-card>
+  <ion-card routerLink="/menu/media">
+    <img class="bg-image" src="assets/suit1.jpg"/>
+    <div routerLink="/menu/media" class="card-title">Men's Stuff</div>
+    <div class="card-subtitle">Official, Casual etc...</div>
+  </ion-card>
+</div>
+            <!-- <ion-grid>
               <ion-row>
-              <!-- <ion-col size-sm="4" size-md="4" size-lg="4"><img src="/assets/preetiLogo1.png" style="height:100px; width: 100px" /></ion-col> -->
               <ion-col size-sm="12" size-md="12" size-lg="12" style="background: #fff; color: grey;height: 50px;width: 80%;padding-top:10px;">
                 <div class="round-border">
                 <ion-col size-sm="2" tappable routerLink="/menu/home" style="color: #000;font-weight: bold;"></ion-col>
                 <ion-col size-sm="2" tappable routerLink="/menu/accountslanding"style="color: #000;font-weight: bold;"><i>Account </i></ion-col>
                 <ion-col size-sm="2"tappable routerLink="/menu/media" style="color: rgb(68, 49, 49);font-weight: bold;"><i>Shop </i></ion-col>
-                <ion-col size-sm="2" tappable routerLink="/menu/history" style="color: #000; font-weight: bold;"><i>Orders </i></ion-col> 
-                <ion-col size-sm="2" tappable routerLink="/menu/contact" style="color: #000; font-weight: bold;"><i>Contact Us </i></ion-col>
+                <ion-col size-sm="2" tappable style="color: #000; font-weight: bold;"><i>Orders </i></ion-col> 
+                <ion-col size-sm="2" tappable routerLink="/menu/contact" style="color: #000; font-weight: bold;"><i>Contact Us </i></ion-col> -->
 
-                <!-- <ion-col size-sm="3" tappable routerLink="/menu/media" style="font-weight: bold;">Media</ion-col> -->
-              </div>
-                <!-- <ion-col size-sm="4"><ion-icon name="call"></ion-icon>Call us 0719000112</ion-col> -->
-              </ion-col>
-            </ion-row>
-              </ion-grid>
+             
+              <!-- </div> -->
+              
+            
+            <!-- </ion-row>
+              </ion-grid>  -->
               <!-- <ion-card class="intro-card"class="background"> -->
                 <!-- <div class="simple-ss"></div> -->
-                <div class="background">
+                <!-- <div class="background">
                 <ion-slides [options]="slidesConfig">
                   <ion-slide>
                     <div class="content"></div>
-                       <img class="landing-page" src="/assets/dress2.jpg" /> 
+                       <img class="landing-page" src="/assets/girl_dress.jpeg" /> 
                      <p class="text-slide" style="font-family: Open Sans;"><i>Dress selections</i><br>
                     <ion-button color="danger"  size="small" style="color: #fff; font-family: Open Sans ;" routerLink="/menu/media">View</ion-button>
                     </p> 
                   </ion-slide>
                   <ion-slide>
-                       <img class="landing-page" src="/assets/sample6.jpg" /><br>
+                       <img class="landing-page" src="/assets/men_suit.jpeg" /><br>
                     <p class="text-slide" style="font-family:Open Sans;"><i>Men's Casual Wear</i><br>
                       <ion-button color="danger" size="small" style="color: #fff; font-family: Open Sans;" routerLink="/menu/media">View</ion-button>
                     </p>
                   </ion-slide>
                   <ion-slide>
-                    <img class="landing-page" src="/assets/sample3.jpg" /><br>
+                    <img class="landing-page" src="/assets/kalu.jpg" /><br>
                  <p class="text-slide" style="font-family:Open Sans;"><i>Shoes and Footwear </i><br>
                    <ion-button color="danger" size="small" style="color: #fff; font-family: Open Sans;" routerLink="/menu/media">View</ion-button>
                  </p>
                </ion-slide>
                   <ion-slide>
                       <img class="landing-page" src="/assets/lhbag.jpg" />
-                    <p class="text-slide" style="font-family: Open Sans;"><i>Accessories </i><br>
+                    <p class="text-slide" style="font-family: Open Sans;"><i>Accessories and Others</i><br>
                       <ion-button color="danger" size="small" style="color: #fff; font-family: Open Sans;"routerLink="/menu/media">View</ion-button>
                     </p>
                   </ion-slide>
                 </ion-slides>
-              <!-- </ion-card> -->
-              <!-- <ion-col size-sm="6" size-md="6" size-lg="6" class="contacts"></ion-col> -->
+        </div> -->
+        <!-- <ion-tabs>
+          <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="shop">
+              <ion-icon color="danger" name="flame"></ion-icon>
+              <ion-label style="font-weight:bold">Shop Now</ion-label>
+              <ion-badge color="danger">6</ion-badge>
+            </ion-tab-button>
+            <ion-tab-button tab="about">
+              <ion-icon color="primary" name="information-circle"></ion-icon>
+              <ion-label style="font-weight:bold">About</ion-label>
+            </ion-tab-button>
+            <ion-tab-button tab="map">
+              <ion-icon  name="paper-plane"></ion-icon>
+              <ion-label style="font-weight:bold">Contact</ion-label>
+            </ion-tab-button>
+        
           
-        </div>
-      <ion-grid fixed>
-    <ion-row>
+          </ion-tab-bar>
+        </ion-tabs> -->
+      <!-- <ion-grid fixed> -->
+    <!-- <ion-row>
       <ion-col class="slanted-corner" size="12">
         <h1 text-center style="font-family: Impact;color:#000"><i>Welcome to..</i></h1>
         <section text-center margin-bottom>
-          <img src="/assets/PreetiLogo.png" style="height:100px; width: 100px" />
+         
         </section>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
    
-  </ion-grid>
-  <ion-card>
+  <!-- </ion-grid> -->
+  <!-- <ion-card>
     <ion-grid fixed>
       <ion-row>
         <ion-col size-sm="2" size-md="6">
@@ -99,46 +216,24 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-card>
-  <!-- <ion-card class="intro-card">
-    <ion-slides [options]="slidesConfig">
-      <ion-slide>
-        <ion-avatar>
-          <img width="100%" height="100%" src="/assets/afro1.jpg" /><br>
-        </ion-avatar>
-        <p style="font-family: Geneva; color: black" text-center> From casual dresses to official suits </p>
-      </ion-slide>
-      <ion-slide>
-        <ion-avatar>
-          <img width="100%" height="100%" src="/assets/kaunda.jpg" /><br>
-        </ion-avatar>
-        <p style="font-family: Geneva; color: black"> To mens variable selections </p>
-      </ion-slide>
-      <ion-slide>
-        <ion-avatar>
-          <img width="100%" height="100%" src="/assets/african1.jpg" />
-        </ion-avatar>
-        <p style="font-family: Geneva; color: black"> Other items (accessories, bags, perfumes) etc.</p>
-      </ion-slide>
-    </ion-slides>
   </ion-card> -->
-  <ion-card>
+  
+  <!-- <ion-card>
     <ion-card-content>
       <div class="textv">
         <p text-center style="font-weight: bold; ">Get to know us better</p>
-        <a href="https://web.facebook.com/preetifashions" target="_blank"> <ion-icon name="logo-facebook" style="font-size:5em; margin-right: 30%;" ></ion-icon></a>
-        <a href="https://www.instagram.com/preetifashions_ke/" target="_blank"><ion-icon name="logo-instagram" style="font-size: 5em; margin-right: 30%;" ></ion-icon></a>
-        <ion-icon name="logo-whatsapp" style="font-size: 5em" ></ion-icon>
+        <a href="https://web.facebook.com/preetifashions" target="_blank"> <ion-icon name="logo-facebook" style="font-size:5em; margin-right: 50%;" ></ion-icon></a>
+        <a href="https://www.instagram.com/preetifashions_ke/" target="_blank"><ion-icon name="logo-instagram" style="font-size: 5em;" ></ion-icon></a>
       </div>
       <div class="routeit"><a routerLink="/menu/contact">Contact Us..</a></div>
     </ion-card-content>
-  </ion-card>
-  <div class="primal">
+  </ion-card> -->
+  <!-- <div class="primal">
     <ion-text color="light">
-      <p style ="font-weight: bold;background-color: #edf5e1;color: #000" text-center>Top categories</p>
+      <p style ="font-weight: bold;background-color: #edf5e1;color: #000; font-family: Open Sans" text-center>Top categories</p>
     </ion-text>
-  </div>
-  <div class="back-color">
+  </div> -->
+  <!-- <div class="back-color">
     <ion-grid fixed>
       <ion-row>
         <ion-col class="ion-align-self-start" size-sm="3" size-md="3" style="font-family: Impact">Dresses
@@ -159,19 +254,37 @@
         <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style="font-family: Impact">Men
           <ion-thumbnail><img tappable src="/assets/suit1.jpg" routerLink="/menu/media" /></ion-thumbnail>
         </ion-col>
-        <ion-col class="ion-align-self-end" size-sm="3" size-md="3" style="font-family: Impact">Others
-          <ion-thumbnail><img tappable src="/assets/PRETSAL.png" routerLink="/menu/media" /></ion-thumbnail>
-        </ion-col>
+      
       </ion-row>
     </ion-grid>
-  </div>
-  <div class="primal">
+  </div> -->
+  <!-- <div class="primal">
     <ion-text color="light">
       <h2> Our offer deals...</h2>
     </ion-text>
-  </div>
-  <div class="redirect-login">
+  </div> -->
+  <!-- <div class="redirect-login">
     <ion-button color="danger" (click)="presentLogoutWithOptions()" (click)="logout()" routerLink="/menu/login" [disabled]="!checkAuth"><ion-icon slot="start" name="log-out"></ion-icon>Logout
     </ion-button>
-  </div>
+  </div> -->
+  <!-- <ion-footer>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h3 class="footer-styling"><ion-icon name="navigate"></ion-icon>OUR LOCATION</h3>
+          <p class="footer-styling">Moktar Daddar Street</p>
+        </ion-col>
+        <ion-col>
+          <h3 class="footer-styling"><ion-icon name="time"></ion-icon>WORKING HOURS</h3>
+          <p class="footer-styling"><span>Mon-Sat:</span> Open from 8:30AM - 7:00PM</p><br>
+        
+        </ion-col>
+        <ion-col>
+          <h3 class="footer-styling"><ion-icon name="call"></ion-icon>CONTACT US</h3>
+          <p class="footer-styling"><ion-icon name="logo-whatsapp"></ion-icon>+254721397580</p><br>
+          <p class="footer-styling">preetifashions90@gmail.com</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-footer> -->
 <!-- </ion-content> -->

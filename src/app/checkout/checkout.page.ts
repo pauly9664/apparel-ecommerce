@@ -24,9 +24,8 @@ export class CheckoutPage implements OnInit {
   overallCost = '';
   selectedDelivery: string = '';
   delivery: any = [
-    'Set pick-up station around CBD',
-    'Deliver to station e.g office',
-    'Set pick-up date'
+    'Deliver to station e.g office, home',
+    'Call for delivery details'
   ];
   selectedPayment: string = '';
   payment: any = [
@@ -58,12 +57,12 @@ ngOnInit(){
   this.overallCost = this.activatedRoute.snapshot.paramMap.get('totals');
 
   //  loadSpecialInfo() {
-     this.authService.getSpecialData().subscribe(res => {
-       this.data = res['name'];
-       this.loggedInUser = res['id'];
-      //  return res;
-       //console.log(this.data);
-     });
+    //  this.authService.getSpecialData().subscribe(res => {
+    //    this.data = res['name'];
+    //    this.loggedInUser = res['id'];
+    //   //  return res;
+    //    //console.log(this.data);
+    //  });
 }
 // console.log(this.overallCost);
     async openModal() {
@@ -76,7 +75,7 @@ ngOnInit(){
        modal.present();
     }
     async openPopover(ev: Event){
-      const popover = await this.popoverController.create({
+      const popover = await this.modalController.create({
         component: ConfirmationPopoverPage, 
         componentProps:{
           delivery_id: this.selectedDelivery,

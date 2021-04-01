@@ -19,7 +19,7 @@ export class ContactPage implements OnInit {
   credentialsForm: FormGroup;
     
 
-  constructor(public formBuilder: FormBuilder, private alertController: AlertController, private contactService:ContactService, private authService:AuthService) { 
+  constructor(public formBuilder: FormBuilder, private alertCtrl: AlertController, private alertController: AlertController, private contactService:ContactService, private authService:AuthService) { 
   }
   ngOnInit() {
     this.contactForm = this.formBuilder.group({
@@ -35,4 +35,14 @@ export class ContactPage implements OnInit {
     return this.contactService.saveFeedback(this.contactForm.value).subscribe();
     
  }
+ async feedbackSent() {
+  // Perfom PayPal or Stripe checkout process
+
+  let alert = await this.alertCtrl.create({
+    header: 'Thanks for your Feedback!',
+    message: 'Feedback sent',
+    buttons: ['OK']
+  });
+  alert.present();
+}
 }

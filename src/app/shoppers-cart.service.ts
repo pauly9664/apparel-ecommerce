@@ -73,7 +73,7 @@ export class ShoppersCartService {
   //       return this.items;
   //      }));
   // }
-  return this.http.get<Product>('/api/images').pipe(map((response:Product)=> response)) ;
+  return this.http.get<Product>('https://preeti-fashion.herokuapp.com/api/images').pipe(map((response:Product)=> response)) ;
 
   // getProducts() {
   //    return this.data;
@@ -83,7 +83,7 @@ export class ShoppersCartService {
      return this.http.get('/api/images');
    }
    getCategories(): Observable<Categories>{
-    return this.http.get<Categories>('/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
+    return this.http.get<Categories>('https://preeti-fashion.herokuapp.com/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
    }
    showAlert(msg) {
     let alert = this.alertController.create({
@@ -94,7 +94,7 @@ export class ShoppersCartService {
     alert.then(alert => alert.present());
   }
    postCart(order){
-    return this.http.post('/api/postSales', order)
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/postSales', order)
     // .pipe(
     //   catchError(e => {
     //     this.showAlert(e.error.msg);

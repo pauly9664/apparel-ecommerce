@@ -33,7 +33,7 @@
                       <input class="style-input" type="text" formControlName="feedback"/>
                     </ion-item>
                   </ion-list>
-                <ion-button color="danger"  (click)="onReply()" type="button" style="color: white"size="default">Submit</ion-button>
+                <ion-button color="danger"  (click)="onReply()" (click)="feedbackSent()" type="button" style="color: white"size="default">Submit</ion-button>
               </div>
             </div>
               </form>
@@ -58,3 +58,22 @@
       </ion-grid>
       </div>
 </ion-content>
+<ion-footer style="height: 150px;">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h3 class="footer-styling"><ion-icon name="navigate"></ion-icon>OUR LOCATION</h3>
+        <p class="footer-styling">Moktar Daddar Street</p>
+      </ion-col>
+      <ion-col>
+        <h3 class="footer-styling"><ion-icon name="time"></ion-icon>WORKING HOURS</h3>
+        <p class="footer-styling"><span>Mon-Sat:</span> Open from 8:30AM - 7:00PM</p><br>
+      </ion-col>
+      <ion-col>
+        <h3 class="footer-styling"><ion-icon name="call"></ion-icon>CONTACT US</h3>
+        <p class="footer-styling"><ion-icon name="logo-whatsapp"></ion-icon>+254721397580</p>
+        <p class="footer-styling">preetifashions90@gmail.com</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
