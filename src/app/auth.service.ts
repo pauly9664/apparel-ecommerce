@@ -18,7 +18,7 @@ const TOKEN_KEY = 'access_token';
 export class AuthService {
 
   url = environment.url
-  paymentUrl = environment.mpesaUrl;
+  // paymentUrl = environment.mpesaUrl;
   user = null;
   contact = null;
   authenticationState = new BehaviorSubject(false)
@@ -107,7 +107,7 @@ oauthTok(oauth_token){
       ); 
   }
   updateSales(sale){
-    return this.http.post('/api/postSles', sale).pipe(
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/postSles', sale).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);

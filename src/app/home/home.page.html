@@ -13,13 +13,12 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="card-background-page" >
- 
 
   <img src="/assets/PreetiLogo.png" style="margin-left: 35%; height:7.5em; width: 9.375em" />
   <!-- <ion-card>
     <ion-card-title routerLink="/menu/main-shop" style="font-weight: bold; font-family: Open Sans;">New Arrivals</ion-card-title> -->
     <div class="categoryblock">
-        <h3 text-center style="font-weight: bold;">New Arrivals</h3>
+        <h3 text-center style="font-weight: bold;font-family: Fantasy; color:burlywood">New Arrivals</h3>
     <ion-slides [options]="slidesConfig">
     
       <ion-slide *ngFor="let img of item">
@@ -41,6 +40,7 @@
     </ion-slides> 
   </div>
   <!-- </ion-card> -->
+  <h3 text-center style="font-weight: bold;font-family: Fantasy;color:burlywood">Top Categories</h3>
   <div *ngIf="isWebLayout">
   <ion-grid>
     <ion-row>
@@ -77,15 +77,15 @@
     </ion-col>
     <ion-col  size-lg="4">
       <ion-card routerLink="/menu/media">
-        <img class="bg-image" src="assets/sweater_tribal.jpeg"/>
-        <div routerLink="/menu/media" class="card-title">Jackets</div>
+        <img class="bg-image" src="assets/lady-shoe.jpeg"/>
+        <div routerLink="/menu/media" class="card-title">Ladies' Shoes</div>
         <div class="card-subtitle">Get that swag on</div>
       </ion-card>
     </ion-col>
     <ion-col size-lg="4" >
       <ion-card routerLink="/menu/media">
         <img class="bg-image" src="assets/suit1.jpg"/>
-        <div routerLink="/menu/media" class="card-title">Men's Stuff</div>
+        <div routerLink="/menu/media" class="card-title">Men's Wear</div>
         <div class="card-subtitle">Official, Casual etc...</div>
       </ion-card>
     </ion-col>
@@ -100,7 +100,7 @@
     </ion-card>
   <ion-card routerLink="/menu/media">
     <img class="bg-image" src="assets/casual_green.jpeg"/>
-    <div routerLink="/menu/media" class="card-title">Casual Suits</div>
+    <div routerLink="/menu/media" class="card-title">Casual Wear</div>
     <div class="card-subtitle">Selections from Turkey & US</div>
   </ion-card>
   <ion-card routerLink="/menu/media">
@@ -114,13 +114,13 @@
     <div class="card-subtitle">Warm & Cozy</div>
   </ion-card>
   <ion-card routerLink="/menu/media">
-    <img class="bg-image" src="assets/sweater_tribal.jpeg"/>
-    <div routerLink="/menu/media" class="card-title">Jackets</div>
+    <img class="bg-image" src="assets/lady-shoe.jpeg"/>
+    <div routerLink="/menu/media" class="card-title">Ladies' Shoes</div>
     <div class="card-subtitle">Get that swag on</div>
   </ion-card>
   <ion-card routerLink="/menu/media">
     <img class="bg-image" src="assets/suit1.jpg"/>
-    <div routerLink="/menu/media" class="card-title">Men's Stuff</div>
+    <div routerLink="/menu/media" class="card-title">Men's Wear</div>
     <div class="card-subtitle">Official, Casual etc...</div>
   </ion-card>
 </div>

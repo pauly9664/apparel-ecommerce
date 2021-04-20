@@ -29,7 +29,6 @@ export class CheckoutPage implements OnInit {
   ];
   selectedPayment: string = '';
   payment: any = [
-    'Lipa na Mpesa Online',
     'MPESA on Delivery',
     'Cash on Delivery'
   ];

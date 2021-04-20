@@ -10,7 +10,7 @@ export const environment = {
   eurl: 'http://192.168.0.106:500',
   hurl: 'http://192.168.0.122:500',
   // url: 'http://192.168.0.109:501',
-  mpesaUrl: 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
+  // mpesaUrl: 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest'
 };
 /*
  * For easier debugging in development mode, you can import the following file
