@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MediaFilesService } from '../media-files.service';
 import { ModalController, NavController, ActionSheetController, AlertController } from '@ionic/angular';
 import { Camera } from '@ionic-native/camera/ngx';
 import { PreviewMediaPage } from '../preview-media/preview-media.page';
-import { UploadMediaPage } from '../upload-media/upload-media.page';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { ContactService } from '../contact.service';
 import { AuthService } from '../auth.service';
@@ -47,6 +45,7 @@ contactForm: FormGroup;
     this.cartItemCount = this.cartService.getCartItemCount();
     this.cart = this.cartService.getCart();
     // this.produce = this.products;
+  this.queryOnBrowser();
   this.queryOnBrowse();
   // this.mediaLaunch();
   
@@ -85,11 +84,15 @@ contactForm: FormGroup;
           // this.produce.push(this.products);
           console.log("this is iiiiiiit", this.produce);
 }
-
+queryOnBrowser(){
+  this.productsService.getImage().subscribe(data => {
+    this.produce = data;
+})
+}
 queryOnBrowse(){
   this.productsService.getImages().subscribe(data => {
     this.products = data;
-    this.produce = data;
+    // this.produce = data;
     console.log("This produce", this.produce)
   })
 }

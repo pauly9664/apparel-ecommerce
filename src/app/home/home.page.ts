@@ -1,4 +1,4 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from './../auth.service';
 import { Storage } from '@ionic/storage';
 import { ToastController, NavController, LoadingController, ModalController } from '@ionic/angular';
@@ -14,7 +14,7 @@ import { ViewProductPage } from '../view-product/view-product.page';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage implements OnInit{
+export class HomePage implements OnInit, OnDestroy{
 
   data = '';
   user_id = null;
@@ -28,12 +28,13 @@ export class HomePage implements OnInit{
   slidesConfig = {
     autoplay: true,
     centeredSlides: true,
-    speed: 5000,
+    speed: 3000,
     pager: true,
     slidesPerView: 1,
     
   }
   platform: any;
+  s: any;
 
   constructor(private authService: AuthService, private modalCtrl:ModalController, private cartService: ShoppersCartService, private nav: NavController, private router: Router,public loadingController: LoadingController, private storage: Storage, private activatedRoute:ActivatedRoute)
   {}
@@ -59,6 +60,11 @@ export class HomePage implements OnInit{
         //  this.users = this.user_id;
         
       //  });
+  }
+  ngOnDestroy():void{
+    if(this.s){
+      this.s.unsubscribe()
+    }
   }
   async openImage(img) {
     console.log(img)
@@ -99,9 +105,9 @@ async openCart(){
   modal.present();
 }
 reloadImages() {
-  this.cartService.getImages().subscribe(data => {
+  this.s = this.cartService.getImage().subscribe(data => {
      this.item = data;
-       console.log("cheki ii kwanza", this.item);
+       console.log("cheki ii kwanza", this.item.length);
        this.item.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
    });
    

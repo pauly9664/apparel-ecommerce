@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppersCartService, Product } from '../shoppers-cart.service';
-import { BagServiceService } from '../bag-service.service';
 import { SelectControlValueAccessor } from '@angular/forms';
-import { SuitsServiceService } from '../suits-service.service';
-import { ShoeServiceService } from '../shoe-service.service';
-import { EtcServiceService } from '../etc-service.service';
 import { ConfirmationPopoverPage } from '../confirmation-popover/confirmation-popover.page';
 import { LoginPopoverPage } from '../login-popover/login-popover.page';
 import { NavController, PopoverController, NavParams, ModalController } from '@ionic/angular';
@@ -29,7 +25,7 @@ export class ShoppersCartPage implements OnInit {
   checkAuth: boolean;
  
 
-  constructor(private cartService: ShoppersCartService, private authService: AuthService, private popoverController: PopoverController,private modalCtrl:ModalController, private authenticatedUser: AuthService,private nav: NavController, private router:Router,private etcService: EtcServiceService, private bagService: BagServiceService, private shoeService: ShoeServiceService, private suitsService: SuitsServiceService) { }
+  constructor(private cartService: ShoppersCartService, private authService: AuthService, private popoverController: PopoverController,private modalCtrl:ModalController, private authenticatedUser: AuthService,private nav: NavController, private router:Router) { }
 
   ngOnInit() {
     this.checkAuth = this.authService.authenticationState.value;
@@ -48,10 +44,8 @@ export class ShoppersCartPage implements OnInit {
     let items = this.cartService.getCart();
     //this.item = this.cartService.getCart();
     // this.reloadImages();   
-    let bags = this.cartService.getCart();
-    let suits = this.suitsService.getCart();
-    let shoes = this.shoeService.getCart();
-    let other = this.etcService.getCart();
+  
+
 
     // let selected = {};
     // // console.log("Select key items:", bags);

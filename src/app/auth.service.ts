@@ -98,7 +98,7 @@ oauthTok(oauth_token){
 
   saveFeedback(contact) {
     //console.log(contact);
-    return this.http.post('https://preeti-fashion.herokuapp.com/api/contact', contact).pipe(
+    return this.http.post('/api/contact', contact).pipe(
         catchError(e => {
           this.showAlert(e.error.msg);
           //this.authenticationState.next(false);
@@ -107,7 +107,7 @@ oauthTok(oauth_token){
       ); 
   }
   updateSales(sale){
-    return this.http.post('https://preeti-fashion.herokuapp.com/api/postSles', sale).pipe(
+    return this.http.post('/api/postSles', sale).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);

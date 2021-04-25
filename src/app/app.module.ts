@@ -22,7 +22,6 @@ import { ConfirmationPopoverPageModule } from './confirmation-popover/confirmati
 import { LoginPopoverPageModule } from './login-popover/login-popover.module';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
-import { MediaFilesService } from 'src/media-files.service';
 import { ViewProductPageModule } from './view-product/view-product.module';
 import { ShoppersCartService } from './shoppers-cart.service';
 import { ShoppersCartPageModule } from './shoppers-cart/shoppers-cart.module';
@@ -67,7 +66,7 @@ export function jwtOptionsFactory(storage) {
     Camera,
     FileTransfer,
     StatusBar,
-    MediaFilesService,
+ 
     ShoppersCartService,
     
     SplashScreen,

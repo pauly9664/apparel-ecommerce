@@ -4,10 +4,6 @@ import { Storage } from '@ionic/storage';
 import { ModalController, PopoverController,NavController, } from '@ionic/angular'
 import { ConfirmationModalPage } from '../confirmation-modal/confirmation-modal.page';
 import { ShoppersCartService } from '../shoppers-cart.service';
-import { EtcServiceService } from '../etc-service.service';
-import { BagServiceService } from '../bag-service.service';
-import { ShoeServiceService } from '../shoe-service.service';
-import { SuitsServiceService } from '../suits-service.service';
 import { ConfirmationPopoverPage } from '../confirmation-popover/confirmation-popover.page';
 import { ActivatedRoute, Router } from '@angular/router'
 import { FormGroup } from '@angular/forms';

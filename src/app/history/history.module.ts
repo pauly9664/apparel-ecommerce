@@ -6,7 +6,6 @@ import { Routes, RouterModule, RouterState } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { HistoryPage } from './history.page';
-import { AccountsModModule } from '../accounts-mod/accounts-mod.module';
 
 const routes: Routes = [
   {

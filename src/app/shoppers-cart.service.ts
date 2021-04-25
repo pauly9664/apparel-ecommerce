@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { ProductsComponent } from './products/products.component';
 import { map, catchError } from 'rxjs/operators';
 import { AlertController } from '@ionic/angular';
 export interface Product{
@@ -68,22 +67,18 @@ export class ShoppersCartService {
   //   return this.sel;
   // }
   getImages(): Observable<Product> {
-  //    return this.items = this.http.get<Product>(this.url + '/api/images').pipe(map(data =>{
-  //       this.items = data;
-  //       return this.items;
-  //      }));
-  // }
-  return this.http.get<Product>('https://preeti-fashion.herokuapp.com/api/images').pipe(map((response:Product)=> response)) ;
-
-  // getProducts() {
-  //    return this.data;
-    
+  return this.http.get<Product>('/api/images').pipe(map((response:Product)=> response)) ;
    }
+   
+   getImage(): Observable<Product> {
+    return this.http.get<Product>('/api/images2').pipe(map((response:Product)=> response)) ;
+     }
+
    getItems(){
      return this.http.get('/api/images');
    }
    getCategories(): Observable<Categories>{
-    return this.http.get<Categories>('https://preeti-fashion.herokuapp.com/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
+    return this.http.get<Categories>('/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
    }
    showAlert(msg) {
     let alert = this.alertController.create({

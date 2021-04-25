@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -23,15 +23,10 @@ const routes: Routes = [
       { path: 'checkout/:totals', loadChildren: '../checkout/checkout.module#CheckoutPageModule',
     },
       { path: 'view-product', loadChildren: '../view-product/view-product.module#ViewProductPageModule' },
-      { path: 'shoes', loadChildren: '../shoes/shoes.module#ShoesPageModule' },
-      { path: 'suits', loadChildren: '../suits/suits.module#SuitsPageModule' },
-      { path: 'bags', loadChildren: '../bags/bags.module#BagsPageModule' },
       { path: 'register', loadChildren: '../register/register.module#RegisterPageModule' },
-      { path: 'other-items', loadChildren: '../other-items/other-items.module#OtherItemsPageModule' },
-      { path: 'items', loadChildren: '../items/items.module#ItemsPageModule' },
       { path: 'history', loadChildren: '../history/history.module#HistoryPageModule' },
       { path: 'accountslanding', loadChildren: '../accountslanding/accountslanding.module#AccountslandingPageModule' },
-      { path: 'media', loadChildren: '../media/media.module#MediaPageModule' },
+      { path: 'media', loadChildren: '../media/media.module#MediaPageModule',data: { preload: true } },
       { path: 'reset-password', loadChildren: '../reset-password/reset-password.module#ResetPasswordPageModule' },
       { path: 'sendmail-reset/:id', loadChildren: '../sendmail-reset/sendmail-reset.module#SendmailResetPageModule' },
       { path: 'preview-media/:id', loadChildren: '../preview-media/preview-media.module#PreviewMediaPageModule' },
@@ -49,7 +44,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes,)
   ],
   declarations: [MenuPage]
 })
