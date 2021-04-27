@@ -30,6 +30,7 @@ const routes: Routes = [
       { path: 'reset-password', loadChildren: '../reset-password/reset-password.module#ResetPasswordPageModule' },
       { path: 'sendmail-reset/:id', loadChildren: '../sendmail-reset/sendmail-reset.module#SendmailResetPageModule' },
       { path: 'preview-media/:id', loadChildren: '../preview-media/preview-media.module#PreviewMediaPageModule' },
+      { path: 'shop', loadChildren: '../shop/shop.module#ShopPageModule' },
      // { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
     ]
   },

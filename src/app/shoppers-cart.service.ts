@@ -67,18 +67,18 @@ export class ShoppersCartService {
   //   return this.sel;
   // }
   getImages(): Observable<Product> {
-  return this.http.get<Product>('/api/images').pipe(map((response:Product)=> response)) ;
+  return this.http.get<Product>('https://preeti-fashion.herokuapp.com/api/images').pipe(map((response:Product)=> response)) ;
    }
    
    getImage(): Observable<Product> {
-    return this.http.get<Product>('/api/images2').pipe(map((response:Product)=> response)) ;
+    return this.http.get<Product>('https://preeti-fashion.herokuapp.com/api/images2').pipe(map((response:Product)=> response)) ;
      }
 
    getItems(){
      return this.http.get('/api/images');
    }
    getCategories(): Observable<Categories>{
-    return this.http.get<Categories>('/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
+    return this.http.get<Categories>('https://preeti-fashion.herokuapp.com/api/fetchCategories').pipe(map((response:Categories)=> response)) ;
    }
    showAlert(msg) {
     let alert = this.alertController.create({

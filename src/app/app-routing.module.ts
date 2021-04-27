@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'media', loadChildren: './media/media.module#MediaPageModule' },
   { path: 'preview-media', loadChildren: './preview-media/preview-media.module#PreviewMediaPageModule' },
   { path: 'sendmail-reset', loadChildren: './sendmail-reset/sendmail-reset.module#SendmailResetPageModule' },
-  { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },
+  { path: 'reset-password', loadChildren: './reset-password/reset-password.module#ResetPasswordPageModule' },  { path: 'shop', loadChildren: './shop/shop.module#ShopPageModule' },
+
 
   //{ path: 'confirmation-popover', loadChildren: './confirmation-popover/confirmation-popover.module#ConfirmationPopoverPageModule' },
 

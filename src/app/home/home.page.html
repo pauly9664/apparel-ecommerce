@@ -49,9 +49,9 @@
   <ion-grid>
     <ion-row>
     <ion-col  size-lg="4" >
-      <ion-card routerLink="/menu/media">
+      <ion-card routerLink="/menu/shop">
         <img class="bg-image" src="assets/jeans_dress.jpeg"/>
-        <div routerLink="/menu/media" class="card-title">Dresses</div>
+        <div [routerLink]="['/menu/shop']" class="card-title" *ngFor="let item of productDresses;">{{item}}</div>
         <div class="card-subtitle">Selections from Turkey & US</div>
         
       </ion-card>
@@ -59,14 +59,14 @@
     <ion-col size-lg="4" >
       <ion-card routerLink="/menu/media">
         <img class="bg-image" src="assets/casual_green.jpeg"/>
-        <div routerLink="/menu/media" class="card-title">Casual Suits</div>
+        <div routerLink="/menu/media" class="card-title" *ngFor='let csuit of productCasul'>{{csuit}}</div>
         <div class="card-subtitle">Selections from Turkey & US</div>
       </ion-card>
     </ion-col>
     <ion-col size-sm="12" size-lg="4" size-md="4">
       <ion-card routerLink="/menu/media">
         <img class="bg-image" src="assets/skirt_suit.jpeg"/>
-        <div routerLink="/menu/media" class="card-title">Skirt Suits</div>
+        <div routerLink="/menu/media" class="card-title" *ngFor="let ssuit of productSSuit">{{ssuit}}</div>
         <div class="card-subtitle">Official Wear </div>
       </ion-card>
     </ion-col>
@@ -75,21 +75,21 @@
     <ion-col size-lg="4" >
       <ion-card routerLink="/menu/media">
         <img class="bg-image" src="assets/sweater_mustard.jpeg"/>
-        <div routerLink="/menu/media" class="card-title">Sweaters</div>
+        <div routerLink="/menu/media" class="card-title" *ngFor='let sweaters of productSweat'>{{sweaters}}</div>
         <div class="card-subtitle">Warm & Cozy</div>
       </ion-card>
     </ion-col>
     <ion-col  size-lg="4">
       <ion-card routerLink="/menu/media">
         <img class="bg-image" src="assets/lady-shoe.jpeg"/>
-        <div routerLink="/menu/media" class="card-title">Ladies' Shoes</div>
+        <div routerLink="/menu/media" class="card-title" *ngFor='let shoe of productShoe'>{{shoe}}</div>
         <div class="card-subtitle">Get that swag on</div>
       </ion-card>
     </ion-col>
     <ion-col size-lg="4" >
       <ion-card routerLink="/menu/media">
         <img class="bg-image" src="assets/suit1.jpg"/>
-        <div routerLink="/menu/media" class="card-title">Men's Wear</div>
+        <div routerLink="/menu/media" class="card-title" *ngFor='let men of productMen'>{{men}}</div>
         <div class="card-subtitle">Official, Casual etc...</div>
       </ion-card>
     </ion-col>
@@ -99,32 +99,32 @@
   <div *ngIf="isMobileLayout">
     <ion-card routerLink="/menu/media">
       <img class="bg-image" src="assets/jeans_dress.jpeg"/>
-      <div routerLink="/menu/media" class="card-title">Dresses</div>
+      <div routerLink="/menu/media" class="card-title" *ngFor="let item of productDresses;">{{item}}</div>
       <div class="card-subtitle">Selections from Turkey & US</div>
     </ion-card>
   <ion-card routerLink="/menu/media">
     <img class="bg-image" src="assets/casual_green.jpeg"/>
-    <div routerLink="/menu/media" class="card-title">Casual Wear</div>
+    <div routerLink="/menu/media" class="card-title" *ngFor='let csuit of productCasul'>{{csuit}}</div>
     <div class="card-subtitle">Selections from Turkey & US</div>
   </ion-card>
   <ion-card routerLink="/menu/media">
     <img class="bg-image" src="assets/skirt_suit.jpeg"/>
-    <div routerLink="/menu/media" class="card-title">Skirt Suits</div>
+    <div routerLink="/menu/media" class="card-title" *ngFor="let ssuit of productSSuit">{{ssuit}}</div>
     <div class="card-subtitle">Official Wear </div>
   </ion-card>
   <ion-card routerLink="/menu/media">
     <img class="bg-image" src="assets/sweater_mustard.jpeg"/>
-    <div routerLink="/menu/media" class="card-title">Sweaters</div>
+    <div routerLink="/menu/media" class="card-title" *ngFor='let sweaters of productSweat'>{{sweaters}}</div>
     <div class="card-subtitle">Warm & Cozy</div>
   </ion-card>
   <ion-card routerLink="/menu/media">
     <img class="bg-image" src="assets/lady-shoe.jpeg"/>
-    <div routerLink="/menu/media" class="card-title">Ladies' Shoes</div>
+    <div routerLink="/menu/media" class="card-title" *ngFor='let shoe of productShoe'>{{shoe}}</div>
     <div class="card-subtitle">Get that swag on</div>
   </ion-card>
   <ion-card routerLink="/menu/media">
     <img class="bg-image" src="assets/suit1.jpg"/>
-    <div routerLink="/menu/media" class="card-title">Men's Wear</div>
+    <div routerLink="/menu/media" class="card-title" *ngFor='let men of productMen'>{{men}}</div>
     <div class="card-subtitle">Official, Casual etc...</div>
   </ion-card>
 </div>
@@ -271,6 +271,21 @@
     <ion-button color="danger" (click)="presentLogoutWithOptions()" (click)="logout()" routerLink="/menu/login" [disabled]="!checkAuth"><ion-icon slot="start" name="log-out"></ion-icon>Logout
     </ion-button>
   </div> -->
+  <!-- <table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of product">
+            <td><img src="assets/jeans_dress.jpeg"></td>
+            <td>{{item.description}}</td>
+        </tr>
+    </tbody>
+</table> -->
   <ion-footer>
     <ion-grid>
       <ion-row>

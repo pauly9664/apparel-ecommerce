@@ -20,11 +20,19 @@ export class HomePage implements OnInit, OnDestroy{
   user_id = null;
   users = null;
   cart = [];
+  product:any=[];
+  productCategory = [];
   item:any;
   cartItemCount: BehaviorSubject<number>;
   checkAuth: boolean;
   isMobileLayout = false;
   isWebLayout = false;
+  productDresses = [];
+  productSSuit = [];
+  productMen = [];
+  productShoe = [];
+  productSweat = [];
+  productCasul = [];
   slidesConfig = {
     autoplay: true,
     centeredSlides: true,
@@ -36,10 +44,11 @@ export class HomePage implements OnInit, OnDestroy{
   platform: any;
   s: any;
 
-  constructor(private authService: AuthService, private modalCtrl:ModalController, private cartService: ShoppersCartService, private nav: NavController, private router: Router,public loadingController: LoadingController, private storage: Storage, private activatedRoute:ActivatedRoute)
+  constructor(private productsService: ShoppersCartService, private authService: AuthService, private modalCtrl:ModalController, private cartService: ShoppersCartService, private nav: NavController, private router: Router,public loadingController: LoadingController, private storage: Storage, private activatedRoute:ActivatedRoute)
   {}
 
   ngOnInit() { 
+    this.filterAgain();
     if (window.screen.width > 767) { // 768px portrait
       this.isWebLayout = true;
     }
@@ -65,6 +74,31 @@ export class HomePage implements OnInit, OnDestroy{
     if(this.s){
       this.s.unsubscribe()
     }
+  }
+  filterAgain(){
+    this.productsService.getCategories().subscribe(data => {
+      this.product = data;
+      console.log('Cats:', this.product)
+      this.product.forEach((item)=>{
+       
+        // if(item.category.indexOf(value) ==)
+        if(item.description === 'American Dresses'){
+          this.productDresses.push(item.description);
+        }else if(item.description === 'Skirt Suits'){
+          this.productSSuit.push(item.description);
+        }else if(item.description === 'Casual Wear'){
+          this.productCasul.push(item.description);
+        }else if(item.description === 'Sweaters'){
+          this.productSweat.push(item.description)
+        }else if(item.description === "Ladies' Shoes"){
+          this.productShoe.push(item.description);
+        }else if(item.description === 'Men Suits'){
+          this.productMen.push(item.description);
+        }
+          
+          console.log("Categories", this.productCategory);
+        });
+    })
   }
   async openImage(img) {
     console.log(img)
