@@ -22,15 +22,18 @@
         </ion-item>
         <ion-item lines="none">
          <label  for="Total" class="highlight-content">Customer Cell</label>
-         <input id="Total" type = "text" formControlName ="customer_contact" class="style-input" [class.invalid]="!salesForm.controls.number.valid && salesForm.controls.number.dirty"/><br>
+         <input id="Total" type = "text" formControlName ="customer_contact" class="style-input" [class.invalid]="!salesForm.controls.customer_contact.valid && salesForm.controls.customer_contact.dirty"/><br>
         </ion-item>
-        <ion-item lines="none" *ngIf="!salesForm.controls.number.valid && salesForm.controls.number.dirty ">
+        <ion-item lines="none" *ngIf="!salesForm.controls.customer_contact.valid && salesForm.controls.customer_contact.dirty ">
           <p style="font-size: 0.8em;color:red">Please enter a valid phone number(Should be 10 characters)</p>
       </ion-item>
         <ion-item lines="none">
          <label for="Total" class="highlight-content">Customer Mail</label>
-         <input id="Total" type = "text" formControlName ="customer_email" class="style-input" /><br>
+         <input id="Total" type = "text" formControlName ="customer_email" class="style-input"[class.invalid]="!salesForm.controls.customer_email.valid && salesForm.controls.customer_email.dirty" /><br>
         </ion-item>
+        <ion-item lines="none" *ngIf="!salesForm.controls.customer_email.valid && salesForm.controls.customer_email.dirty ">
+        <p style="font-size: 0.8em;color:red">Please enter a valid email address.</p>
+    </ion-item>
         </div>
         <ion-item lines="none">
          <label for="Delivery" class="highlight-content">Delivery Option </label>
