@@ -44,10 +44,8 @@ contactForm: FormGroup;
     this.presentLoadingWithOptions2();
     this.cartItemCount = this.cartService.getCartItemCount();
     this.cart = this.cartService.getCart();
-    // this.produce = this.products;
-  this.queryOnBrowser();
   this.queryOnBrowse();
-  // this.mediaLaunch();
+  this.mediaLaunch();
   
   }
   async openCart(){ 

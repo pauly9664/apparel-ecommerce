@@ -2,7 +2,7 @@ import { Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from './../auth.service';
 import { Storage } from '@ionic/storage';
 import { ToastController, NavController, LoadingController, ModalController } from '@ionic/angular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { ShoppersCartService } from '../shoppers-cart.service';
 import { ShoppersCartPage } from '../shoppers-cart/shoppers-cart.page';
@@ -74,6 +74,60 @@ export class HomePage implements OnInit, OnDestroy{
     if(this.s){
       this.s.unsubscribe()
     }
+  }
+  openDetailsWithQueryParams() {
+    const stringMaker = this.productDresses.toString();
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: stringMaker
+      }
+    };
+    this.router.navigate(['/menu/shop'], navigationExtras);
+  }
+  openShoesWithQueryParams() {
+    const stringMaker = this.productShoe.toString();
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: stringMaker
+      }
+    };
+    this.router.navigate(['/menu/shop'], navigationExtras);
+  }
+  openMenWithQueryParams() {
+    const stringMaker = this.productMen.toString();
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: stringMaker
+      }
+    };
+    this.router.navigate(['/menu/shop'], navigationExtras);
+  }
+  openSuitsWithQueryParams() {
+    const stringMaker = this.productSSuit.toString();
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: stringMaker
+      }
+    };
+    this.router.navigate(['/menu/shop'], navigationExtras);
+  }
+  openCasualsWithQueryParams() {
+    const stringMaker = this.productCasul.toString();
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: stringMaker
+      }
+    };
+    this.router.navigate(['/menu/shop'], navigationExtras);
+  }
+  openSweatersWithQueryParams() {
+    const stringMaker = this.productSweat.toString();
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        special: stringMaker
+      }
+    };
+    this.router.navigate(['/menu/shop'], navigationExtras);
   }
   filterAgain(){
     this.productsService.getCategories().subscribe(data => {

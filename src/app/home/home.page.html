@@ -49,47 +49,47 @@
   <ion-grid>
     <ion-row>
     <ion-col  size-lg="4" >
-      <ion-card routerLink="/menu/shop">
+      <ion-card (click)="openDetailsWithQueryParams()">
         <img class="bg-image" src="assets/jeans_dress.jpeg"/>
-        <div [routerLink]="['/menu/shop']" class="card-title" *ngFor="let item of productDresses;">{{item}}</div>
+        <div class="card-title" *ngFor="let item of productDresses;">{{item}}</div>
         <div class="card-subtitle">Selections from Turkey & US</div>
         
       </ion-card>
     </ion-col>
     <ion-col size-lg="4" >
-      <ion-card routerLink="/menu/media">
+      <ion-card (click)="openCasualsWithQueryParams()">
         <img class="bg-image" src="assets/casual_green.jpeg"/>
-        <div routerLink="/menu/media" class="card-title" *ngFor='let csuit of productCasul'>{{csuit}}</div>
+        <div class="card-title" *ngFor='let csuit of productCasul'>{{csuit}}</div>
         <div class="card-subtitle">Selections from Turkey & US</div>
       </ion-card>
     </ion-col>
     <ion-col size-sm="12" size-lg="4" size-md="4">
-      <ion-card routerLink="/menu/media">
+      <ion-card (click)="openSuitsWithQueryParams()">
         <img class="bg-image" src="assets/skirt_suit.jpeg"/>
-        <div routerLink="/menu/media" class="card-title" *ngFor="let ssuit of productSSuit">{{ssuit}}</div>
+        <div class="card-title" *ngFor="let ssuit of productSSuit">{{ssuit}}</div>
         <div class="card-subtitle">Official Wear </div>
       </ion-card>
     </ion-col>
   </ion-row>
   <ion-row>
     <ion-col size-lg="4" >
-      <ion-card routerLink="/menu/media">
+      <ion-card (click)="openSweatersWithQueryParams()">
         <img class="bg-image" src="assets/sweater_mustard.jpeg"/>
-        <div routerLink="/menu/media" class="card-title" *ngFor='let sweaters of productSweat'>{{sweaters}}</div>
+        <div class="card-title" *ngFor='let sweaters of productSweat'>{{sweaters}}</div>
         <div class="card-subtitle">Warm & Cozy</div>
       </ion-card>
     </ion-col>
     <ion-col  size-lg="4">
-      <ion-card routerLink="/menu/media">
+      <ion-card (click)="openShoesWithQueryParams()">
         <img class="bg-image" src="assets/lady-shoe.jpeg"/>
-        <div routerLink="/menu/media" class="card-title" *ngFor='let shoe of productShoe'>{{shoe}}</div>
+        <div class="card-title" *ngFor='let shoe of productShoe'>{{shoe}}</div>
         <div class="card-subtitle">Get that swag on</div>
       </ion-card>
     </ion-col>
     <ion-col size-lg="4" >
-      <ion-card routerLink="/menu/media">
+      <ion-card (click)="openMenWithQueryParams()">
         <img class="bg-image" src="assets/suit1.jpg"/>
-        <div routerLink="/menu/media" class="card-title" *ngFor='let men of productMen'>{{men}}</div>
+        <div class="card-title" *ngFor='let men of productMen'>{{men}}</div>
         <div class="card-subtitle">Official, Casual etc...</div>
       </ion-card>
     </ion-col>
@@ -97,34 +97,34 @@
   </ion-grid>
 </div>
   <div *ngIf="isMobileLayout">
-    <ion-card routerLink="/menu/media">
+    <ion-card (click)="openDetailsWithQueryParams()">
       <img class="bg-image" src="assets/jeans_dress.jpeg"/>
-      <div routerLink="/menu/media" class="card-title" *ngFor="let item of productDresses;">{{item}}</div>
+      <div class="card-title" *ngFor="let item of productDresses;">{{item}}</div>
       <div class="card-subtitle">Selections from Turkey & US</div>
     </ion-card>
-  <ion-card routerLink="/menu/media">
+  <ion-card (click)="openCasualsWithQueryParams()">
     <img class="bg-image" src="assets/casual_green.jpeg"/>
-    <div routerLink="/menu/media" class="card-title" *ngFor='let csuit of productCasul'>{{csuit}}</div>
+    <div class="card-title" *ngFor='let csuit of productCasul'>{{csuit}}</div>
     <div class="card-subtitle">Selections from Turkey & US</div>
   </ion-card>
-  <ion-card routerLink="/menu/media">
+  <ion-card (click)="openSuitsWithQueryParams()">
     <img class="bg-image" src="assets/skirt_suit.jpeg"/>
-    <div routerLink="/menu/media" class="card-title" *ngFor="let ssuit of productSSuit">{{ssuit}}</div>
+    <div class="card-title" *ngFor="let ssuit of productSSuit">{{ssuit}}</div>
     <div class="card-subtitle">Official Wear </div>
   </ion-card>
-  <ion-card routerLink="/menu/media">
+  <ion-card (click)="openSweatersWithQueryParams()">
     <img class="bg-image" src="assets/sweater_mustard.jpeg"/>
-    <div routerLink="/menu/media" class="card-title" *ngFor='let sweaters of productSweat'>{{sweaters}}</div>
+    <div class="card-title" *ngFor='let sweaters of productSweat'>{{sweaters}}</div>
     <div class="card-subtitle">Warm & Cozy</div>
   </ion-card>
-  <ion-card routerLink="/menu/media">
+  <ion-card (click)="openShoesWithQueryParams()">
     <img class="bg-image" src="assets/lady-shoe.jpeg"/>
-    <div routerLink="/menu/media" class="card-title" *ngFor='let shoe of productShoe'>{{shoe}}</div>
+    <div class="card-title" *ngFor='let shoe of productShoe'>{{shoe}}</div>
     <div class="card-subtitle">Get that swag on</div>
   </ion-card>
-  <ion-card routerLink="/menu/media">
+  <ion-card (click)="openMenWithQueryParams()">
     <img class="bg-image" src="assets/suit1.jpg"/>
-    <div routerLink="/menu/media" class="card-title" *ngFor='let men of productMen'>{{men}}</div>
+    <div class="card-title" *ngFor='let men of productMen'>{{men}}</div>
     <div class="card-subtitle">Official, Casual etc...</div>
   </ion-card>
 </div>

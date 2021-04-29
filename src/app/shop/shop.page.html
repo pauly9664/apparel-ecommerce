@@ -1,9 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>shop</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+  </ion-buttons>
+    <ion-title text-center>Shop</ion-title>
   </ion-toolbar>
+  <ion-fab vertical="top" horizontal="end">
+    <ion-button color="dark" (click)="openCart()">
+      <ion-badge  *ngIf="cart.length > 0">{{ cart.length }}</ion-badge>
+      <ion-icon name="cart" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-fab>
 </ion-header>
 
 <ion-content>
-
+    <div class="row">
+      <div *ngFor="let img of products" >
+        <img style="max-width: 200px;" (click)="openImage(img)" [src]='img.url'>
+          <div class="column">
+          <p style="font-family: Open Sans; font-weight: bold"> {{img.description}}<br></p>
+          <p><span style="background-color: #000;color: #fff; font-size: 13px;"><i> KES {{img.price}} <span style="color: limegreen;">(All prices are negotiable)</span></i></span><br></p>
+          <ion-button size="small" color="light" style='color: #000;' (click)="openImage(img)"><ion-icon  name="information"></ion-icon>VIEW MORE</ion-button>  
+           
+        </div>
+  </div>
+  </div>
 </ion-content>

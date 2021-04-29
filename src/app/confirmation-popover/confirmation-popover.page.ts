@@ -4,6 +4,7 @@ import { AuthService } from '../auth.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ShoppersCartService } from '../shoppers-cart.service';
 import { pipe } from 'rxjs';
+import { NumberValidator } from '../Validators/Number';
 
 @Component({
   selector: 'app-confirmation-popover',
@@ -83,8 +84,8 @@ export class ConfirmationPopoverPage implements OnInit {
       description: [this.arrObj],
       viewed_status: [this.viewer],
       customer_name: [this.cust_name],
-      customer_contact: [this.cust_num,[Validators.required, Validators.minLength(10)]],
-      customer_email: [this.cust_email]
+      customer_contact: [this.cust_num,[Validators.required, Validators.minLength(10), Validators.maxLength(10), NumberValidator.isValid]],
+      customer_email: [this.cust_email, [Validators.required, Validators.email]]  
 
       // object_id: [this.arrArr]
       
