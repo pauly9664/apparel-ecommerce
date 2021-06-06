@@ -67,11 +67,11 @@ export class ShoppersCartService {
   //   return this.sel;
   // }
   getImages(): Observable<Product> {
-  return this.http.get<Product>('https://preeti-fashion.herokuapp.com/api/images').pipe(map((response:Product)=> response)) ;
+  return this.http.get<Product>('https://preeti-fashions-ad.herokuapp.com/api/images').pipe(map((response:Product)=> response)) ;
    }
    
    getImage(): Observable<Product> {
-    return this.http.get<Product>('https://preeti-fashion.herokuapp.com/api/images2').pipe(map((response:Product)=> response)) ;
+    return this.http.get<Product>('https://preeti-fashions-ad.herokuapp.com/api/images2').pipe(map((response:Product)=> response)) ;
      }
 
    getItems(){

@@ -31,7 +31,7 @@ export class ContactService {
   //    this.authenticator.next(false);
   // }
   saveFeedback(contact) {
-    return this.http.post('/api/contact', contact)
+    return this.http.post('https://preeti-fashion.herokuapp.com/api/contact', contact)
     .pipe(
       catchError(e => {
         this.showAlert('Error');

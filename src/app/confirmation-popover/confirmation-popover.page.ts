@@ -36,6 +36,8 @@ export class ConfirmationPopoverPage implements OnInit {
    checkAuth:boolean
 
    value:any;
+  url: any;
+  arrUrl: any;
   constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: ModalController, private authService: AuthService) {
    }
    
@@ -65,10 +67,12 @@ export class ConfirmationPopoverPage implements OnInit {
    this.price = element.price;
    this.amount = element.amount;
    this.count = element.count;
-   this.arrObj.push(element.description + ' - ' + element.price);
+   this.arrArr.push(element.url);
+   this.arrObj.push(element.description + ' - KES' + element.price);
    this.arrArr.push(element._id);
   // this.desc = JSON.stringify(this.arrObj);
   this.desc = this.arrObj.toString();
+  this.arrUrl = this.arrArr.toString();
    console.log('Yeeee', typeof this.arrObj); 
     });
     
@@ -82,6 +86,7 @@ export class ConfirmationPopoverPage implements OnInit {
       payment_status: [this.passedDelivery],
       user_id: [this.loggedInUser],
       description: [this.arrObj],
+      url: [this.arrArr],
       viewed_status: [this.viewer],
       customer_name: [this.cust_name],
       customer_contact: [this.cust_num,[Validators.required, Validators.minLength(10), Validators.maxLength(10), NumberValidator.isValid]],
@@ -100,6 +105,7 @@ export class ConfirmationPopoverPage implements OnInit {
     console.log('this desc', this.desc)
 
     this.setval = this.salesForm.get('description').setValue(this.desc);
+    this.setval = this.salesForm.get('url').setValue(this.arrUrl);
     this.setval = this.salesForm.get('user_id').setValue(this.loggedInUser);
     this.setval = this.salesForm.get('amount').setValue(this.totalCartItems);
     this.setval = this.salesForm.get('delivery_status').setValue(this.passedDelivery);
