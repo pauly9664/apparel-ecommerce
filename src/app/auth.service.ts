@@ -106,7 +106,7 @@ oauthTok(oauth_token){
       ); 
   }
   updateSales(sale){
-    return this.http.post(this.url + '/api/postSales', sale).pipe(
+    return this.http.post('/api/postSales', sale).pipe(
       catchError(e => {
         this.showAlert(e.error.msg);
         throw new Error(e);

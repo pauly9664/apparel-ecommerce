@@ -1,6 +1,7 @@
 <img src="/assets/PreetiLogo.png" style="height:70px; width: 100px; margin-left: 40%;"/>
 <div class = "form-orients">
   <h3 style=" font-family: sans-serif; font-weight: bold;"> Confirm Order Details</h3>
+  
          <form [formGroup]= "salesForm" (ngSubmit)="saleUpdate()"  enctype="multipart/form-data">
          <!-- <label class="labelStyler" for="User" class="highlight-content">User</label> -->
          <!-- <input id="User" type = "text" formControlName ="user_id"  style="max-width:50%; "/><br> -->
@@ -12,23 +13,23 @@
          <br>
          <!-- <input id="description" type = "text" style="max-width:50%; " formControlName ="description"/><br> -->
          <ion-item lines="none">
-         <label for="Total" class="highlight-content">Totals </label>
+         <ion-label position="fixed" for="Total" class="highlight-content">Totals </ion-label>
          <input id="Total" type = "text" formControlName ="amount" disabled="true" class="style-input"/><br>
         </ion-item>
          <div *ngIf="checkAuth === false">
           <ion-item lines="none">
-         <label for="Total" class="highlight-content">Customer Name</label>
+         <ion-label position="fixed" for="Total" class="highlight-content">Name</ion-label>
          <input id="Total" type = "text" formControlName ="customer_name" class="style-input"/><br>
         </ion-item>
         <ion-item lines="none">
-         <label  for="Total" class="highlight-content">Customer Cell</label>
+         <ion-label position="fixed" for="Total" class="highlight-content">Cell</ion-label>
          <input id="Total" type = "text" formControlName ="customer_contact" class="style-input" [class.invalid]="!salesForm.controls.customer_contact.valid && salesForm.controls.customer_contact.dirty"/><br>
         </ion-item>
         <ion-item lines="none" *ngIf="!salesForm.controls.customer_contact.valid && salesForm.controls.customer_contact.dirty ">
           <p style="font-size: 0.8em;color:red">Please enter a valid phone number(Should be 10 characters)</p>
       </ion-item>
         <ion-item lines="none">
-         <label for="Total" class="highlight-content">Customer Mail</label>
+         <ion-label position="fixed" for="Total" class="highlight-content">E-Mail</ion-label>
          <input id="Total" type = "text" formControlName ="customer_email" class="style-input"[class.invalid]="!salesForm.controls.customer_email.valid && salesForm.controls.customer_email.dirty" /><br>
         </ion-item>
         <ion-item lines="none" *ngIf="!salesForm.controls.customer_email.valid && salesForm.controls.customer_email.dirty ">
@@ -36,11 +37,11 @@
     </ion-item>
         </div>
         <ion-item lines="none">
-         <label for="Delivery" class="highlight-content">Delivery Option </label>
+         <ion-label position="fixed" for="Delivery" class="highlight-content">Delivery Option </ion-label>
          <input id="Delivery" type = "text" disabled="true"  formControlName ="delivery_status" class="style-input"/><br>
         </ion-item>
         <ion-item lines="none">
-         <label for="Payment" class="highlight-content">Payment Option </label>
+         <ion-label position="fixed" for="Payment" class="highlight-content">Payment Option </ion-label>
          <input id="Payment" type = "text" formControlName ="payment_status" disabled="true" class="style-input"/><br>
         </ion-item>
       </form>
@@ -61,7 +62,7 @@
             <ion-icon name="checkmark" slot="start"></ion-icon>
             Buy Mpesa
           </ion-button> -->
-      </div>
+        </div>
       <ion-footer>
         <ion-grid>
           <ion-row>

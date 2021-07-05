@@ -60,7 +60,7 @@
     "ionic-angular": "^3.9.10",
     "ionic-select-searchable": "^2.10.0",
     "ionic-selectable": "^4.4.1",
-    "jw-angular-pagination": "^1.2.0",
+    "jw-angular-pagination": "1.1.0",
     "mongodb": "^3.3.3",
     "mongoose": "^5.7.7",
     "mpesa-api": "^2.2.0",

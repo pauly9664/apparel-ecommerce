@@ -70,7 +70,7 @@ ngOnInit(){
        modal.present();
     }
     async openPopover(ev: Event){
-      const popover = await this.modalController.create({
+      const popover = await this.popoverController.create({
         component: ConfirmationPopoverPage, 
         componentProps:{
           delivery_id: this.selectedDelivery,

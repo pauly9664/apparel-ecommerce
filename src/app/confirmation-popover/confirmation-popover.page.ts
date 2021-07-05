@@ -38,7 +38,7 @@ export class ConfirmationPopoverPage implements OnInit {
    value:any;
   url: any;
   arrUrl: any;
-  constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: ModalController, private authService: AuthService) {
+  constructor(private navParams: NavParams, private shoppercart: ShoppersCartService, private alertCtrl: AlertController, private formBuilder: FormBuilder, private formBuild: FormBuilder, private popoverController: PopoverController, private authService: AuthService) {
    }
    
   ngOnInit() {
@@ -86,7 +86,7 @@ export class ConfirmationPopoverPage implements OnInit {
       payment_status: [this.passedDelivery],
       user_id: [this.loggedInUser],
       description: [this.arrObj],
-      url: [this.arrArr],
+      urls: [this.arrArr],
       viewed_status: [this.viewer],
       customer_name: [this.cust_name],
       customer_contact: [this.cust_num,[Validators.required, Validators.minLength(10), Validators.maxLength(10), NumberValidator.isValid]],
@@ -105,7 +105,7 @@ export class ConfirmationPopoverPage implements OnInit {
     console.log('this desc', this.desc)
 
     this.setval = this.salesForm.get('description').setValue(this.desc);
-    this.setval = this.salesForm.get('url').setValue(this.arrUrl);
+    this.setval = this.salesForm.get('urls').setValue(this.arrUrl);
     this.setval = this.salesForm.get('user_id').setValue(this.loggedInUser);
     this.setval = this.salesForm.get('amount').setValue(this.totalCartItems);
     this.setval = this.salesForm.get('delivery_status').setValue(this.passedDelivery);
@@ -160,8 +160,8 @@ export class ConfirmationPopoverPage implements OnInit {
     // Perfom PayPal or Stripe checkout process
  
     let alert = await this.alertCtrl.create({
-      header: 'Thanks for your Order!',
-      message: 'We will deliver your goods as soon as possible',
+      header: 'Order Sent!',
+      message: 'Kindly check your email. An invoice has been dispatched.',
       buttons: ['OK']
     });
     alert.present();
