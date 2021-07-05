@@ -89,7 +89,7 @@ export class ShoppersCartService {
     alert.then(alert => alert.present());
   }
    postCart(order){
-    return this.http.post('http://172.16.110.51:8080/api/postSales', order)
+    return this.http.post('/api/postSales', order)
     // .pipe(
     //   catchError(e => {
     //     this.showAlert(e.error.msg);
