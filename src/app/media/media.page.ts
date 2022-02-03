@@ -127,7 +127,7 @@ this.produce = this.products.filter(item=>
 )
 console.log("Price List", this.produce);
 // for(this.price = 0; this.price > this.products.price; this.price++){
-
+ 
 // }
 // this.products = this.products.filter((items)=>{
 //   items.price < this.price;

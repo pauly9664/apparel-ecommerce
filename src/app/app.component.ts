@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { OneSignal } from '@ionic-native/onesignal/ngx'
 import { AlertController } from 'ionic-angular';
+import { CacheService } from 'ionic-cache';
 
 @Component({
   selector: 'app-root',
@@ -20,9 +21,11 @@ export class AppComponent {
     private statusBar: StatusBar,
     private auth: AuthService,
     private router: Router,
+    // private cache: CacheService,
     // private alertCtrl: AlertController
    
-  ) {
+  ) 
+  {
     this.initializeApp();
   }
 
@@ -30,18 +33,14 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-
+      // this.cache.setDefaultTTL(60*60*12);
       this.auth.authenticationState.subscribe(state => {
         if(state) {
-          this.router.navigate(['menu/checkout']);
+          this.router.navigate(['menu/home']);
         } 
-        // if(!state){
-        //   this.router.navigate(['menu/sendmail-reset']);
-        // }
-      
-        // else{
-        //   this.router.navigate(['menu/login']);
-        // }    
+        else{
+          this.router.navigate(['menu/login']);
+        }    
 })  
   });
   }

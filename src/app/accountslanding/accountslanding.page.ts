@@ -9,10 +9,11 @@ import { AuthService } from '../auth.service';
 export class AccountslandingPage implements OnInit {
   name= '';
   number= '';
+  _id='';
   email= undefined;
   accountsbyid = undefined;
   parsedAccount = undefined;
-  constructor(private authenticator: AuthService ) { }
+  constructor(private authenticator: AuthService, private storage: Storage ) { }
 
   ngOnInit() {
     
@@ -28,8 +29,10 @@ export class AccountslandingPage implements OnInit {
       this.name = res['name'];
       this.number = res['number'];
       this.email = res['email'];
+      this._id = res['id'];
+      this.storage.set(this._id) 
     })
   }
-  }
+  } 
 
 

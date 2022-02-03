@@ -14,7 +14,6 @@
       <div class="menu-styles">
         <!-- <ion-icon style="font-size: 40px" name="person"></ion-icon> -->
         <img src="/assets/PreetiLogo.png" style="height:100px; width: 100px;"/>
-        <p *ngIf="checkAuth">{{name}}</p>
     </div>
             <ion-list lines="none">
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages ">
@@ -25,7 +24,7 @@
         </ion-menu-toggle>
       </ion-list>
     </ion-content>
-    <ion-footer style ="font-weight: bold;">Preeti@2019</ion-footer>
+    <ion-footer>Preeti@2021</ion-footer>
   </ion-menu>
 
   <ion-router-outlet id="content" main></ion-router-outlet>

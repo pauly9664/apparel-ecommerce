@@ -50,7 +50,7 @@ ngOnInit(){
   // })
   //this.totalCost = this.navParams.get('total_id');
   this.overallCost = this.activatedRoute.snapshot.paramMap.get('totals');
-
+  // this.loadSpecialInfo();
   //  loadSpecialInfo() {
     //  this.authService.getSpecialData().subscribe(res => {
     //    this.data = res['name'];
@@ -77,6 +77,7 @@ ngOnInit(){
           payment_id: this.selectedPayment,
           total_id: this.overallCost,
           user_id: this.loggedInUser
+          
         }
       });
       popover.present();

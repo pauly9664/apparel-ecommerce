@@ -33,7 +33,8 @@ export class ConfirmationPopoverPage implements OnInit {
    count:any;
    setval:any;
    viewer = 0;
-   checkAuth:boolean
+   checkAuth:boolean;
+   odduser:any
 
    value:any;
   url: any;
@@ -42,6 +43,7 @@ export class ConfirmationPopoverPage implements OnInit {
    }
    
   ngOnInit() {
+    
     this.checkAuth = this.authService.authenticationState.value;
     this.passedDelivery = this.navParams.get('delivery_id');
     this.passedPayment = this.navParams.get('payment_id');
@@ -50,6 +52,7 @@ export class ConfirmationPopoverPage implements OnInit {
     this.cust_email = this.navParams.get('cust_email');
     this.totalCartItems = this.navParams.get('total_id');
     this.loggedInUser = this.navParams.get('user_id');
+    console.log("Uyu niii",  this.loggedInUser)
     this.cart = this.shoppercart.getCart();
     
     // for (let i = 0, len = this.cart.length; i < len; i++) {
@@ -73,7 +76,7 @@ export class ConfirmationPopoverPage implements OnInit {
   // this.desc = JSON.stringify(this.arrObj);
   this.desc = this.arrObj.toString();
   this.arrUrl = this.arrArr.toString();
-   console.log('Yeeee', typeof this.arrObj); 
+   console.log('Yeeee', this.loggedInUser); 
     });
     
        //this.shoppercart.postCart(this.desc).subscribe();

@@ -46,10 +46,11 @@ export class MenuPage implements OnInit {
     });
    }
   ngOnInit() {
-    this.checkAuth = this.authenticator.authenticationState.value;
-    this.authenticator.getSpecialData().subscribe(res =>{
-      this.name = res['name'];
-    })
+    // this.checkAuth = this.authenticator.authenticationState.value;
+    console.log("Auth value:")
+    // this.authenticator.getSpecialData().subscribe(res =>{
+    //   this.name = res['name'];
+    // })
   }
 
 }

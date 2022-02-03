@@ -14,7 +14,7 @@ import { ViewProductPage } from '../view-product/view-product.page';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss']
 })
-export class HomePage implements OnInit, OnDestroy{
+export class HomePage implements OnInit{
 
   data = '';
   user_id = null;
@@ -70,11 +70,11 @@ export class HomePage implements OnInit, OnDestroy{
         
       //  });
   }
-  ngOnDestroy():void{
-    if(this.s){
-      this.s.unsubscribe()
-    }
-  }
+  // ngOnDestroy():void{
+  //   if(this.s){
+  //     this.s.unsubscribe()
+  //   }
+  // }
   openDetailsWithQueryParams() {
     const stringMaker = this.productDresses.toString();
     let navigationExtras: NavigationExtras = {

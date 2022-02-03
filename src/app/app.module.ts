@@ -26,7 +26,9 @@ import { ViewProductPageModule } from './view-product/view-product.module';
 import { ShoppersCartService } from './shoppers-cart.service';
 import { ShoppersCartPageModule } from './shoppers-cart/shoppers-cart.module';
 import { SendmailResetPageModule } from './sendmail-reset/sendmail-reset.module';
+import {CacheModule} from 'ionic-cache';
 import { JwPaginationComponent } from 'jw-angular-pagination';
+import { MenuPageModule } from './menu/menu.module';
 export function jwtOptionsFactory(storage) {
   return {
     tokenGetter: () => {
@@ -42,10 +44,12 @@ export function jwtOptionsFactory(storage) {
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    MenuPageModule,
     ViewProductPageModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
+    // AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireAuthModule,
     HttpClientModule,
+    // CacheModule.forRoot(),
   
     IonicSelectableModule,
     ConfirmationModalPageModule,

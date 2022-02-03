@@ -14,7 +14,7 @@ const routes: Routes = [
     path: 'menu',
     component: MenuPage,
     children: [
-    //  { path: '', redirectTo: 'login', pathMatch: 'full' },
+     { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', loadChildren: '../home/home.module#HomePageModule' },
       { path: 'login', loadChildren: '../login/login.module#LoginPageModule' },
       { path: 'contact', loadChildren: '../contact/contact.module#ContactPageModule' },
@@ -34,10 +34,10 @@ const routes: Routes = [
      // { path: 'confirmation-modal', loadChildren: './confirmation-modal/confirmation-modal.module#ConfirmationModalPageModule' },
     ]
   },
-  {
-    path: '',
-    redirectTo: '/menu/home'
-  }
+  // {
+  //   path: '',
+  //   redirectTo: '/menu/home'
+  // }
 ];
 
 @NgModule({
